@@ -1,0 +1,3 @@
+# Site en cours de développement — indexation bloquée
+User-agent: *
+Disallow: /

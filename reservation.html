@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservation &amp; paiement — Voyages Loisirs</title>
+  <meta name="description" content="Réservez votre voyage en ligne en toute sécurité. Paiement par carte bancaire, PayPal, Apple Pay ou virement, en une ou plusieurs fois.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://kevinazarproo-rgb.github.io/voyagesloisirs/reservation.html">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header scrolled">
+    <div class="container">
+      <nav class="nav mobile">
+        <a href="index.html" class="logo">
+          <span class="logo__mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/><circle cx="12" cy="12" r="10"/></svg>
+          </span>
+          <span>Voyages Loisirs<small>Évasion sur-mesure</small></span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="index.html#experiences">Expériences</a></li>
+          <li><a href="index.html#avis">Avis</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a href="tel:+33100000000" class="nav__phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c1 .3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+            01 00 00 00 00
+          </a>
+          <a href="destinations.html" class="btn btn--primary">Réserver</a>
+        </div>
+        <button class="nav__toggle" aria-label="Menu"><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= CONTENU ================= -->
+  <main class="section" style="padding-top:8rem">
+    <div class="container">
+      <span class="eyebrow">Réservation sécurisée</span>
+      <h1 class="section-title" style="margin-bottom:2.5rem">Finalisez votre voyage</h1>
+
+      <div class="booking" data-booking>
+        <!-- Formulaire -->
+        <div class="booking-card">
+          <div class="steps">
+            <div class="step done" data-step="1">Voyage</div>
+            <div class="step active" data-step="2">Coordonnées</div>
+            <div class="step" data-step="3">Paiement</div>
+          </div>
+
+          <form data-booking-form>
+            <h2>Vos coordonnées</h2>
+            <div class="form-grid">
+              <div class="field"><label for="fn">Prénom</label><input id="fn" name="firstname" required placeholder="Marie"></div>
+              <div class="field"><label for="ln">Nom</label><input id="ln" name="lastname" required placeholder="Dupont"></div>
+              <div class="field"><label for="em">E-mail</label><input id="em" type="email" name="email" required placeholder="marie@email.com"></div>
+              <div class="field"><label for="ph">Téléphone</label><input id="ph" type="tel" name="phone" required placeholder="06 12 34 56 78"></div>
+              <div class="field">
+                <label for="tv">Voyageurs</label>
+                <input id="tv" type="number" name="travelers" min="1" max="12" value="2" required>
+              </div>
+              <div class="field"><label for="dp">Date de départ</label><input id="dp" type="date" name="departure" required></div>
+            </div>
+
+            <h2 style="margin-top:1rem">Payez à votre rythme</h2>
+            <p style="color:var(--text-muted);font-size:.92rem;margin-top:-.3rem">Étalez votre paiement <b>sans aucun frais</b> — le total reste exactement le même.</p>
+            <div class="pay-methods pay-methods--4">
+              <div class="pay-method">
+                <input type="radio" id="in-1" name="installments" value="1">
+                <label for="in-1"><span class="pm-glyph" style="font-weight:800;color:#155066">1×</span>Comptant</label>
+              </div>
+              <div class="pay-method">
+                <input type="radio" id="in-4" name="installments" value="4" checked>
+                <label for="in-4"><span class="pm-glyph" style="font-weight:800;color:#e0603f">4×</span>Sans frais</label>
+              </div>
+              <div class="pay-method">
+                <input type="radio" id="in-6" name="installments" value="6">
+                <label for="in-6"><span class="pm-glyph" style="font-weight:800;color:#e0603f">6×</span>Sans frais</label>
+              </div>
+              <div class="pay-method">
+                <input type="radio" id="in-10" name="installments" value="10">
+                <label for="in-10"><span class="pm-glyph" style="font-weight:800;color:#e0603f">10×</span>Sans frais</label>
+              </div>
+            </div>
+
+            <h2 style="margin-top:1rem">Moyen de paiement</h2>
+            <div class="pay-methods">
+              <div class="pay-method">
+                <input type="radio" id="pm-cb" name="payment" value="Carte bancaire" checked>
+                <label for="pm-cb"><span class="pm-glyph" style="font-weight:800;color:#1a1f71">VISA</span>Carte bancaire</label>
+              </div>
+              <div class="pay-method">
+                <input type="radio" id="pm-mc" name="payment" value="Mastercard">
+                <label for="pm-mc"><span class="pm-glyph" style="font-weight:800;color:#eb001b">MC</span>Mastercard</label>
+              </div>
+              <div class="pay-method">
+                <input type="radio" id="pm-pp" name="payment" value="PayPal">
+                <label for="pm-pp"><span class="pm-glyph" style="font-weight:800;color:#003087">Pay<span style="color:#009cde">Pal</span></span>PayPal</label>
+              </div>
+              <div class="pay-method">
+                <input type="radio" id="pm-ap" name="payment" value="Apple Pay">
+                <label for="pm-ap"><span class="pm-glyph" style="font-weight:800"> Pay</span>Apple Pay</label>
+              </div>
+              <div class="pay-method">
+                <input type="radio" id="pm-vir" name="payment" value="Virement">
+                <label for="pm-vir"><span class="pm-glyph" style="font-weight:800;color:#155066">SEPA</span>Virement</label>
+              </div>
+            </div>
+
+            <div class="field field--full">
+              <label for="msg">Une demande particulière ? (facultatif)</label>
+              <textarea id="msg" name="message" rows="3" placeholder="Vol depuis Lyon, chambre avec vue mer, régime alimentaire…"></textarea>
+            </div>
+
+            <div class="secure-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Paiement 100 % sécurisé — cryptage SSL. Aucune donnée bancaire n'est stockée sur nos serveurs.
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block" data-submit style="margin-top:1.5rem">
+              Confirmer et payer en sécurité
+            </button>
+          </form>
+        </div>
+
+        <!-- Récapitulatif -->
+        <aside class="summary">
+          <div class="summary__img"><img data-sum-img src="" alt="Destination"></div>
+          <div class="summary__body">
+            <h3 class="summary__title" data-sum-title>—</h3>
+            <p class="summary__loc" data-sum-loc>—</p>
+            <div class="summary__row"><span>Durée</span><span data-sum-nights>—</span></div>
+            <div class="summary__row"><span>Prix par personne</span><span data-row-base>—</span></div>
+            <div class="summary__row"><span>Frais de dossier</span><span data-row-fees>—</span></div>
+            <div class="summary__total"><span>Total</span><b data-total>—</b></div>
+            <p data-monthly style="text-align:right;color:var(--accent-dark);font-weight:600;font-size:.95rem;margin:.3rem 0 0">—</p>
+            <div class="secure-note" style="margin-top:1.2rem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+              Annulation gratuite jusqu'à 30 jours avant le départ.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border:none;padding-top:0">
+        <span>© <span data-year>2026</span> Voyages Loisirs — Tous droits réservés.</span>
+        <div class="pay-logos">
+          <span class="pay-logo">VISA</span>
+          <span class="pay-logo" style="color:#eb001b">MC</span>
+          <span class="pay-logo" style="color:#016fd0">AMEX</span>
+          <span class="pay-logo" style="color:#003087">PayPal</span>
+          <span class="pay-logo">Apple&nbsp;Pay</span>
+          <span class="pay-logo" style="color:#635bff">Stripe</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
