@@ -99,6 +99,8 @@
   const homeGrid = document.querySelector("[data-dest-home]");
   if (homeGrid) {
     homeGrid.innerHTML = DESTINATIONS.slice(0, 6).map(cardHTML).join("");
+    // Les cartes sont injectées après le lancement de l'observateur : on les révèle directement.
+    homeGrid.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
   }
 
   const fullGrid = document.querySelector("[data-dest-grid]");

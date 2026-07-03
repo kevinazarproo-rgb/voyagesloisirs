@@ -121,15 +121,12 @@ p { margin: 0 0 1rem; }
 }
 .header.scrolled { background: rgba(251, 246, 239, .92); backdrop-filter: blur(14px); box-shadow: var(--shadow-sm); padding: .65rem 0; }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-.logo { display: flex; align-items: center; gap: .7rem; font-family: var(--font-head); font-size: 1.4rem; font-weight: 700; color: var(--white); transition: color .35s; }
-.header.scrolled .logo { color: var(--brand-dark); }
-.logo__mark {
-  width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center;
-  background: linear-gradient(135deg, var(--accent), var(--gold-500)); color: var(--white); flex: none;
-  box-shadow: var(--shadow-sm);
-}
-.logo__mark svg { width: 24px; height: 24px; }
-.logo small { display: block; font-family: var(--font-body); font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; opacity: .8; font-weight: 500; }
+.logo { display: inline-flex; align-items: center; }
+.logo__img { height: 48px; width: auto; display: block; transition: height .35s var(--ease); }
+.header.scrolled .logo__img { height: 40px; }
+.logo__img--dark { display: none; }
+.header.scrolled .logo__img--light { display: none; }
+.header.scrolled .logo__img--dark { display: block; }
 
 .nav__links { display: flex; align-items: center; gap: 2rem; }
 .nav__links a { color: rgba(255, 255, 255, .92); font-weight: 500; font-size: .96rem; position: relative; transition: color .3s; }
