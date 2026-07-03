@@ -170,15 +170,15 @@ body.nav-open .nav__toggle span::after  { transform: translate(-50%, 0) rotate(-
 
 /* Barre de recherche flottante */
 .search-bar {
-  position: relative; z-index: 5; margin-top: -3.5rem;
+  position: relative; z-index: 5; margin-top: -4rem;
   background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow);
-  padding: 1.3rem; display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: .5rem; align-items: end;
+  padding: 1.7rem; display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: .6rem; align-items: end;
 }
-.search-field { display: flex; flex-direction: column; gap: .3rem; padding: .3rem 1rem; border-right: 1px solid var(--sand-300); }
+.search-field { display: flex; flex-direction: column; gap: .45rem; padding: .5rem 1.3rem; border-right: 1px solid var(--sand-300); }
 .search-field:last-of-type { border-right: none; }
-.search-field label { font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--text-muted); }
-.search-field select, .search-field input { border: none; background: none; font-family: inherit; font-size: .98rem; font-weight: 500; color: var(--text); padding: .2rem 0; outline: none; }
-.search-bar .btn { height: 100%; padding-inline: 1.6rem; }
+.search-field label { font-size: .82rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--text-muted); }
+.search-field select, .search-field input { border: none; background: none; font-family: inherit; font-size: 1.12rem; font-weight: 500; color: var(--text); padding: .3rem 0; outline: none; }
+.search-bar .btn { height: 100%; padding-inline: 2rem; font-size: 1.05rem; }
 
 /* =========================================================
    Cartes destinations
