@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 250" role="img" aria-label="Voyages Loisirs">
-  <!-- Vague orange (extérieure) -->
-  <path d="M18 210 C 95 118, 260 52, 480 66 C 300 44, 120 100, 52 202 Z" fill="#cf6430"/>
-  <!-- Vague turquoise (intérieure) -->
-  <path d="M68 152 C 155 92, 300 50, 512 52 C 320 46, 168 80, 92 160 Z" fill="#1483a0"/>
+  <!-- Vague terracotta (extérieure) -->
+  <path d="M18 210 C 95 118, 260 52, 480 66 C 300 44, 120 100, 52 202 Z" fill="#C0754D"/>
+  <!-- Vague encre (intérieure) -->
+  <path d="M68 152 C 155 92, 300 50, 512 52 C 320 46, 168 80, 92 160 Z" fill="#1C2B2D"/>
   <!-- Avion -->
-  <path d="M470 66 L544 40 L534 24 L544 22 L568 40 L592 33 C600 31 604 40 597 44 L572 57 L582 82 L573 85 L556 60 L516 76 Z" fill="#1483a0"/>
+  <path d="M470 66 L544 40 L534 24 L544 22 L568 40 L592 33 C600 31 604 40 597 44 L572 57 L582 82 L573 85 L556 60 L516 76 Z" fill="#1C2B2D"/>
   <!-- Texte -->
-  <text x="150" y="130" font-family="Poppins, 'Segoe UI', sans-serif" font-size="90" font-weight="700" fill="#1483a0" letter-spacing="-2">Voyages</text>
-  <text x="150" y="215" font-family="Poppins, 'Segoe UI', sans-serif" font-size="90" font-weight="700" fill="#1483a0" letter-spacing="-1">Loisirs</text>
+  <text x="150" y="130" font-family="'Cormorant Garamond', Georgia, serif" font-size="94" font-weight="600" fill="#1C2B2D" letter-spacing="-1">Voyages</text>
+  <text x="150" y="215" font-family="'Cormorant Garamond', Georgia, serif" font-size="94" font-weight="600" fill="#1C2B2D" letter-spacing="-1">Loisirs</text>
 </svg>
