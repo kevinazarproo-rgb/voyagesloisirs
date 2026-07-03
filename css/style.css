@@ -169,20 +169,55 @@ body.nav-open .nav__toggle span::after  { transform: translate(-50%, 0) rotate(-
 .hero__stat span { font-size: .85rem; color: rgba(255,255,255,.8); }
 
 /* Barre de recherche flottante */
-.search-bar {
-  position: relative; z-index: 5; margin-top: -4.5rem;
-  background: linear-gradient(135deg, var(--coral-600), var(--coral-500));
-  border-radius: var(--radius-lg); box-shadow: var(--shadow);
-  padding: 1.6rem; display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: 1rem; align-items: end;
+/* Panneau de recherche façon grand voyagiste */
+.search-panel {
+  position: relative; z-index: 5; margin-top: -5rem;
+  background: var(--coral-500);
+  border-radius: 14px; box-shadow: var(--shadow);
+  padding: 1.8rem 2.2rem 1.2rem;
 }
-.search-field { display: flex; flex-direction: column; gap: .5rem; min-width: 0; }
-.search-field label { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.95); padding-left: .2rem; }
-.search-field select, .search-field input {
-  width: 100%; min-width: 0; border: none; border-radius: 12px; background: var(--white);
-  font-family: inherit; font-size: 1.15rem; font-weight: 500; color: var(--text);
-  padding: 1rem 1.1rem; outline: none; box-shadow: 0 4px 12px rgba(11,42,58,.10);
+.search-panel__tabs {
+  display: flex; align-items: stretch;
+  border-bottom: 1px solid rgba(255,255,255,.45);
 }
-.search-bar__go { align-self: end; padding: 1rem 2.4rem; font-size: 1.15rem; border-radius: 12px; }
+.search-tab {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: .55rem;
+  padding: .4rem 1rem 1.1rem; color: var(--white); font-size: 1.02rem; font-weight: 500;
+  position: relative; text-align: center; opacity: .92; transition: opacity .25s;
+}
+.search-tab svg { width: 30px; height: 30px; }
+.search-tab:hover { opacity: 1; }
+.search-tab.active { font-weight: 600; opacity: 1; }
+.search-tab.active::after { content: ""; position: absolute; left: 15%; right: 15%; bottom: -1px; height: 3px; background: var(--white); border-radius: 3px; }
+.search-panel__opts { display: flex; justify-content: flex-end; gap: 1.4rem; padding: 1.2rem 0 .2rem; flex-wrap: wrap; }
+.search-opt { display: inline-flex; align-items: center; gap: .6rem; color: var(--white); font-size: .98rem; font-weight: 500; }
+.search-opt select {
+  background: transparent; border: 1.5px solid rgba(255,255,255,.85); border-radius: 8px;
+  color: var(--white); font-family: inherit; font-size: .98rem; font-weight: 500;
+  padding: .5rem 2rem .5rem .9rem; outline: none; cursor: pointer;
+  appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23fff' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right .7rem center;
+}
+.search-opt select option { color: var(--text); }
+.search-panel__fields {
+  display: grid; grid-template-columns: 1fr 1fr auto; gap: 1.2rem; align-items: end; padding-top: .6rem;
+}
+.search-col { display: flex; flex-direction: column; gap: .5rem; min-width: 0; }
+.search-col label { color: var(--white); font-size: 1rem; font-weight: 500; }
+.search-col select, .search-col input {
+  width: 100%; min-width: 0; border: none; border-radius: 8px; background: var(--white);
+  font-family: inherit; font-size: 1.12rem; font-weight: 500; color: var(--text);
+  padding: .95rem 1.1rem; outline: none;
+}
+.search-panel__go {
+  background: var(--ink-900); color: var(--white); border-radius: 8px;
+  padding: .95rem 0; min-width: 320px; font-size: 1.1rem; font-weight: 600;
+  transition: background .3s var(--ease), transform .3s var(--ease);
+}
+.search-panel__go:hover { background: var(--brand-dark); transform: translateY(-2px); }
+.search-panel__legal { text-align: right; color: rgba(255,255,255,.95); font-size: .88rem; margin: 1rem 0 0; }
+.search-panel__legal a { text-decoration: underline; }
 
 /* =========================================================
    Cartes destinations
@@ -384,8 +419,9 @@ body.nav-open .nav__toggle span::after  { transform: translate(-50%, 0) rotate(-
   .booking { grid-template-columns: 1fr; }
   .summary { position: static; }
   .newsletter { grid-template-columns: 1fr; }
-  .search-bar { grid-template-columns: 1fr 1fr; }
-  .search-bar__go { grid-column: 1 / -1; }
+  .search-panel__fields { grid-template-columns: 1fr 1fr; }
+  .search-panel__go { grid-column: 1 / -1; min-width: 0; }
+  .search-tab { font-size: .9rem; }
 }
 @media (max-width: 768px) {
   .nav__links, .nav__phone { display: none; }
@@ -404,6 +440,11 @@ body.nav-open .nav__toggle span::after  { transform: translate(-50%, 0) rotate(-
   .footer__bottom { flex-direction: column; text-align: center; }
 }
 @media (max-width: 480px) {
-  .search-bar { grid-template-columns: 1fr; }
+  .search-panel__fields { grid-template-columns: 1fr; }
+  .search-panel__tabs { flex-direction: column; gap: .3rem; border-bottom: none; }
+  .search-tab { flex-direction: row; justify-content: flex-start; padding: .5rem 0; }
+  .search-tab.active::after { display: none; }
+  .search-panel__opts { justify-content: flex-start; }
+  .search-panel__legal { text-align: left; }
   .hero__stats { gap: 1.4rem; }
 }

@@ -75,45 +75,65 @@
 
   <!-- ================= BARRE DE RECHERCHE ================= -->
   <div class="container">
-    <form class="search-bar" data-search>
-      <div class="search-field">
-        <label for="s-dest">Destination</label>
-        <select id="s-dest" name="destination">
-          <option value="">Où partez-vous ?</option>
-          <option value="marrakech">Marrakech · Janv.–Févr.</option>
-          <option value="tokyo">Tokyo · Mars–Avril</option>
-          <option value="santorini">Santorin · Mai–Juin</option>
-          <option value="bali">Bali · Juil.–Août</option>
-          <option value="kenya">Safari Kenya · Sept.–Oct.</option>
-          <option value="maldives">Maldives · Nov.–Déc.</option>
-        </select>
+    <form class="search-panel" data-search>
+      <!-- Onglets -->
+      <div class="search-panel__tabs">
+        <a href="destinations.html" class="search-tab active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          Circuits accompagnés
+        </a>
+        <a href="destinations.html" class="search-tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Nos 6 destinations
+        </a>
+        <a href="reservation.html" class="search-tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          Paiement en 4×, 6×, 10×
+        </a>
       </div>
-      <div class="search-field">
-        <label for="s-date">Départ</label>
-        <input id="s-date" name="date" type="date">
+
+      <!-- Petites options à droite -->
+      <div class="search-panel__opts">
+        <label class="search-opt">Voyageurs
+          <select name="travelers">
+            <option>1 adulte</option>
+            <option selected>2 adultes</option>
+            <option>3 adultes</option>
+            <option>Groupe (4+)</option>
+          </select>
+        </label>
+        <label class="search-opt">Budget
+          <select name="budget">
+            <option>Tous budgets</option>
+            <option>&lt; 800 €</option>
+            <option>800 – 1500 €</option>
+            <option>1500 € +</option>
+          </select>
+        </label>
       </div>
-      <div class="search-field">
-        <label for="s-trav">Voyageurs</label>
-        <select id="s-trav" name="travelers">
-          <option>1 adulte</option>
-          <option selected>2 adultes</option>
-          <option>2 adultes, 1 enfant</option>
-          <option>Famille (4+)</option>
-        </select>
+
+      <!-- Champs principaux -->
+      <div class="search-panel__fields">
+        <div class="search-col">
+          <label for="s-dest">Destination</label>
+          <select id="s-dest" name="destination">
+            <option value="">Où partez-vous ?</option>
+            <option value="marrakech">Marrakech · Janv.–Févr.</option>
+            <option value="tokyo">Tokyo · Mars–Avril</option>
+            <option value="santorini">Santorin · Mai–Juin</option>
+            <option value="bali">Bali · Juil.–Août</option>
+            <option value="kenya">Safari Kenya · Sept.–Oct.</option>
+            <option value="maldives">Maldives · Nov.–Déc.</option>
+          </select>
+        </div>
+        <div class="search-col">
+          <label for="s-date">Date de départ</label>
+          <input id="s-date" name="date" type="date">
+        </div>
+        <button class="search-panel__go" type="submit">Rechercher</button>
       </div>
-      <div class="search-field">
-        <label for="s-budget">Budget</label>
-        <select id="s-budget" name="budget">
-          <option>Tous budgets</option>
-          <option>&lt; 800 €</option>
-          <option>800 – 1500 €</option>
-          <option>1500 € +</option>
-        </select>
-      </div>
-      <button class="btn btn--dark search-bar__go" type="submit">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
-        Rechercher
-      </button>
+
+      <p class="search-panel__legal">En cliquant sur « Rechercher », j'accepte les <a href="#">Conditions d'utilisation</a></p>
     </form>
   </div>
 
