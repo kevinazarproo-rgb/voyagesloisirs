@@ -1,0 +1,75 @@
+<!-- Formulaire court (brief §9.1, variante --court) : index.html (#demande) et agence.html.
+     data-src : « accueil » ou « agence ». data-root : "" ou "../" (lien « Continuer la lecture » du panneau de succès).
+     Les id des champs sont préfixés « fc- » : si deux formulaires cohabitent sur une page, changer le préfixe. -->
+<form class="formulaire formulaire--court" method="POST" action="https://formsubmit.co/reservation@ayavoyages.fr" data-formulaire data-src="accueil" data-root="{{root}}" aria-labelledby="demande-titre">
+  <p class="formulaire__resume" aria-live="polite"></p>
+  <div class="champ">
+    <label class="champ__libelle" for="fc-nom">Nom et prénom&nbsp;*</label>
+    <input id="fc-nom" name="nom" type="text" autocomplete="name" required>
+  </div>
+  <div class="champ">
+    <label class="champ__libelle" for="fc-telephone">Téléphone&nbsp;*</label>
+    <input id="fc-telephone" name="telephone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="fc-telephone-aide">
+    <p class="champ__aide" id="fc-telephone-aide">Le plus simple pour vous rappeler.</p>
+  </div>
+  <div class="champ">
+    <label class="champ__libelle" for="fc-email">E-mail&nbsp;*</label>
+    <input id="fc-email" name="email" type="email" autocomplete="email" required>
+  </div>
+  <div class="champ">
+    <label class="champ__libelle" for="fc-voyageurs">Nombre de voyageurs</label>
+    <select id="fc-voyageurs" name="voyageurs">
+      <option value="1">1</option>
+      <option value="2" selected>2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="plus-de-10">Plus de 10 — groupe, association, CE</option>
+    </select>
+  </div>
+  <div class="champ">
+    <label class="champ__libelle" for="fc-voyage">Voyage souhaité</label>
+    <select id="fc-voyage" name="voyage">
+      <option value="chine">01 — La Chine&nbsp;: escapade au pays du dragon</option>
+      <option value="pologne">02 — Pologne&nbsp;: entre capitales et héritages</option>
+      <option value="panama">03 — Le Panama&nbsp;: trait d’union des Amériques</option>
+      <option value="crete">04 — La Crète éternelle</option>
+      <option value="chateau-avesnes">Hors-série — Le Château d’Avesnes</option>
+      <option value="" selected>Je ne sais pas encore</option>
+    </select>
+  </div>
+  <div class="champ">
+    <label class="champ__libelle" for="fc-date">Date ou période souhaitée</label>
+    <input id="fc-date" name="date" type="text" aria-describedby="fc-date-aide">
+    <p class="champ__aide" id="fc-date-aide">ex. octobre 2027</p>
+  </div>
+  <div class="champ champ--plein">
+    <label class="champ__libelle" for="fc-message">Message</label>
+    <textarea id="fc-message" name="message" rows="4" aria-describedby="fc-message-aide"></textarea>
+    <p class="champ__aide" id="fc-message-aide">Vos questions, une chambre seule, une mobilité réduite, un régime alimentaire… tout ce qui nous aide à bien vous répondre.</p>
+  </div>
+  <div class="champ champ--case">
+    <label class="choix" for="fc-consentement">
+      <input id="fc-consentement" name="consentement" type="checkbox" value="oui" required>
+      <span>J’accepte que l’agence utilise ces informations pour me répondre. <a href="{{root}}cookies.html">(confidentialité)</a>&nbsp;*</span>
+    </label>
+  </div>
+  <div class="champ formulaire__honey" aria-hidden="true">
+    <label for="fc-honey">Ne pas remplir</label>
+    <input id="fc-honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
+  </div>
+  <input type="hidden" name="_subject" value="Carnet N° 1 — Demande via le site">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_replyto" value="">
+  <input type="hidden" name="page_source" value="">
+  <input type="hidden" name="_next" value="{{root}}merci.html?envoye=1">
+  <button class="bouton bouton--principal formulaire__bouton" type="submit">Envoyer ma demande à l’agence</button>
+  <p class="formulaire__pied">Aucune réservation n’est confirmée à ce stade. Une personne de l’agence vous rappelle ou vous écrit sous deux jours ouvrés. Aucun paiement sur ce site. Pressé·e&#8239;? <a href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a>.</p>
+  <p class="formulaire__lien"><a class="lien lien-fleche" href="{{root}}contact.html">Formulaire complet, adresse et plan</a></p>
+</form>

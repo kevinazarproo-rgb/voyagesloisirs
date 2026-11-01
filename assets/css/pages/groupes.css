@@ -1,0 +1,47 @@
+/* Groupes, associations et comités d’entreprise (groupes.html) — compléments de page, chargés après carnet.css.
+   Brief §7.3 : ouverture papier (barre posée), ce que vous recevez / ce que nous vous demandons,
+   les quatre temps (.deroule --temps:4), encadré « un mot aux présidents d’association » avec bouton
+   « Copier ce texte », formulaire --groupe avec le téléphone en grand à gauche. */
+
+/* 1. ouverture papier : composant du socle (.ouverture-papier) ; ici, seulement les boutons */
+.ouverture-papier__actions{margin-top:var(--e-4);--i:2}
+
+/* 2. ce que vous recevez : liste numérotée plus aérée, texte sur sa mesure */
+.liste-num--large li{padding:var(--e-3) 0;line-height:1.55;max-width:62ch}
+.liste-num--large li::before{line-height:1.1}
+
+/* 3. ce que nous vous demandons : encadré de marge, trois points en Atkinson (lisibles, pas en mono) */
+.demandons{font-family:var(--f-texte);font-size:var(--t-17);color:var(--texte);line-height:1.55;align-self:start;--i:5}
+.demandons__intro{margin-bottom:var(--e-3);color:var(--graphite)}
+.demandons__liste{list-style:none;display:grid;gap:var(--e-2)}
+.demandons__liste li{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start}
+.demandons__num{font-family:var(--f-titre);font-weight:300;font-style:italic;font-size:var(--t-34);line-height:.9;color:var(--orange-texte);font-variation-settings:"opsz" 144,"SOFT" 0}
+.demandons__texte{display:block;min-width:0}
+.demandons strong{display:block}
+@media (min-width:900px){.demandons{position:sticky;top:calc(var(--barre-h) + var(--e-3))}}
+
+/* 4. les quatre temps : titres longs sur quatre colonnes, on laisse respirer */
+#temps .deroule h3{max-width:16em}
+
+/* 5. un mot aux présidents d’association : encadré papier blanc à traits de coupe */
+.mot-copier__corps{padding:var(--e-4) var(--e-3)}
+.mot-copier__rubrique{color:var(--orange-texte);text-transform:uppercase;letter-spacing:.08em;margin-bottom:var(--e-2)}
+.mot-copier__texte{margin:0;border-left:3px solid var(--orange);padding-left:var(--e-3)}
+.mot-copier__texte p{font-family:var(--f-titre);font-weight:500;font-size:var(--t-22);line-height:1.5;color:var(--encre);max-width:62ch}
+.mot-copier__actions{margin-top:var(--e-4);align-items:center}
+.mot-copier__etat{color:var(--vert);font-weight:500;min-height:1.2em}
+.mot-copier__etat:empty{display:none}
+.mot-copier__repli{width:100%;min-height:160px;margin-top:var(--e-2);padding:12px;font-family:var(--f-texte);font-size:var(--t-17);line-height:1.5;color:var(--texte);background:var(--papier-blanc);border:1px solid var(--encre-25);border-radius:2px;resize:vertical}
+.mot-copier__repli:focus-visible{outline:2px solid var(--orange);outline-offset:0;box-shadow:0 0 0 4px rgba(244,119,22,.18)}
+.mot-copier__note{margin-top:var(--e-3)}
+html:not(.no-js) .mot-copier__note{display:none}
+html:not(.no-js) .mot-copier__bouton{display:inline-flex}
+html.no-js .mot-copier__bouton{display:none}
+@media (min-width:900px){.mot-copier__corps{padding:var(--e-5)}}
+
+/* 6. formulaire groupe : téléphone en grand à gauche (Fraunces t-56, encre), encart en dessous */
+.demande-groupe__gauche{gap:var(--e-3)}
+.demande-groupe__tel-intro{font-family:var(--f-titre);font-weight:500;font-size:var(--t-24);line-height:1.3;color:var(--encre);margin:0}
+.demande-groupe__tel{display:inline-block;font-size:var(--t-56);line-height:1.05;letter-spacing:-.02em;color:var(--encre);margin:0}
+.demande-groupe__horaires{margin-bottom:var(--e-2)}
+.demande--groupe .champ--radios .choix-groupe--ligne{row-gap:4px}

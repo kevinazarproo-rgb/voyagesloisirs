@@ -1,0 +1,27 @@
+/* Questions (avant-de-partir.html) — compléments de page, chargés après carnet.css.
+   Brief §7.4 : ouverture papier (barre posée), trois groupes de <details>, chaque réponse terminée par
+   « Une autre question ? 01 42 68 68 06 », courrier des lecteurs VOUS / NOUS, téléphone + lien contact. */
+
+/* 1. ouverture papier : composant du socle (.ouverture-papier) ; ici, seulement le petit sommaire d’ancres */
+.ouverture-papier__sommaire{display:flex;flex-wrap:wrap;gap:var(--e-2) var(--e-4);margin-top:var(--e-4);--i:2}
+.ouverture-papier__sommaire a{text-decoration:none;color:var(--encre);padding:4px 0;border-bottom:2px solid var(--encre-25);transition:border-color .2s}
+.ouverture-papier__sommaire a:hover,.ouverture-papier__sommaire a:focus-visible{border-color:var(--orange)}
+
+/* 2. groupes de questions : titre à gauche (collé sous la barre), accordéons à droite */
+.questions__tete .titre-section{font-size:var(--t-34);max-width:16ch}
+.questions__note{color:var(--graphite);max-width:32ch}
+@media (min-width:900px){.questions__tete{position:sticky;top:calc(var(--barre-h) + var(--e-4));align-self:start}}
+.questions__liste details:first-child{border-top:1px solid var(--encre-25)}
+.questions__liste details:last-child{border-bottom:1px solid var(--encre-25)}
+.questions summary{scroll-margin-top:calc(var(--barre-h) + var(--e-2))}
+.questions summary:focus-visible{outline-offset:-3px}
+.questions summary:hover{color:var(--orange-texte)}
+.questions summary:hover::after{color:var(--orange-texte)}
+.details__contenu .questions__autre{font-family:var(--f-mono);font-size:var(--t-14);color:var(--graphite);margin-top:0;padding-bottom:var(--e-4)}
+.details__contenu .questions__autre .lien-tel{font-size:var(--t-19);color:var(--encre);white-space:nowrap}
+html.no-js .questions summary::after{content:none}
+
+/* 4. il reste une question : téléphone en grand (Fraunces t-56, encre) */
+.reste-une-question__tel{display:inline-block;font-size:var(--t-56);line-height:1.05;letter-spacing:-.02em;color:var(--encre);margin:var(--e-2) 0 var(--e-2)}
+.reste-une-question__horaires{max-width:48ch}
+.reste-une-question .marge{align-self:end;font-family:var(--f-texte);font-size:var(--t-17);color:var(--graphite);line-height:1.55}

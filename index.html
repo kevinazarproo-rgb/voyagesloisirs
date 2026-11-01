@@ -1,63 +1,509 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="no-js">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#102b67">
-  <meta name="description" content="Découvrez les voyages organisés Voyages Loisirs by Aya et trouvez votre prochaine escapade.">
-  <title>Voyages Loisirs by Aya — Prenez le temps de voir le monde</title>
-  <style>
-    :root{--navy:#102b67;--deep:#081b47;--orange:#f47716;--ink:#18243b;--muted:#65718a;--paper:#f7f8fb;--white:#fff;--line:#e8ebf1;--shadow:0 16px 48px rgba(16,43,103,.1)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;color:var(--ink);font-family:Arial,Helvetica,sans-serif}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
-    .header{height:78px;position:sticky;top:0;z-index:10;background:#fffF;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.header-in{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand img{display:block;width:170px;height:58px;object-fit:contain}.nav{display:flex;align-items:center;gap:30px;font-size:14px;font-weight:700;color:#38445d}.nav a:hover{color:var(--orange)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;background:var(--orange);color:white;padding:14px 21px;font-weight:750;cursor:pointer;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px);background:#df6108}.menu{display:none;border:0;background:none;font-size:25px;color:var(--navy)}
-    .hero{min-height:calc(100svh - 78px);position:relative;isolation:isolate;display:flex;align-items:center;overflow:hidden;background:var(--deep);color:#fff}.hero-video{position:absolute;z-index:-2;inset:0;width:100%;height:100%;object-fit:cover}.hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#081b4775,#102b6730 58%,#081b4760),linear-gradient(0deg,#081b4760,transparent 45%)}.hero-in{width:100%;min-height:calc(100svh - 78px);display:flex;align-items:center;justify-content:center;padding-top:45px;padding-bottom:45px;text-align:center}.hero-copy-block{max-width:800px}.hero h1{margin:0;font-size:clamp(45px,8vw,92px);line-height:.98;letter-spacing:-.055em;text-shadow:0 5px 35px #06143870}.hero h1 em{color:#ff9847;font-style:normal}.hero-actions{display:flex;justify-content:center;margin-top:27px}.video-credit{position:absolute;right:14px;bottom:12px;color:#ffffffbb;font-size:10px}.feature,.hero-copy,.hero-tags,.kicker,.btn-ghost{display:none}
-    .proof{border-bottom:1px solid var(--line);background:white}.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-top:25px;padding-bottom:25px}.proof-item{display:flex;align-items:center;gap:14px}.proof-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:15px;background:#fff2e8;color:var(--orange);font-size:20px}.proof-item strong{display:block;color:var(--navy);font-size:15px}.proof-item small{display:block;margin-top:5px;color:var(--muted);font-size:12px}
-    .section{padding:82px 0}.trips-section{background:var(--paper)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px}.eyebrow{color:var(--orange);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.section h2{margin:11px 0 0;color:var(--navy);font-size:clamp(32px,4.5vw,48px);line-height:1.08;letter-spacing:-.045em}.section-intro{max-width:650px;margin:14px 0 0;color:#58647a;line-height:1.75}.count{white-space:nowrap;color:var(--muted);font-size:13px;font-weight:700}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}.card{overflow:hidden;border:1px solid #edf0f5;border-radius:21px;background:white;box-shadow:0 8px 30px #102b670d;transition:transform .22s,box-shadow .22s}.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.card-photo{height:220px;position:relative;background-position:center;background-size:cover}.card-photo:after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#061432a8)}.badge{position:absolute;z-index:1;top:15px;left:15px;border-radius:24px;background:#fffF;padding:8px 11px;color:var(--navy);font-size:11px;font-weight:800}.card-title{position:absolute;z-index:1;left:18px;bottom:16px;color:white}.card-title small{font-size:10px;text-transform:uppercase;letter-spacing:.14em}.card-title h3{max-width:300px;margin:5px 0 0;font-size:21px;line-height:1.15}.card-body{padding:18px}.meta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:12px}.excerpt{min-height:54px;margin:15px 0 17px;color:#566176;font-size:13px;line-height:1.65}.card-bottom{display:flex;align-items:end;justify-content:space-between;border-top:1px solid #edf0f5;padding-top:14px}.price-label{color:var(--muted);font-size:11px}.price{margin-top:4px;color:var(--navy);font-size:23px;font-weight:800}.price small{font-size:11px;font-weight:400;color:var(--muted)}.arrow{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:#fff2e8;color:var(--orange);font-size:20px}
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px}.about-photo{min-height:420px;border-radius:27px;background:center/cover url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=85');box-shadow:var(--shadow)}.about-copy p{color:#58647a;line-height:1.85}.points{display:grid;gap:19px;margin-top:27px}.point{display:flex;gap:14px}.point-no{flex:0 0 36px;height:36px;display:grid;place-items:center;border-radius:50%;background:#fff2e8;color:var(--orange);font-size:12px;font-weight:800}.point strong{color:var(--navy);font-size:14px}.point p{margin:5px 0 0;font-size:13px;line-height:1.55}
-    .contact-section{background:var(--paper)}.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px}.note{margin-top:27px;border-radius:16px;background:white;padding:20px}.note strong{color:var(--navy)}.note p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.6}.form{display:grid;grid-template-columns:1fr 1fr;gap:15px;border-radius:23px;background:#fff;padding:28px;box-shadow:var(--shadow)}.form label{display:block;color:#38445d;font-size:12px;font-weight:700}.form .full{grid-column:1/-1}.form input,.form select,.form textarea{width:100%;margin-top:8px;border:1px solid #dce2ec;border-radius:11px;padding:12px 13px;background:white;outline:none}.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px #f477161c}.form textarea{min-height:100px;resize:vertical}.form-hint{margin:0;color:var(--muted);font-size:11px;line-height:1.55}.form-status{grid-column:1/-1;color:var(--navy);font-size:13px}.footer{margin-top:0;background:var(--navy);color:#fff;padding:44px 0 18px}.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px}.footer-brand{font-size:19px;font-weight:800;letter-spacing:.1em}.footer-brand span{color:#ff9847}.footer p,.footer a{color:#dce7ff;font-size:13px;line-height:1.75}.footer h3{margin:0;font-size:14px}.footer-links{display:grid;gap:9px;margin-top:12px}.copyright{margin-top:32px;border-top:1px solid #ffffff30;padding-top:16px;color:#dce7ff;font-size:11px;display:flex;justify-content:space-between;gap:15px}
-    @media(max-width:850px){.nav{display:none;position:absolute;top:77px;left:0;right:0;background:white;padding:20px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:20px}.nav.open{display:flex}.menu{display:block}.header-cta{margin-left:auto}.hero,.hero-in{min-height:calc(100svh - 78px)}.cards{grid-template-columns:repeat(2,1fr)}.about-grid{gap:35px}.contact-grid{grid-template-columns:1fr}.proof-grid{gap:15px}.proof-item{align-items:flex-start}.proof-icon{flex:none}}
-    @media(max-width:600px){.wrap{width:calc(100% - 30px)}.brand img{width:145px}.header{height:68px}.header-cta{padding:11px 13px;font-size:12px}.nav{top:67px}.hero,.hero-in{min-height:calc(100svh - 68px)}.hero h1{font-size:clamp(43px,12vw,66px)}.proof-grid{grid-template-columns:1fr;gap:17px}.proof-item{align-items:center}.section{padding:62px 0}.section-head{align-items:flex-start;flex-direction:column}.count{white-space:normal}.cards{grid-template-columns:1fr}.card-photo{height:235px}.about-grid{grid-template-columns:1fr}.about-photo{min-height:270px;order:2}.contact-grid{gap:26px}.form{grid-template-columns:1fr;padding:20px}.form .full{grid-column:auto}.footer-grid{grid-template-columns:1fr;gap:24px}.copyright{flex-direction:column}}
-  .header{height:78px;position:fixed;inset:0 0 auto;z-index:10;background:transparent;border-bottom:1px solid transparent;transition:background .25s,border-color .25s,box-shadow .25s}.header.scrolled{background:#fffffff5;border-color:var(--line);box-shadow:0 5px 24px #102b6710;backdrop-filter:blur(12px)}.brand-mark{display:block;color:var(--navy);font-size:17px;font-weight:850;letter-spacing:.1em;line-height:1.1}.brand-mark i{color:var(--orange);font-style:normal}.brand-mark small{display:block;margin-top:5px;text-align:center;font-size:9px;letter-spacing:.28em}.header:not(.scrolled) .brand-mark,.header:not(.scrolled) .nav a,.header:not(.scrolled) .menu{color:#fff;text-shadow:0 1px 12px #06143899}.header.scrolled .brand-mark,.header.scrolled .nav a,.header.scrolled .menu{color:var(--navy);text-shadow:none}.nav.open a{color:var(--navy)}.hero,.hero-in{min-height:100svh}.hero-in{padding-top:100px}@media(max-width:600px){.hero,.hero-in{min-height:100svh}}
-    .brand-mark{position:absolute;left:50%;transform:translateX(-50%);text-align:center}.header-in{position:relative}.nav{margin-left:auto}.hero h1{font-family:Georgia,'Times New Roman',serif;color:#fff3d6;font-size:clamp(48px,7vw,78px);line-height:1.16;letter-spacing:-.035em}.hero h1 em{color:#fff3d6}.hero-subtitle{max-width:620px;margin:16px auto 0;color:#fff;font-size:16px;line-height:1.7;text-shadow:0 2px 14px #07152c}.hero-actions{gap:12px}.hero-secondary{display:inline-flex;align-items:center;border:1px solid #ffffffb0;border-radius:999px;padding:14px 22px;color:white;font-weight:750}.hero-secondary:hover{background:#ffffff20}.choice-section{position:relative;isolation:isolate;overflow:hidden;padding:74px 0;background:#15233e;color:#fff}.choice-section:before{content:"";position:absolute;z-index:-2;inset:0;background:url('https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1800&q=85') center/cover}.choice-section:after{content:"";position:absolute;z-index:-1;inset:0;background:#07152cbb}.choice-head{text-align:center;margin-bottom:28px}.choice-head .eyebrow{color:#ff9847}.choice-head h2{margin:8px 0 0;color:#fff;font:700 clamp(30px,4vw,42px) Georgia,serif}.choice-panel{max-width:900px;margin:auto;display:grid;grid-template-columns:.85fr 1.15fr;overflow:hidden;border-radius:20px;background:#081b47e8;box-shadow:0 20px 55px #06143866}.choice-copy{padding:38px;background:#fff;color:var(--ink)}.choice-copy .step{color:var(--orange);font:700 48px Georgia,serif}.choice-copy h3{margin:8px 0;color:var(--navy);font-size:22px}.choice-copy p{color:var(--muted);font-size:14px;line-height:1.7}.choice-list{display:grid;gap:9px;padding:28px}.choice-link{display:flex;align-items:center;gap:12px;border:1px solid #ffffff25;border-radius:11px;background:#ffffff12;padding:10px 12px;color:#fff;font-weight:700;font-size:14px;transition:background .2s}.choice-link:hover{background:#ffffff25}.choice-thumb{width:46px;height:38px;border-radius:7px;background-position:center;background-size:cover}.choice-count{margin:5px 0 0;color:#d5dced;font-size:12px}.promo{position:relative;isolation:isolate;overflow:hidden;background:#102b67;color:#fff;padding:78px 0}.promo:before{content:"";position:absolute;z-index:-2;inset:0;background:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85') center/cover}.promo:after{content:"";position:absolute;z-index:-1;inset:0;background:#07152cce}.promo-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:36px}.promo h2{max-width:470px;margin:10px 0;font:700 clamp(32px,4vw,46px)/1.1 Georgia,serif;color:#fff}.promo p{max-width:480px;color:#e0e7f4;line-height:1.7}.promo-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}.promo-card{min-height:130px;border:1px solid #ffffff40;border-radius:15px;background:#ffffff1a;padding:20px;backdrop-filter:blur(6px)}.promo-card strong{display:block;margin:10px 0 5px}.promo-card span{color:#dce7ff;font-size:12px;line-height:1.55}.promo .eyebrow{color:#ff9847}@media(max-width:850px){.choice-panel{grid-template-columns:1fr 1fr}.promo-grid{grid-template-columns:1fr}}@media(max-width:600px){.brand-mark{left:15px;transform:none;font-size:13px}.brand-mark small{font-size:8px}.choice-panel{grid-template-columns:1fr}.choice-copy{padding:24px}.choice-list{padding:18px}.choice-section,.promo{padding:55px 0}.promo-cards{gap:8px}.promo-card{padding:14px;min-height:125px}.hero-subtitle{font-size:14px}}
-  .header-in{position:relative}.brand-mark{position:absolute;left:50%;top:6px;transform:translateX(-50%);width:172px;height:66px;overflow:hidden;border-radius:4px;background:#fff url('public/logo-aya.jpeg') center/cover no-repeat;font-size:0;color:transparent;text-align:center}.brand-mark i,.brand-mark small{display:none}.header.scrolled .brand-mark{background-color:transparent}@media(max-width:600px){.brand-mark{left:15px;top:7px;transform:none;width:120px;height:54px}}
-  .choice-section{display:none!important}.brand-mark{mix-blend-mode:multiply}.promo{min-height:76vh;padding:100px 0}.promo-grid{min-height:58vh;gap:64px}.promo h2{font-size:clamp(42px,5vw,62px)}.promo p{font-size:16px;line-height:1.85}.promo-cards{gap:18px}.promo-card{min-height:175px;padding:27px;font-size:15px}.promo-card span{font-size:14px;line-height:1.65}@media(max-width:850px){.promo{min-height:auto}.promo-grid{min-height:auto;gap:36px}}@media(max-width:600px){.promo{padding:68px 0}.promo-card{min-height:145px;padding:18px}.promo-cards{gap:10px}}
-  .trips-section{background:#faf8f3;padding-top:60px}.trips-section .section-head{display:block;text-align:center}.trips-section .section-head h2{margin:8px 0;color:var(--navy);font:700 clamp(38px,5vw,58px)/1.1 Georgia,'Times New Roman',serif}.trips-section .section-head h2 em{color:var(--orange);font-style:italic}.trips-section .eyebrow,.trips-section .section-intro,.trips-section .count{display:none}.trips-section .cards{max-width:1000px;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:48px auto 0}.trips-section .card{height:300px;position:relative;border:0;border-radius:18px;background:#081b47;box-shadow:0 12px 30px #102b671c}.trips-section .card-photo{position:absolute;inset:0;height:auto;background-size:cover}.trips-section .card-photo:after{inset:0;background:linear-gradient(180deg,#07152c00 25%,#07152c88 65%,#07152cf2 100%)}.trips-section .badge{top:16px;left:16px;padding:8px 14px;border-radius:30px;text-transform:uppercase;letter-spacing:.08em}.trips-section .card-title{left:24px;right:24px;bottom:116px}.trips-section .card-title small{color:#ff9847;font-weight:800}.trips-section .card-title h3{font:700 27px Georgia,'Times New Roman',serif}.trips-section .card-body{position:absolute;z-index:2;inset:auto 0 0;padding:10px 24px 20px;background:transparent;color:white}.trips-section .meta{color:#f3f5fa;font-size:12px}.trips-section .excerpt{display:none}.trips-section .card-bottom{border-color:#ffffff35;padding-top:12px}.trips-section .price-label,.trips-section .price small{color:#f0f2f7}.trips-section .price{color:white;font-size:22px}.trips-section .arrow{position:absolute;right:24px;bottom:22px;background:var(--orange);color:white}.trips-section .card:hover{transform:translateY(-4px)}@media(max-width:600px){.trips-section .cards{grid-template-columns:1fr;gap:15px;margin-top:30px}.trips-section .card{height:280px}.trips-section .card-title{left:18px;right:18px;bottom:112px}.trips-section .card-title h3{font-size:23px}.trips-section .card-body{padding:9px 18px 17px}.trips-section .arrow{right:18px;bottom:18px}}
-  @media(max-width:850px){.header:not(.scrolled) .nav.open a{color:var(--navy);text-shadow:none}.nav.open{z-index:2}}
-  .hero-video{filter:saturate(1.22) contrast(1.08) brightness(.84)}.hero:after{background:linear-gradient(90deg,#07152c91 0%,#102b6740 52%,#07152c65 100%),linear-gradient(0deg,#07152c85,transparent 55%)}.hero h1{color:#fffaf0;text-shadow:0 4px 28px #061438aa}.hero-subtitle{text-shadow:0 2px 18px #061438}.hero-actions .btn{box-shadow:0 10px 30px #f4771660}.hero-secondary{background:#ffffff12;backdrop-filter:blur(7px);box-shadow:0 8px 28px #06143855}.proof{background:linear-gradient(100deg,#091e4b,#102b67 55%,#163775);border:0}.proof-icon{background:var(--orange);color:white;box-shadow:0 7px 18px #f4771640}.proof-item strong{color:white}.proof-item small{color:#d3dcf0}.trips-section{background:linear-gradient(180deg,#f6f1e8,#fffaf3 45%,#f6f1e8)}.trips-section .section-head h2 em{display:inline-block;position:relative}.trips-section .section-head h2 em:after{content:"";position:absolute;left:5%;right:5%;bottom:-10px;height:3px;border-radius:3px;background:var(--orange)}.trips-section .card-photo{filter:saturate(1.16) contrast(1.05)}.trips-section .card{box-shadow:0 16px 36px #102b6728;outline:1px solid #ffffff50;outline-offset:-1px}.trips-section .card:hover{box-shadow:0 22px 48px #102b6740;transform:translateY(-6px)}.trips-section .arrow{box-shadow:0 8px 20px #f4771660}.promo:after{background:radial-gradient(ellipse at 78% 30%,#f4771625,transparent 38%),linear-gradient(100deg,#07152ce8,#102b67c9)}.promo-card{border-color:#ffffff55;background:#ffffff20;box-shadow:0 12px 32px #06143830}.promo-card strong{color:#fff}.contact-section{background:linear-gradient(135deg,#f3eee5,#faf8f3)}.contact-section .form{border:1px solid #e8dfd1;box-shadow:0 18px 44px #102b6718}.contact-section .note{border-left:4px solid var(--orange);box-shadow:0 8px 24px #102b670d}.footer{border-top:4px solid var(--orange)}.video-credit{padding:6px 9px;border-radius:20px;background:#07152c70;backdrop-filter:blur(4px)}@media(max-width:600px){.hero-video{filter:saturate(1.14) contrast(1.05) brightness(.78)}.proof-item{padding:5px 0}.trips-section .section-head h2 em:after{bottom:-6px}}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le Carnet d’itinéraires N° 1 · Voyages Loisirs by Aya, voyages accompagnés en petit groupe</title>
+<meta name="description" content="Une revue de voyage mise en ligne : quatre circuits accompagnés en petit groupe (Chine, Pologne, Panama, Crète) et un hors-série en Normandie, racontés jour par jour par une agence du 8e arrondissement de Paris.">
+<meta name="theme-color" content="#f4efe6">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,500&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/carnet.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+<meta property="og:type" content="website"><meta property="og:title" content="Le Carnet d’itinéraires N° 1 · Voyages Loisirs by Aya"><meta property="og:description" content="Quatre circuits accompagnés en petit groupe et un hors-série en Normandie, racontés jour par jour par une agence du 8e arrondissement de Paris."><meta property="og:image" content="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1200&h=630&q=80">
+<!-- canonical et og:url : à ajouter quand `baseUrl` sera renseigné dans data/site.js [domaine à confirmer par l’agence] -->
+<script>document.documentElement.classList.remove('no-js');try{var s=localStorage;if(s.getItem('carnet-texte')==='1')document.documentElement.classList.add('texte-grand');if(s.getItem('carnet-motion')==='1')document.documentElement.classList.add('motion-off')}catch(e){}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TravelAgency","name":"Voyages Loisirs by Aya","legalName":"KTS Tourisme et Voyage SARL","telephone":"+33142686806","email":"reservation@ayavoyages.fr","address":{"@type":"PostalAddress","streetAddress":"49 rue des Mathurins","postalCode":"75008","addressLocality":"Paris","addressCountry":"FR"},"parentOrganization":{"@type":"Organization","name":"Aya Voyages","url":"https://www.ayavoyages.com/"}}
+</script>
 </head>
 <body>
-  <header class="header" id="header"><div class="wrap header-in"><a class="brand-mark" href="#accueil" aria-label="Accueil Voyages Loisirs by Aya">VOYAGES <i>LOISIRS</i><small>BY AYA</small></a><nav class="nav" id="nav"><a href="#voyages">Nos voyages</a><a href="#concept">Notre approche</a><a href="#contact">Contact</a></nav><button class="menu" id="menu" aria-label="Ouvrir le menu" aria-expanded="false">☰</button></div></header>
-  <main>
-    <section class="hero" id="accueil"><video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=90"><source src="https://videos.pexels.com/video-files/8349318/8349318-hd_1920_1080_25fps.mp4" type="video/mp4"></video><div class="wrap hero-in"><div class="hero-copy-block"><h1>Le monde <em>vous attend.</em></h1><div class="hero-actions"><a class="btn" href="#voyages">Découvrir les voyages <span>↘</span></a></div></div></div><a class="video-credit" href="https://www.pexels.com/video/top-view-of-mountains-by-the-sea-8349318/" target="_blank" rel="noreferrer">Vidéo : Mikhail Nilov / Pexels</a></section>
-    <section class="proof"><div class="wrap proof-grid"><div class="proof-item"><span class="proof-icon">✦</span><div><strong>Des itinéraires choisis</strong><small>Culture, nature et découvertes</small></div></div><div class="proof-item"><span class="proof-icon">◉</span><div><strong>Un programme détaillé</strong><small>Les étapes expliquées clairement</small></div></div><div class="proof-item"><span class="proof-icon">♡</span><div><strong>Un contact humain</strong><small>Une demande, puis un échange avec l’agence</small></div></div></div></section>
-    <section class="section trips-section" id="voyages"><div class="wrap"><div class="section-head"><div><div class="eyebrow">À vous l’évasion</div><h2>Des voyages à découvrir,<br>des souvenirs à créer.</h2><p class="section-intro">Parcourez nos séjours et prenez le temps de découvrir chaque itinéraire avant de nous envoyer votre demande.</p></div><p class="count">5 idées de voyage</p></div><div class="cards">
-      <a class="card" href="voyage.html?slug=chine"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1200&q=85')"><span class="badge">Culture & patrimoine</span><div class="card-title"><small>Chine</small><h3>La Chine : escapade au pays du dragon</h3></div></div><div class="card-body"><div class="meta"><span>◷ 10 jours / 9 nuits</span><span>Dès 10 pers.</span></div><p class="excerpt">De la Cité interdite à la Grande Muraille, découvrez trois villes et trois visages d’un même empire.</p><div class="card-bottom"><div><div class="price-label">À partir de</div><div class="price">2 300 €<small> / pers.</small></div></div><span class="arrow">↗</span></div></div></a>
-      <a class="card" href="voyage.html?slug=pologne"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1519197924294-4ba991a11128?auto=format&fit=crop&w=1200&q=85')"><span class="badge">Culture & patrimoine</span><div class="card-title"><small>Pologne</small><h3>Pologne : entre capitales et héritages</h3></div></div><div class="card-body"><div class="meta"><span>◷ 7 jours / 6 nuits</span><span>Dès 10 pers.</span></div><p class="excerpt">Deux villes reliées par le train à grande vitesse pour découvrir un pays reconstruit pierre par pierre.</p><div class="card-bottom"><div><div class="price-label">À partir de</div><div class="price">1 700 €<small> / pers.</small></div></div><span class="arrow">↗</span></div></div></a>
-      <a class="card" href="voyage.html?slug=panama"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=85')"><span class="badge">Nature & découverte</span><div class="card-title"><small>Panama</small><h3>Le Panama : trait d’union des Amériques</h3></div></div><div class="card-body"><div class="meta"><span>◷ 10 jours / 9 nuits</span><span>Séjour à la carte</span></div><p class="excerpt">Un canal légendaire, une jungle vivante et deux océans : un voyage entre nature et culture.</p><div class="card-bottom"><div><div class="price-label">À partir de</div><div class="price">3 500 €<small> / pers.</small></div></div><span class="arrow">↗</span></div></div></a>
-      <a class="card" href="voyage.html?slug=chateau-avesnes"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=85')"><span class="badge">Escapade & détente</span><div class="card-title"><small>Normandie, France</small><h3>Le Château d’Avesnes — Le Castelet</h3></div></div><div class="card-body"><div class="meta"><span>◷ 2 jours / 1 nuit</span><span>Séjour à la carte</span></div><p class="excerpt">Un château de 1862 au cœur de 18 hectares de nature, à 1 h 30 de Paris.</p><div class="card-bottom"><div><div class="price-label">Tarif</div><div class="price">Sur demande</div></div><span class="arrow">↗</span></div></div></a>
-      <a class="card" href="voyage.html?slug=crete"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=85')"><span class="badge">Culture & soleil</span><div class="card-title"><small>Grèce</small><h3>La Crète éternelle</h3></div></div><div class="card-body"><div class="meta"><span>◷ 8 jours / 7 nuits</span><span>Dès 10 pers.</span></div><p class="excerpt">Palais minoens, gorges et monastères : d’Héraklion à Spinalonga, découvrez le berceau d’une civilisation.</p><div class="card-bottom"><div><div class="price-label">À partir de</div><div class="price">1 850 €<small> / pers.</small></div></div><span class="arrow">↗</span></div></div></a>
-    </div></div></section>
-    <section class="section" id="concept"><div class="wrap about-grid"><div class="about-photo" role="img" aria-label="Voyage et découvertes"></div><div class="about-copy"><div class="eyebrow">L’esprit Voyages Loisirs</div><h2>Le plaisir de voyager, sans perdre le fil.</h2><p>Un voyage, c’est bien plus qu’une destination. C’est une culture à rencontrer, une histoire à comprendre et des paysages à garder en mémoire. Nos fiches vous aident à choisir votre séjour en toute clarté.</p><div class="points"><div class="point"><span class="point-no">01</span><div><strong>Des programmes lisibles</strong><p>Chaque étape du circuit est présentée jour par jour.</p></div></div><div class="point"><span class="point-no">02</span><div><strong>Les informations essentielles</strong><p>Dates, durée, tarifs et prestations sont réunis au même endroit.</p></div></div><div class="point"><span class="point-no">03</span><div><strong>Une demande en quelques minutes</strong><p>Indiquez votre projet, puis l’agence revient vers vous pour la suite.</p></div></div></div></div></div></section>
-    <section class="section contact-section" id="contact"><div class="wrap contact-grid"><div><div class="eyebrow">Parlons de votre prochain départ</div><h2>Un voyage vous intéresse&nbsp;?</h2><p class="section-intro">Envoyez-nous votre demande. Précisez le séjour qui vous attire et le nombre de voyageurs ; l’agence pourra ensuite confirmer les disponibilités et les conditions.</p><div class="note"><strong>À savoir</strong><p>Ce formulaire prépare un e-mail à envoyer à l’agence. Votre demande ne constitue pas une réservation confirmée.</p></div></div><form class="form" id="request"><label>Nom et prénom *<input name="name" required placeholder="Votre nom"></label><label>Adresse e-mail *<input type="email" name="email" required placeholder="vous@exemple.fr"></label><label>Téléphone<input name="phone" type="tel" placeholder="Votre numéro"></label><label>Voyage souhaité *<select name="trip" required><option value="">Choisissez un voyage</option><option>La Chine : escapade au pays du dragon</option><option>Pologne : entre capitales et héritages</option><option>Le Panama : trait d’union des Amériques</option><option>Le Château d’Avesnes — Le Castelet</option><option>La Crète éternelle</option></select></label><label>Date souhaitée<input name="departure" placeholder="Ex. octobre 2027"></label><label>Nombre de voyageurs<select name="people"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></label><label class="full">Votre message<textarea name="message" placeholder="Précisez vos questions ou préférences…"></textarea></label><button class="btn full" type="submit">Préparer ma demande <span>→</span></button><p class="form-hint full">Aucune réservation n’est confirmée à ce stade. Les disponibilités et le tarif sont à confirmer auprès de l’agence.</p></form></div></section>
-  </main>
-  <footer class="footer"><div class="wrap"><div class="footer-grid"><div><div class="footer-brand">VOYAGES <span>LOISIRS</span></div><div style="margin-top:4px;font-size:11px;letter-spacing:.23em;color:#dce7ff">BY AYA</div><p>Des voyages organisés pour découvrir le monde autrement, avec le plaisir de voyager ensemble.</p></div><div><h3>Explorer</h3><div class="footer-links"><a href="#voyages">Tous les voyages</a><a href="#concept">Notre approche</a><a href="#contact">Demander un devis</a></div></div><div><h3>Une question ?</h3><p>Contactez notre équipe pour connaître les disponibilités et préparer votre prochain départ.</p><a href="#contact" style="color:#ff9847;font-weight:bold">Nous contacter ↗</a></div></div><div class="copyright"><span>© 2026 Voyages Loisirs by Aya</span><span>Les dates et tarifs sont à confirmer auprès de l’agence.</span></div></div></footer>
-  <script>
-    const menu=document.getElementById('menu'),nav=document.getElementById('nav'),header=document.getElementById('header');const updateHeader=()=>header.classList.toggle('scrolled',window.scrollY>30);updateHeader();window.addEventListener('scroll',updateHeader,{passive:true});menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
-    document.getElementById('request').addEventListener('submit',e=>{e.preventDefault();const d=new FormData(e.currentTarget),subject=encodeURIComponent('Demande de réservation — '+d.get('trip')),body=encodeURIComponent(`Bonjour Voyages Loisirs by Aya,\n\nJe souhaite obtenir des informations sur ce voyage.\n\nNom : ${d.get('name')}\nEmail : ${d.get('email')}\nTéléphone : ${d.get('phone')||'Non renseigné'}\nVoyage : ${d.get('trip')}\nDate souhaitée : ${d.get('departure')||'Flexible'}\nNombre de voyageurs : ${d.get('people')}\nMessage : ${d.get('message')||'Aucun message'}\n\nMerci.`);window.location.href=`mailto:reservation@ayavoyages.fr?subject=${subject}&body=${body}`});
-    const heroTitle=document.querySelector('.hero h1');heroTitle.innerHTML='Prenez le temps de<br>voir le monde';
-    const heroBlock=document.querySelector('.hero-copy-block');heroBlock.insertAdjacentHTML('beforeend','<p class="hero-subtitle">Des circuits accompagnés en petits groupes, avec un guide francophone à chaque étape. Vous n’avez qu’à profiter, nous nous occupons du reste.</p>');
-    const heroActions=document.querySelector('.hero-actions');heroActions.innerHTML='<a class="btn" href="#voyages">Nos destinations</a><a class="hero-secondary" href="#contact">Être rappelé</a>';
-    const heroVideo=document.querySelector('.hero-video source');heroVideo.src='https://videos.pexels.com/video-files/10745869/10745869-hd_1920_1080_25fps.mp4';heroVideo.parentElement.load();
-    const videoCredit=document.querySelector('.video-credit');videoCredit.href='https://www.pexels.com/video/balloons-on-sky-over-cappadocia-10745869/';videoCredit.textContent='Vidéo : Adil / Pexels';
-    document.querySelector('.proof-grid').innerHTML='<div class="proof-item"><span class="proof-icon">✦</span><div><strong>Petits groupes</strong><small>Des circuits accompagnés</small></div></div><div class="proof-item"><span class="proof-icon">◉</span><div><strong>Guides francophones</strong><small>À chaque étape du voyage</small></div></div><div class="proof-item"><span class="proof-icon">♡</span><div><strong>Voyage en confiance</strong><small>Une équipe à vos côtés</small></div></div>';
-    document.querySelector('#concept').outerHTML='<section class="promo" id="concept"><div class="wrap promo-grid"><div><div class="eyebrow">Voyages Loisirs, c’est by Aya</div><h2>Envie d’aller plus loin&nbsp;?</h2><p>Voyages Loisirs vous accompagne pour choisir un circuit et profiter de chaque étape. Découvrez nos voyages organisés, ou contactez-nous pour parler de votre prochain départ.</p><a class="btn" href="#voyages">Découvrir nos voyages →</a></div><div class="promo-cards"><div class="promo-card"><strong>⌑ &nbsp; Plus de circuits</strong><span>Des voyages accompagnés pour découvrir le monde.</span></div><div class="promo-card"><strong>↗ &nbsp; Voyages sur mesure</strong><span>Un itinéraire pensé pour vous, à votre rythme.</span></div><div class="promo-card"><strong>✈ &nbsp; Billetterie</strong><span>Parlons de vos envies de départ.</span></div><div class="promo-card"><strong>⌂ &nbsp; Hôtels & transferts</strong><span>Les étapes pratiques de votre séjour, au même endroit.</span></div></div></div></section>';
-    const tripTitle=document.querySelector('#voyages .section-head h2');tripTitle.innerHTML='Choisissez <em>votre voyage</em>';const oldCards=[...document.querySelectorAll('#voyages .card')];oldCards.forEach(card=>{if(card.href.includes('chateau-avesnes'))card.remove()});
-    document.querySelector('.choice-section')?.remove();
-    document.querySelector('.hero-video').poster='https://images.pexels.com/videos/10745869/kapadokya-turkiye-10745869.jpeg?auto=compress&dpr=1&h=750&w=1260';
-    const contactInfo=document.createElement('div');contactInfo.className='note';contactInfo.innerHTML='<strong>Contact réservation</strong><p><a href="tel:+33142686806">01 42 68 68 06</a><br><a href="mailto:reservation@ayavoyages.fr">reservation@ayavoyages.fr</a><br>49 rue des Mathurins, 75008 Paris</p>';document.querySelector('#contact .contact-grid > div').append(contactInfo);
-    const contactForm=document.getElementById('request');contactForm.addEventListener('submit',e=>{e.preventDefault();e.stopImmediatePropagation();const d=new FormData(contactForm),subject=encodeURIComponent('Demande de réservation — '+d.get('trip')),body=encodeURIComponent(`Bonjour Aya Voyages,\n\nNom : ${d.get('name')}\nE-mail : ${d.get('email')}\nTéléphone : ${d.get('phone')||'Non renseigné'}\nVoyage : ${d.get('trip')}\nDate souhaitée : ${d.get('departure')||'Flexible'}\nVoyageurs : ${d.get('people')}\nMessage : ${d.get('message')||'Aucun message'}\n\nMerci.`);location.href=`mailto:reservation@ayavoyages.fr?subject=${subject}&body=${body}`},true);
-    document.querySelector('footer').innerHTML='<div class="wrap"><div class="footer-grid"><div><div class="footer-brand">VOYAGES <span>LOISIRS</span></div><div style="margin-top:4px;font-size:11px;letter-spacing:.23em;color:#dce7ff">BY AYA</div><p>Des voyages organisés pour découvrir le monde autrement.</p></div><div><h3>Contact réservation</h3><div class="footer-links"><a href="tel:+33142686806">01 42 68 68 06</a><a href="mailto:reservation@ayavoyages.fr">reservation@ayavoyages.fr</a></div><p>49 rue des Mathurins<br>75008 Paris</p></div><div><h3>Informations</h3><div class="footer-links"><a href="mentions-legales.html">Mentions légales</a><a href="cookies.html">Cookies et confidentialité</a><a href="https://www.ayavoyages.com/" target="_blank" rel="noreferrer">Site officiel Aya Voyages ↗</a></div></div></div><div class="copyright"><span>© 2026 Voyages Loisirs by Aya</span><span>Dates et tarifs à confirmer auprès de l’agence.</span></div></div>';
-  </script>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<p class="impression-entete" hidden aria-hidden="true"><img src="assets/img/logo.png" alt="" width="160" height="63"> Voyages Loisirs by Aya — 01&#8239;42&#8239;68&#8239;68&#8239;06 — reservation@ayavoyages.fr — 49 rue des Mathurins, 75008 Paris</p>
+<header class="barre barre--mixte" id="barre">
+  <a class="barre__logo" href="index.html" aria-label="Voyages Loisirs by Aya — accueil">
+    <img class="barre__logo-clair" src="assets/img/logo-light.png" alt="" width="216" height="72">
+    <img class="barre__logo-encre" src="assets/img/logo.png" alt="Voyages Loisirs by Aya" width="216" height="72">
+  </a>
+  <p class="barre__numero" aria-hidden="true">N°&nbsp;1 · Hiver 2026-2027</p>
+  <nav class="barre__nav" aria-label="Navigation principale">
+    <a href="voyages.html">Les voyages</a>
+    <a href="agence.html">L’agence</a>
+    <a href="groupes.html">Groupes</a>
+    <a href="avant-de-partir.html">Questions</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a class="barre__tel" href="tel:+33142686806" aria-label="Appeler l’agence au 01 42 68 68 06"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span>01&#8239;42&#8239;68&#8239;68&#8239;06</span></a>
+  <button class="barre__sommaire" type="button" aria-expanded="false" aria-controls="sommaire-mobile">Menu</button>
+  <a class="barre__sommaire-lien" href="#sommaire-mobile">Menu</a>
+</header>
+<div class="sentinelle" aria-hidden="true"></div>
+<div class="sommaire-mobile" id="sommaire-mobile" role="dialog" aria-modal="true" aria-label="Sommaire et navigation">
+  <button class="sommaire-mobile__fermer" type="button">Fermer</button>
+  <a class="sommaire-mobile__fermer-lien" href="#contenu">Fermer</a>
+  <p class="rubrique sommaire-mobile__rubrique sommaire-mobile__ligne">Dans ce numéro</p>
+  <ol class="sommaire-mobile__chapitres">
+    <li class="sommaire-mobile__ligne"><a href="voyages/chine.html"><span class="numero" aria-hidden="true">01</span><span class="sr-only">Chapitre 01, </span>La Chine</a></li>
+    <li class="sommaire-mobile__ligne"><a href="voyages/pologne.html"><span class="numero" aria-hidden="true">02</span><span class="sr-only">Chapitre 02, </span>Pologne</a></li>
+    <li class="sommaire-mobile__ligne"><a href="voyages/panama.html"><span class="numero" aria-hidden="true">03</span><span class="sr-only">Chapitre 03, </span>Le Panama</a></li>
+    <li class="sommaire-mobile__ligne"><a href="voyages/crete.html"><span class="numero" aria-hidden="true">04</span><span class="sr-only">Chapitre 04, </span>La Crète</a></li>
+    <li class="sommaire-mobile__ligne"><a href="voyages/chateau-avesnes.html">Hors-série — Château d’Avesnes</a></li>
+  </ol>
+  <hr class="sommaire-mobile__filet sommaire-mobile__ligne">
+  <ul class="sommaire-mobile__pages sommaire-mobile__ligne">
+    <li><a href="voyages.html">Les voyages</a></li>
+    <li><a href="agence.html">L’agence</a></li>
+    <li><a href="groupes.html">Groupes</a></li>
+    <li><a href="avant-de-partir.html">Questions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="lien-tel sommaire-mobile__tel sommaire-mobile__ligne" href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a>
+  <p class="mono sommaire-mobile__adresse sommaire-mobile__ligne">49 rue des Mathurins, 75008 Paris · Métro Saint-Lazare, Havre-Caumartin, Opéra</p>
+</div>
+
+<main id="contenu">
+
+  <!-- 1. COUVERTURE -->
+  <section class="couverture" id="couverture" aria-labelledby="couverture-titre" data-reveal="chargement">
+    <div class="couverture__texte">
+      <p class="couverture__sur">Voyages Loisirs by Aya — Carnet d’itinéraires</p>
+      <p class="couverture__numero"><span aria-hidden="true">N°&nbsp;1</span><span class="sr-only">Numéro 1</span></p>
+      <h1 class="couverture__titre lignes" id="couverture-titre"><span class="ligne"><span class="ligne__texte">Ce numéro&nbsp;: la Chine en train de nuit,</span></span> <span class="ligne"><span class="ligne__texte">la Pologne pierre par pierre,</span></span> <span class="ligne"><span class="ligne__texte">le Panama en pirogue,</span></span> <span class="ligne"><span class="ligne__texte">la Crète à table.</span></span></h1>
+      <p class="couverture__sous sous-titre">Cinq départs accompagnés, à partir de dix personnes, avec un guide francophone du premier au dernier jour.</p>
+      <div class="couverture__actions actions">
+        <a class="bouton bouton--principal" href="#sommaire">Lire le sommaire ↓</a>
+        <a class="lien" href="tel:+33142686806">Appeler le comptoir — 01&#8239;42&#8239;68&#8239;68&#8239;06</a>
+      </div>
+      <p class="couverture__bas mono">Paris, 49 rue des Mathurins · Hiver 2026-2027 · Prix du numéro&nbsp;: offert</p>
+    </div>
+    <figure class="photo couverture__photo photo--developpe" data-developpe="chargement" style="--fond:var(--fond-chine)">
+      <span class="photo__cadre coupe coupe--creme">
+        <span class="coupe__b" aria-hidden="true"></span>
+        <span class="voile voile--haut" aria-hidden="true"></span>
+        <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1400&q=80" srcset="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=2000&q=80 2000w" sizes="(min-width: 900px) 58vw, 100vw" width="1400" height="933" fetchpriority="high" decoding="async" alt="Section de Mutianyu de la Grande Muraille sous un ciel clair, la ligne de pierre court sur les crêtes">
+      </span>
+      <figcaption class="legende">En couverture — Section de Mutianyu, Grande Muraille, jour 4 du chapitre 01. Photo&nbsp;: Unsplash</figcaption>
+    </figure>
+  </section>
+
+  <!-- 2. ÉDITO -->
+  <section class="section section--filet-bas edito" id="edito" aria-labelledby="edito-titre" data-reveal="conteneur">
+    <span class="filet filet--trace" aria-hidden="true"></span>
+    <div class="conteneur grille">
+      <div class="col" style="--d:2;--f:10">
+        <p class="rubrique">Édito</p>
+        <h2 class="titre-section lignes" id="edito-titre"><span class="ligne">Pourquoi nous partons encore en groupe</span></h2>
+        <div class="edito__texte" data-reveal-enfant style="--i:2">
+          <p class="initiale edito__premier">Parce qu’un train de nuit entre Pékin et Xi’an se raconte mieux à plusieurs. Parce qu’à Auschwitz on a besoin d’une voix qui explique, et d’un silence partagé. Parce que la cuisine crétoise s’apprend autour d’une table, pas devant un écran.</p>
+          <div class="edito__colonnes">
+            <p>Nos circuits partent à partir de dix personnes, avec un guide qui parle français du premier matin au dernier soir. Nous nous occupons des billets, des hôtels, des entrées et des horaires&#8239;; vous, vous regardez.</p>
+            <p>Cinq voyages, pas cinquante. Nous préférons connaître l’hôtel, le guide et l’heure du train plutôt que tout vendre. Ce carnet est notre manière de vous montrer, jour par jour, ce que vous allez voir. Lisez-le en entier, puis appelez-nous&nbsp;: c’est encore comme ça qu’on prépare le mieux un départ.</p>
+          </div>
+          <p class="edito__signature">L’équipe du comptoir, rue des Mathurins</p>
+        </div>
+      </div>
+      <aside class="col marge" style="--d:10;--f:13;--i:3" data-reveal-enfant aria-label="Note de marge">Pour parler à quelqu’un&nbsp;: <a href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a>, du lundi au vendredi [horaires à confirmer par l’agence].</aside>
+    </div>
+  </section>
+
+  <!-- 3. SOMMAIRE -->
+  <section class="section sommaire" id="sommaire" aria-labelledby="sommaire-titre" data-reveal="conteneur">
+    <div class="conteneur">
+      <p class="rubrique">Sommaire</p>
+      <h2 class="titre-section" id="sommaire-titre">Dans ce numéro</h2>
+      <ol class="sommaire__liste">
+        <li data-reveal-enfant>
+          <a class="sommaire__ligne" href="voyages/chine.html" style="--papier-chapitre:var(--papier-chine);--fond:var(--fond-chine)">
+            <span class="sommaire__numero" aria-hidden="true">01</span>
+            <h3 class="sommaire__titre"><span class="sr-only">Chapitre 01, </span>La Chine&nbsp;: escapade au pays du dragon</h3>
+            <span class="conduite" aria-hidden="true"></span>
+            <span class="sommaire__rubrique">Culture &amp; patrimoine — Pékin, Mutianyu, Xi’an, Shanghai, Suzhou</span>
+            <span class="sommaire__meta">10&nbsp;jours · dès 2&#8239;300&nbsp;€ · dates en préparation<span class="fleche" aria-hidden="true">→</span></span>
+            <img class="sommaire__vignette" src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=160&h=120&q=70" alt="" width="72" height="54" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li data-reveal-enfant>
+          <a class="sommaire__ligne" href="voyages/pologne.html" style="--papier-chapitre:var(--papier-pologne);--fond:var(--fond-pologne)">
+            <span class="sommaire__numero" aria-hidden="true">02</span>
+            <h3 class="sommaire__titre"><span class="sr-only">Chapitre 02, </span>Pologne&nbsp;: entre capitales et héritages</h3>
+            <span class="conduite" aria-hidden="true"></span>
+            <span class="sommaire__rubrique">Culture &amp; patrimoine — Varsovie, Wieliczka, Cracovie</span>
+            <span class="sommaire__meta">7&nbsp;jours · dès 1&#8239;700&nbsp;€ · 05&nbsp;→&nbsp;11 oct. 2027<span class="fleche" aria-hidden="true">→</span></span>
+            <img class="sommaire__vignette" src="https://images.unsplash.com/photo-1519197924294-4ba991a11128?auto=format&fit=crop&w=160&h=120&q=70" alt="" width="72" height="54" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li data-reveal-enfant>
+          <a class="sommaire__ligne" href="voyages/panama.html" style="--papier-chapitre:var(--papier-panama);--fond:var(--fond-panama)">
+            <span class="sommaire__numero" aria-hidden="true">03</span>
+            <h3 class="sommaire__titre"><span class="sr-only">Chapitre 03, </span>Le Panama&nbsp;: trait d’union des Amériques</h3>
+            <span class="conduite" aria-hidden="true"></span>
+            <span class="sommaire__rubrique">Nature &amp; découverte — Canal, Chagres, Gatún, El Valle, Pacifique</span>
+            <span class="sommaire__meta">10&nbsp;jours · dès 3&#8239;500&nbsp;€ · févr. &amp; nov. 2027<span class="fleche" aria-hidden="true">→</span></span>
+            <img class="sommaire__vignette" src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=160&h=120&q=70" alt="" width="72" height="54" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li data-reveal-enfant>
+          <a class="sommaire__ligne" href="voyages/crete.html" style="--papier-chapitre:var(--papier-crete);--fond:var(--fond-crete)">
+            <span class="sommaire__numero" aria-hidden="true">04</span>
+            <h3 class="sommaire__titre"><span class="sr-only">Chapitre 04, </span>La Crète éternelle</h3>
+            <span class="conduite" aria-hidden="true"></span>
+            <span class="sommaire__rubrique">Culture &amp; soleil — Héraklion, Réthymnon, La Canée, Knossos, Spinalonga</span>
+            <span class="sommaire__meta">8&nbsp;jours · dès 1&#8239;850&nbsp;€ · 08&nbsp;→&nbsp;15 oct. 2027<span class="fleche" aria-hidden="true">→</span></span>
+            <img class="sommaire__vignette" src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=160&h=120&q=70" alt="" width="72" height="54" loading="lazy" decoding="async">
+          </a>
+        </li>
+      </ol>
+      <p class="sommaire__pied" data-reveal-enfant><a class="lien lien-fleche" href="voyages.html">Voir le sommaire complet</a></p>
+    </div>
+  </section>
+
+  <!-- 4. ENTRACTE -->
+  <section class="section section--creme section--filet-haut section--filet-bas entracte" id="entracte" aria-labelledby="entracte-titre" data-reveal="conteneur">
+    <div class="conteneur grille">
+      <div class="col" style="--d:1;--f:6" data-reveal-enfant>
+        <p class="rubrique">Entracte — Hors-série</p>
+        <h2 class="titre-section" id="entracte-titre">Deux jours à 1&nbsp;h&nbsp;30 de Paris.</h2>
+        <p class="mesure">Entre deux grands voyages, le Château d’Avesnes – Le Castelet&nbsp;: une maison de 1862 posée dans dix-huit hectares de parc, de verger et de forêt, près de Gournay-en-Bray, en Normandie. Un spa, une table d’hôtes, des villages alentour. Deux jours, une nuit, et un programme qui tient en un mot&nbsp;: rien. Tarif et formule sur demande, pour un couple, une famille ou un petit groupe d’amis.</p>
+        <div class="actions" style="margin-top:var(--e-4)">
+          <a class="lien lien-fleche" href="voyages/chateau-avesnes.html">Lire le hors-série</a>
+          <a class="bouton bouton--secondaire" href="tel:+33142686806">Nous appeler</a>
+        </div>
+      </div>
+      <figure class="photo photo--3-2 photo--developpe col" style="--d:7;--f:13;--fond:var(--fond-avesnes)">
+        <span class="photo__cadre coupe">
+          <span class="coupe__b" aria-hidden="true"></span>
+          <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=80" srcset="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2000&q=80 2000w" sizes="(min-width: 900px) 55vw, 100vw" width="1400" height="933" loading="lazy" decoding="async" alt="Un château et son parc, allée bordée d’arbres">
+        </span>
+        <figcaption class="legende">Hors-série — Le Castelet, Normandie. Photo&nbsp;: Unsplash</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 5. EN UNE -->
+  <section class="section en-une" id="en-une" aria-labelledby="en-une-titre" data-reveal="conteneur">
+    <div class="conteneur">
+      <p class="rubrique">En une — Extrait du chapitre 03</p>
+      <figure class="photo en-une__photo photo--developpe" data-parallaxe style="--fond:var(--fond-panama)" data-media="à chercher : Chagres river dugout canoe Embera — pirogue sur rivière tropicale, plan large, pas de visage en gros plan (V1 : photo d’ouverture du chapitre 03)">
+        <span class="photo__cadre">
+          <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1400&q=80" srcset="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=2000&q=80 2000w" sizes="100vw" width="1400" height="933" loading="lazy" decoding="async" alt="Rivière et forêt tropicale au Panama">
+        </span>
+        <figcaption class="legende">Jour 4 — Remontée de la rivière Chagres en pirogue. Panama. Photo&nbsp;: Unsplash</figcaption>
+      </figure>
+      <div class="grille">
+        <div class="col en-une__texte" style="--d:4;--f:10" data-reveal-enfant>
+          <p class="mono graphite">Chapitre 03 · Jour 4 — Rivière Chagres</p>
+          <h2 class="titre-section" id="en-une-titre" style="font-size:var(--t-34);margin-top:var(--e-2)">La pirogue, puis le village</h2>
+          <p>On laisse la route à l’embarcadère. La pirogue est longue, basse, menée par un homme de la communauté Emberá qui connaît chaque méandre de la Chagres. Une heure plus tard, le village&nbsp;: musique, teintures végétales, un repas servi dans des feuilles. On repart avec moins de certitudes et plus de questions, ce qui est le but.</p>
+        </div>
+        <p class="exergue col" style="--d:3;--f:11">Le voyage commence au comptoir, pas à l’aéroport.</p>
+        <p class="col" style="--d:4;--f:10" data-reveal-enfant><a class="lien lien-fleche" href="voyages/panama.html">Lire le chapitre 03 en entier</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. COURRIER DES LECTEURS -->
+  <section class="section section--creme section--filet-haut" id="courrier-des-lecteurs" aria-labelledby="courrier-titre">
+    <div class="conteneur">
+      <div class="courrier" data-reveal="conteneur">
+        <p class="rubrique">Courrier des lecteurs</p>
+        <h2 class="titre-section" id="courrier-titre">Ce qu’on nous demande au comptoir</h2>
+        <p class="chapeau" data-reveal-enfant>Six questions que l’on entend chaque semaine rue des Mathurins, et ce que nous répondons.</p>
+      </div>
+      <div class="courrier">
+        <div class="echange" data-reveal="conteneur" data-seuil=".3">
+          <p class="echange__vous" data-reveal-enfant><span class="etiquette">Vous</span>On part à combien&#8239;?</p>
+          <p class="echange__nous" data-reveal-enfant><span class="etiquette">Nous</span>Dix personnes au minimum, le plus souvent entre douze et vingt-cinq. Un petit groupe, un seul autocar, personne qui attend personne.</p>
+        </div>
+        <div class="echange" data-reveal="conteneur" data-seuil=".3">
+          <p class="echange__vous" data-reveal-enfant><span class="etiquette">Vous</span>Et si on ne parle pas la langue&#8239;?</p>
+          <p class="echange__nous" data-reveal-enfant><span class="etiquette">Nous</span>Un guide francophone vous accompagne du premier au dernier jour. Vous n’avez rien à traduire, pas même la carte du restaurant.</p>
+        </div>
+        <div class="echange" data-reveal="conteneur" data-seuil=".3">
+          <p class="echange__vous" data-reveal-enfant><span class="etiquette">Vous</span>Le prix affiché, c’est le prix&#8239;?</p>
+          <p class="echange__nous" data-reveal-enfant><span class="etiquette">Nous</span>C’est un prix «&nbsp;à partir de&nbsp;», par personne en chambre double, vol depuis Paris compris. Nous vous confirmons le tarif exact de votre date avant tout engagement.</p>
+        </div>
+        <div class="echange" data-reveal="conteneur" data-seuil=".3">
+          <p class="echange__vous" data-reveal-enfant><span class="etiquette">Vous</span>Qu’est-ce qui n’est pas compris&#8239;?</p>
+          <p class="echange__nous" data-reveal-enfant><span class="etiquette">Nous</span>Les assurances, les pourboires, et sur certains circuits un forfait de visites et de repas réglé sur place&nbsp;: 250&nbsp;€ en Chine, 70&nbsp;€ en Pologne, 350&nbsp;€ au Panama. Tout est écrit noir sur blanc dans chaque chapitre.</p>
+        </div>
+        <div class="echange" data-reveal="conteneur" data-seuil=".3">
+          <p class="echange__vous" data-reveal-enfant><span class="etiquette">Vous</span>On n’est que deux, c’est possible&#8239;?</p>
+          <p class="echange__nous" data-reveal-enfant><span class="etiquette">Nous</span>Oui. Vous rejoignez un départ déjà ouvert. Nous vous dirons combien de places il reste.</p>
+        </div>
+        <div class="echange" data-reveal="conteneur" data-seuil=".3">
+          <p class="echange__vous" data-reveal-enfant><span class="etiquette">Vous</span>Et si on préfère parler à quelqu’un&#8239;?</p>
+          <p class="echange__nous" data-reveal-enfant><span class="etiquette">Nous</span>C’est le mieux&nbsp;: <a href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a>, ou passez rue des Mathurins.</p>
+        </div>
+        <p style="margin-top:var(--e-4)" data-reveal><a class="lien lien-fleche" href="avant-de-partir.html">Toutes les questions</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CALENDRIER -->
+  <section class="section section--filet-haut calendrier" id="calendrier" aria-labelledby="calendrier-titre" data-reveal="conteneur" data-seuil=".2">
+    <div class="conteneur">
+      <p class="rubrique">Calendrier</p>
+      <h2 class="titre-section" id="calendrier-titre">Les départs de 2027, tels qu’ils sont aujourd’hui</h2>
+      <div class="frise-defile" tabindex="0" role="region" aria-label="Calendrier des départs 2027, défilement horizontal">
+        <ol class="frise">
+          <li class="frise__mois"><span class="frise__nom">Janvier</span></li>
+          <li class="frise__mois"><span class="frise__nom">Février</span>
+            <div class="frise__fiche" data-reveal-enfant><a class="fiche-depart" href="voyages/panama.html#dates"><span class="fiche-depart__dates">13&nbsp;→&nbsp;22</span><span class="fiche-depart__titre">Le Panama</span><span class="prix">3&#8239;650&nbsp;€</span></a></div>
+          </li>
+          <li class="frise__mois"><span class="frise__nom">Mars</span></li>
+          <li class="frise__mois"><span class="frise__nom">Avril</span></li>
+          <li class="frise__mois"><span class="frise__nom">Mai</span></li>
+          <li class="frise__mois"><span class="frise__nom">Juin</span></li>
+          <li class="frise__mois"><span class="frise__nom">Juillet</span></li>
+          <li class="frise__mois"><span class="frise__nom">Août</span></li>
+          <li class="frise__mois"><span class="frise__nom">Septembre</span></li>
+          <li class="frise__mois"><span class="frise__nom">Octobre</span>
+            <div class="frise__fiche" data-reveal-enfant><a class="fiche-depart" href="voyages/pologne.html#dates"><span class="fiche-depart__dates">05&nbsp;→&nbsp;11</span><span class="fiche-depart__titre">Pologne</span><span class="prix">1&#8239;750&nbsp;€</span></a></div>
+            <div class="frise__fiche" data-reveal-enfant><a class="fiche-depart" href="voyages/crete.html#dates"><span class="fiche-depart__dates">08&nbsp;→&nbsp;15</span><span class="fiche-depart__titre">La Crète</span><span class="prix">1&#8239;850&nbsp;€</span></a></div>
+          </li>
+          <li class="frise__mois"><span class="frise__nom">Novembre</span>
+            <div class="frise__fiche" data-reveal-enfant><a class="fiche-depart" href="voyages/panama.html#dates"><span class="fiche-depart__dates">13&nbsp;→&nbsp;22</span><span class="fiche-depart__titre">Le Panama</span><span class="prix">3&#8239;500&nbsp;€</span></a></div>
+          </li>
+          <li class="frise__mois"><span class="frise__nom">Décembre</span></li>
+        </ol>
+      </div>
+      <div class="calendrier__notes">
+        <p>La Chine&nbsp;: dates en préparation — <a href="voyages/chine.html#demande">laissez-nous vos coordonnées, nous vous prévenons en premier</a>.</p>
+        <p>Le Château d’Avesnes&nbsp;: toute l’année, sur demande.</p>
+        <p class="mention" style="margin-top:var(--e-2)">Prix par personne en chambre double, au départ de Paris, à confirmer par l’agence. Départ garanti à partir de dix participants.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. LEXIQUE -->
+  <section class="section section--creme section--filet-haut" id="lexique" aria-labelledby="lexique-titre" data-reveal="conteneur">
+    <div class="conteneur">
+      <p class="rubrique">Lexique</p>
+      <h2 class="titre-section" id="lexique-titre">Le lexique du voyageur accompagné</h2>
+      <p class="chapeau" style="margin-bottom:var(--e-5)">Sept mots que vous lirez dans ce carnet, et ce qu’ils veulent dire chez nous.</p>
+      <dl class="lexique">
+        <div class="lexique__entree" data-reveal-enfant><dt>Petit groupe <span class="lexique__cat">(n. m.)</span></dt><dd>Dix personnes au minimum. Assez pour rire, pas assez pour se perdre.</dd></div>
+        <div class="lexique__entree" data-reveal-enfant><dt>Guide francophone <span class="lexique__cat">(n.)</span></dt><dd>Une personne, du premier matin au dernier soir, qui parle votre langue et connaît la sienne.</dd></div>
+        <div class="lexique__entree" data-reveal-enfant><dt>Forfait Dragon, Chopin, Jungle <span class="lexique__cat">(n. m.)</span></dt><dd>Le supplément, annoncé dès la fiche, qui regroupe les prestations réglées sur place&nbsp;: 250&nbsp;€ en Chine, 70&nbsp;€ en Pologne, 350&nbsp;€ au Panama. Pas de surprise à l’arrivée.</dd></div>
+        <div class="lexique__entree" data-reveal-enfant><dt>À partir de <span class="lexique__cat">(loc.)</span></dt><dd>Le prix de la date la moins chère, en chambre double. L’agence confirme le tarif définitif avant tout engagement.</dd></div>
+        <div class="lexique__entree" data-reveal-enfant><dt>Supplément single <span class="lexique__cat">(n. m.)</span></dt><dd>La chambre pour soi&nbsp;: +&#8239;250&nbsp;€ en Crète, +&#8239;280&nbsp;€ en Pologne, +&#8239;525 à 550&nbsp;€ au Panama. [Chine&nbsp;: à confirmer par l’agence.]</dd></div>
+        <div class="lexique__entree" data-reveal-enfant><dt>Train de nuit <span class="lexique__cat">(n. m.)</span></dt><dd>Couchette molle entre Pékin et Xi’an. Le passage le plus raconté à nos retours.</dd></div>
+        <div class="lexique__entree" data-reveal-enfant><dt>Temps libre <span class="lexique__cat">(n. m.)</span></dt><dd>Il y en a. Jours 6 et 9 au Panama, l’après-midi du jour 3 à Varsovie. Personne ne vous le reprochera.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 9. LE COMPTOIR -->
+  <section class="section encre comptoir" id="comptoir" aria-labelledby="comptoir-titre" data-reveal="conteneur">
+    <div class="conteneur grille">
+      <div class="col" style="--d:1;--f:7" data-reveal-enfant>
+        <p class="rubrique">L’éditeur</p>
+        <h2 class="titre-section" id="comptoir-titre">Un comptoir, rue des Mathurins</h2>
+        <p class="mesure">Voyages Loisirs est la collection de voyages accompagnés d’Aya Voyages, agence du 8<sup>e</sup> arrondissement, entre la gare Saint-Lazare et l’Opéra. On y entre pour un billet d’avion&#8239;; on y revient pour un circuit. Agence immatriculée Atout France IM075100068, garantie financière APST, responsabilité civile professionnelle Hiscox&nbsp;: les petites lignes sont en bas de page, et elles sont vraies.</p>
+        <p class="comptoir__tel lignes"><span class="ligne"><a class="lien-tel" href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a></span></p>
+        <p class="comptoir__coord"><a href="mailto:reservation@ayavoyages.fr">reservation@ayavoyages.fr</a><br>49 rue des Mathurins, 75008 Paris · Métro Saint-Lazare, Havre-Caumartin, Opéra</p>
+        <p style="margin-top:var(--e-4)"><a class="lien lien-fleche" href="agence.html">L’agence, l’ours complet</a></p>
+      </div>
+      <figure class="photo photo--3-2 photo--developpe col" style="--d:8;--f:13;--fond:var(--fond-paris);--dur-photo:1100ms" data-media="à chercher : Paris Haussmann street Opera Garnier morning — ciel bas, façades, sans foule (candidats à vérifier : photo-1502602898657-3e91760cbb34, photo-1499856871958-5b9627545d1a)">
+        <span class="photo__cadre coupe coupe--creme"><span class="coupe__b" aria-hidden="true"></span></span>
+        <figcaption class="legende">Rue des Mathurins, Paris 8<sup>e</sup>. Photo&nbsp;: Unsplash [emplacement à pourvoir par l’agence].</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 10. DE LA DEMANDE AU DÉPART -->
+  <section class="section" id="deroule" aria-labelledby="deroule-titre" data-reveal="conteneur">
+    <div class="conteneur">
+      <p class="rubrique">Mode d’emploi</p>
+      <h2 class="titre-section" id="deroule-titre">Ce qui se passe après avoir cliqué sur «&nbsp;Demander&nbsp;»</h2>
+      <p class="chapeau" style="margin-bottom:var(--e-5)">Un appel, un rappel, un programme sur papier. Rien ne se décide sans vous, et rien ne se paie sur ce site.</p>
+      <ol class="deroule">
+        <li data-reveal-enfant><span class="deroule__num" aria-hidden="true">01</span><h3>Votre demande</h3><p>Vous remplissez le formulaire, ou vous nous appelez. Aucun engagement à ce stade.</p></li>
+        <li data-reveal-enfant><span class="deroule__num" aria-hidden="true">02</span><h3>Notre appel</h3><p>L’agence vous rappelle sous deux jours ouvrés pour vérifier les places et répondre à vos questions.</p></li>
+        <li data-reveal-enfant><span class="deroule__num" aria-hidden="true">03</span><h3>Le programme et le devis</h3><p>Vous recevez par e-mail, ou par courrier si vous préférez, le tarif définitif de votre date et le programme jour par jour.</p></li>
+        <li data-reveal-enfant><span class="deroule__num" aria-hidden="true">04</span><h3>La confirmation</h3><p>Vous confirmez par écrit et versez l’acompte indiqué sur le devis&#8239;; nous réservons vols et hôtels. [Montant et délais&nbsp;: à confirmer par l’agence.]</p></li>
+        <li data-reveal-enfant><span class="deroule__num" aria-hidden="true">05</span><h3>Avant le départ</h3><p>Vous recevez vos documents de voyage et les horaires de rendez-vous&#8239;; l’agence reste joignable.</p></li>
+        <li data-reveal-enfant><span class="deroule__num" aria-hidden="true">06</span><h3>Le départ</h3><p>Rendez-vous à l’aéroport&nbsp;: votre groupe et votre guide vous attendent.</p></li>
+      </ol>
+      <p class="deroule__pied" data-reveal-enfant>Nous ne prenons aucun paiement sur ce site. Tout se fait avec une personne de l’agence.</p>
+    </div>
+  </section>
+
+  <!-- 11. COURRIER (formulaire court) -->
+  <section class="section section--filet-haut demande" id="demande" aria-labelledby="demande-titre" data-reveal="conteneur">
+    <div class="conteneur">
+      <p class="rubrique">Courrier</p>
+      <h2 class="titre-section" id="demande-titre">Dites-nous quel chapitre vous tente</h2>
+      <p class="chapeau" style="margin-bottom:var(--e-5)">Nous vous rappelons, nous parlons du voyage, puis nous vous envoyons le programme. Rien n’est engagé à ce stade.</p>
+      <div class="grille">
+        <div class="col demande__encart" style="--d:1;--f:5" data-reveal-enfant>
+          <div class="marge--encadree">
+            <h3 class="marge__titre">Ce que nous ferons de votre demande</h3>
+            <ol class="liste-num">
+              <li>Nous vérifions les places.</li>
+              <li>Nous vous rappelons.</li>
+              <li>Vous décidez.</li>
+            </ol>
+          </div>
+          <p class="demande__tel">Vous préférez en parler&#8239;? <a class="lien-tel" href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a></p>
+        </div>
+        <div class="col" style="--d:6;--f:13" data-reveal-enfant>
+          <form class="formulaire formulaire--court" method="POST" action="https://formsubmit.co/reservation@ayavoyages.fr" data-formulaire data-src="accueil" data-root="" aria-labelledby="demande-titre">
+            <p class="formulaire__resume" aria-live="polite"></p>
+            <div class="champ">
+              <label class="champ__libelle" for="fc-nom">Nom et prénom&nbsp;*</label>
+              <input id="fc-nom" name="nom" type="text" autocomplete="name" required>
+            </div>
+            <div class="champ">
+              <label class="champ__libelle" for="fc-telephone">Téléphone&nbsp;*</label>
+              <input id="fc-telephone" name="telephone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="fc-telephone-aide">
+              <p class="champ__aide" id="fc-telephone-aide">Le plus simple pour vous rappeler.</p>
+            </div>
+            <div class="champ">
+              <label class="champ__libelle" for="fc-email">E-mail&nbsp;*</label>
+              <input id="fc-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="champ">
+              <label class="champ__libelle" for="fc-voyageurs">Nombre de voyageurs</label>
+              <select id="fc-voyageurs" name="voyageurs">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="plus-de-10">Plus de 10 — groupe, association, CE</option>
+              </select>
+            </div>
+            <div class="champ">
+              <label class="champ__libelle" for="fc-voyage">Voyage souhaité</label>
+              <select id="fc-voyage" name="voyage">
+                <option value="chine">01 — La Chine&nbsp;: escapade au pays du dragon</option>
+                <option value="pologne">02 — Pologne&nbsp;: entre capitales et héritages</option>
+                <option value="panama">03 — Le Panama&nbsp;: trait d’union des Amériques</option>
+                <option value="crete">04 — La Crète éternelle</option>
+                <option value="chateau-avesnes">Hors-série — Le Château d’Avesnes</option>
+                <option value="" selected>Je ne sais pas encore</option>
+              </select>
+            </div>
+            <div class="champ">
+              <label class="champ__libelle" for="fc-date">Date ou période souhaitée</label>
+              <input id="fc-date" name="date" type="text" aria-describedby="fc-date-aide">
+              <p class="champ__aide" id="fc-date-aide">ex. octobre 2027</p>
+            </div>
+            <div class="champ champ--plein">
+              <label class="champ__libelle" for="fc-message">Message</label>
+              <textarea id="fc-message" name="message" rows="4" aria-describedby="fc-message-aide"></textarea>
+              <p class="champ__aide" id="fc-message-aide">Vos questions, une chambre seule, une mobilité réduite, un régime alimentaire… tout ce qui nous aide à bien vous répondre.</p>
+            </div>
+            <div class="champ champ--case">
+              <label class="choix" for="fc-consentement">
+                <input id="fc-consentement" name="consentement" type="checkbox" value="oui" required>
+                <span>J’accepte que l’agence utilise ces informations pour me répondre. <a href="cookies.html">(confidentialité)</a>&nbsp;*</span>
+              </label>
+            </div>
+            <div class="champ formulaire__honey" aria-hidden="true">
+              <label for="fc-honey">Ne pas remplir</label>
+              <input id="fc-honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <input type="hidden" name="_subject" value="Carnet N° 1 — Demande via le site">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_replyto" value="">
+            <input type="hidden" name="page_source" value="">
+            <input type="hidden" name="_next" value="merci.html?envoye=1">
+            <button class="bouton bouton--principal formulaire__bouton" type="submit">Envoyer ma demande à l’agence</button>
+            <p class="formulaire__pied">Aucune réservation n’est confirmée à ce stade. Une personne de l’agence vous rappelle ou vous écrit sous deux jours ouvrés. Aucun paiement sur ce site. Pressé·e&#8239;? <a href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a>.</p>
+            <p class="formulaire__lien"><a class="lien lien-fleche" href="contact.html">Formulaire complet, adresse et plan</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="appel">
+  <a class="bouton bouton--secondaire" href="tel:+33142686806">Appeler 01&#8239;42&#8239;68&#8239;68&#8239;06</a>
+  <span class="appel__folio" aria-hidden="true"></span>
+  <a class="bouton bouton--principal" href="#demande">Demander</a>
+</div>
+
+<!-- 12. L’OURS -->
+<footer class="ours" id="ours">
+  <div class="conteneur">
+    <img class="ours__logo" src="assets/img/logo.png" alt="Voyages Loisirs by Aya" width="160" height="63">
+    <div class="ours__colonnes">
+      <section aria-labelledby="ours-editeur">
+        <h2 id="ours-editeur">Éditeur</h2>
+        <ul>
+          <li>KTS Tourisme et Voyage SARL</li>
+          <li>Aya Voyages</li>
+          <li>49 rue des Mathurins, 75008 Paris</li>
+        </ul>
+      </section>
+      <section aria-labelledby="ours-reservation">
+        <h2 id="ours-reservation">Réservation</h2>
+        <ul>
+          <li><a href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a></li>
+          <li><a href="mailto:reservation@ayavoyages.fr">reservation@ayavoyages.fr</a></li>
+          <li>[horaires à confirmer par l’agence]</li>
+        </ul>
+      </section>
+      <section aria-labelledby="ours-garanties">
+        <h2 id="ours-garanties">Garanties</h2>
+        <ul>
+          <li>Immatriculation Atout France IM075100068</li>
+          <li>Garantie financière APST</li>
+          <li>RC pro Hiscox</li>
+        </ul>
+      </section>
+      <section aria-labelledby="ours-numero">
+        <h2 id="ours-numero">Dans ce numéro</h2>
+        <ul>
+          <li><a href="voyages/chine.html">01 La Chine</a></li>
+          <li><a href="voyages/pologne.html">02 Pologne</a></li>
+          <li><a href="voyages/panama.html">03 Le Panama</a></li>
+          <li><a href="voyages/crete.html">04 La Crète</a></li>
+          <li><a href="voyages/chateau-avesnes.html">Hors-série Château d’Avesnes</a></li>
+        </ul>
+      </section>
+      <section aria-labelledby="ours-pages">
+        <h2 id="ours-pages">Pages</h2>
+        <ul>
+          <li><a href="voyages.html">Les voyages</a></li>
+          <li><a href="agence.html">L’agence</a></li>
+          <li><a href="groupes.html">Groupes, associations et CE</a></li>
+          <li><a href="avant-de-partir.html">Questions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="cookies.html">Cookies et confidentialité</a></li>
+          <li><a href="https://www.ayavoyages.com/" rel="noopener">ayavoyages.com ↗</a> (billetterie, sur-mesure, hôtels)</li>
+        </ul>
+      </section>
+      <section aria-labelledby="ours-photos">
+        <h2 id="ours-photos">Photographies et vidéos</h2>
+        <ul>
+          <li>Unsplash, Pexels (crédits sous chaque image)</li>
+        </ul>
+      </section>
+    </div>
+    <div class="ours__options">
+      <span>Options de lecture&nbsp;:</span>
+      <button type="button" data-option="texte" aria-pressed="false">Agrandir le texte</button>
+      <button type="button" data-option="animations" aria-pressed="false">Réduire les animations</button>
+    </div>
+    <p class="ours__copyright">© 2026 Voyages Loisirs by Aya — Prix «&nbsp;à partir de&nbsp;», dates et tarifs à confirmer par l’agence. Imprimé nulle part, lu partout.</p>
+  </div>
+</footer>
+
+<script src="data/site.js" defer></script>
+<script src="assets/js/carnet.js" defer></script>
+<script src="assets/js/formulaire.js" defer></script>
 </body>
 </html>

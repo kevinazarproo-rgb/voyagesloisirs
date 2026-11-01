@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <title>Voyages Loisirs by Aya</title>
+  <circle cx="16" cy="16" r="15" fill="#f47716"/>
+  <path d="M4.5 20.5 C 10 10, 22 6, 28.5 11" fill="none" stroke="#fffdf8" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M22.5 7.5 L 29.5 9.5 L 24.5 13.5 L 23.6 11 Z" fill="#102b67"/>
+</svg>

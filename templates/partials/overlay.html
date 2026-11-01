@@ -1,0 +1,25 @@
+<!-- Sommaire mobile (brief §3.1, overlay plein écran < 900 px). À placer juste après la sentinelle, avant <main>.
+     Lien courant : ajouter aria-current="page" sur le lien de la page dans .sommaire-mobile__pages.
+     Sans JavaScript : ouvert par le lien « Menu » (#sommaire-mobile, :target), fermé par le lien « Fermer » (#contenu). -->
+<div class="sommaire-mobile" id="sommaire-mobile" role="dialog" aria-modal="true" aria-label="Sommaire et navigation">
+  <button class="sommaire-mobile__fermer" type="button">Fermer</button>
+  <a class="sommaire-mobile__fermer-lien" href="#contenu">Fermer</a>
+  <p class="rubrique sommaire-mobile__rubrique sommaire-mobile__ligne">Dans ce numéro</p>
+  <ol class="sommaire-mobile__chapitres">
+    <li class="sommaire-mobile__ligne"><a href="{{root}}voyages/chine.html"><span class="numero" aria-hidden="true">01</span><span class="sr-only">Chapitre 01, </span>La Chine</a></li>
+    <li class="sommaire-mobile__ligne"><a href="{{root}}voyages/pologne.html"><span class="numero" aria-hidden="true">02</span><span class="sr-only">Chapitre 02, </span>Pologne</a></li>
+    <li class="sommaire-mobile__ligne"><a href="{{root}}voyages/panama.html"><span class="numero" aria-hidden="true">03</span><span class="sr-only">Chapitre 03, </span>Le Panama</a></li>
+    <li class="sommaire-mobile__ligne"><a href="{{root}}voyages/crete.html"><span class="numero" aria-hidden="true">04</span><span class="sr-only">Chapitre 04, </span>La Crète</a></li>
+    <li class="sommaire-mobile__ligne"><a href="{{root}}voyages/chateau-avesnes.html">Hors-série — Château d’Avesnes</a></li>
+  </ol>
+  <hr class="sommaire-mobile__filet sommaire-mobile__ligne">
+  <ul class="sommaire-mobile__pages sommaire-mobile__ligne">
+    <li><a href="{{root}}voyages.html">Les voyages</a></li>
+    <li><a href="{{root}}agence.html">L’agence</a></li>
+    <li><a href="{{root}}groupes.html">Groupes</a></li>
+    <li><a href="{{root}}avant-de-partir.html">Questions</a></li>
+    <li><a href="{{root}}contact.html">Contact</a></li>
+  </ul>
+  <a class="lien-tel sommaire-mobile__tel sommaire-mobile__ligne" href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a>
+  <p class="mono sommaire-mobile__adresse sommaire-mobile__ligne">49 rue des Mathurins, 75008 Paris · Métro Saint-Lazare, Havre-Caumartin, Opéra</p>
+</div>

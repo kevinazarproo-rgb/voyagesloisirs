@@ -1,0 +1,35 @@
+/* Contact (contact.html) — compléments de page, chargés après carnet.css.
+   Brief §7.5 : en-tête papier (barre posée), grille 5 / 7 avec téléphone géant, accès, plan schématique SVG,
+   formulaire complet, bandeau comptoir, six temps compacts. Pas de barre d’appel mobile. */
+
+/* 1. en-tête papier : composant du socle (.ouverture-papier.ouverture-papier--courte) */
+
+/* 2. colonne gauche : téléphone, e-mail, adresse, accès, plan */
+.contact__coordonnees{--pas:70ms}
+.contact__tel{font-size:var(--t-64);line-height:1.05;letter-spacing:-.02em;margin:var(--e-2) 0 var(--e-2)}
+.contact__tel .lien-tel{color:var(--encre);white-space:normal}
+.contact__horaires{font-size:var(--t-14);color:var(--graphite)}
+.contact__email{margin-top:var(--e-2);font-size:var(--t-19);overflow-wrap:anywhere}
+.contact__rubrique-comptoir{margin-top:var(--e-5)}
+.contact__adresse{font-family:var(--f-titre);font-style:normal;font-weight:500;font-size:var(--t-28);line-height:1.2;letter-spacing:-.01em;color:var(--encre);margin:var(--e-2) 0}
+.contact__acces{list-style:none;padding:0;font-size:var(--t-14);color:var(--graphite);line-height:1.75}
+.contact__maps{margin-top:var(--e-2)}
+.contact__plan{margin:var(--e-4) 0 0}
+.contact__plan .legende{margin-top:8px}
+
+/* 2 bis. plan schématique : règles dans le socle (.plan) */
+
+/* 3. colonne droite : le formulaire complet */
+.contact__titre-formulaire{font-size:var(--t-34)}
+.contact__formulaire .formulaire{margin-top:var(--e-2)}
+@media (max-width:899px){.contact__formulaire{margin-top:var(--e-6);padding-top:var(--e-5);border-top:1px solid var(--encre)}}
+
+/* 4. bandeau comptoir */
+.bandeau{padding-block:var(--e-5)}
+.bandeau__texte{font-family:var(--f-titre);font-weight:500;font-style:italic;font-size:var(--t-28);line-height:1.3;letter-spacing:-.01em;color:var(--encre);text-align:center;max-width:34ch;margin-inline:auto;font-variation-settings:"opsz" 144,"SOFT" 0}
+
+/* 5. six temps compacts : numéro et texte sur deux colonnes, pas de filet animé */
+.deroule--compact li > div{min-width:0}
+.deroule--compact h3{margin-top:6px}
+#ensuite .marge{align-self:start}
+@media (min-width:900px){#ensuite .marge{position:sticky;top:calc(var(--barre-h) + var(--e-3))}}

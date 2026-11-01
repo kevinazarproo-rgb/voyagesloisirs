@@ -1,0 +1,15 @@
+/* Merci (merci.html) — compléments de page, chargés après carnet.css.
+   Brief §7.6 : barre posée, fond papier, panneau .papier-blanc .coupe centré, tampon « REÇU » animé à l’arrivée,
+   récapitulatif lu dans sessionStorage, liens « Continuer la lecture » et « Retour à la couverture ». */
+.merci{min-height:calc(100vh - var(--barre-h));display:flex;align-items:center}
+.merci__panneau{max-width:720px;margin-inline:auto;padding:var(--e-5) var(--e-4)}
+.merci__panneau .rubrique{margin-bottom:var(--e-3)}
+.merci h1{font-size:var(--t-44);letter-spacing:-.02em;margin:var(--e-3) 0 var(--e-2);max-width:18ch}
+.merci__recap dl{font-family:var(--f-mono);font-size:var(--t-14);display:grid;grid-template-columns:auto 1fr;gap:6px var(--e-2);margin:var(--e-3) 0;padding:var(--e-2) 0;border-top:1px solid var(--sable);border-bottom:1px solid var(--sable)}
+.merci__recap dt{color:var(--graphite)}
+.merci__recap dd{margin:0}
+.merci__mention{margin-top:var(--e-2)}
+.merci__actions{margin-top:var(--e-4)}
+.merci__actions .lien{margin-top:0}
+.merci .lien-fleche::after{content:none}
+@media (max-width:599px){.merci__panneau{padding:var(--e-4) var(--e-3)}}

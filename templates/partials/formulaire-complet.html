@@ -1,0 +1,189 @@
+<!-- Formulaire complet (brief §9) — BASE des variantes --chapitre, --complet, --groupe.
+     Cette version est la variante --complet (contact.html). Les commentaires « VARIANTE » indiquent ce que chaque variante retire ou ajoute.
+
+     --complet (contact.html)  : tel quel. data-src="contact". data/trips.js chargé avant formulaire.js : le select « Date » (data-dependant)
+                                 est rempli par JS selon le voyage choisi ; sans JS il propose « Une autre période » (texte libre toujours visible).
+     --chapitre (voyages/*.html, id="demande") : classe formulaire--chapitre, data-src="chapitre Panama", data-root="../".
+                                 · Voyage : remplacer le bloc « VOYAGE » par le bloc « VOYAGE VERROUILLÉ » (select disabled + hidden + bouton « changer »).
+                                 · Date : remplacer le bloc « DATE (select) » par le bloc « DATE (radios) » avec une radio par départ réel
+                                   (value AAAA-MM-JJ du départ) + « Une autre période » ; Chine : radio « Me prévenir dès que les dates 2027 sont fixées »
+                                   (value "prevenir", cochée) + « Une autre période » ; hors-série : champ texte « Date ou période souhaitée ».
+     --groupe (groupes.html)   : classe formulaire--groupe, data-src="groupes". Champs : Nom et prénom*, Organisme, Téléphone*, E-mail*,
+                                 Nombre de participants estimé, Période souhaitée (texte), Chapitre(s) envisagé(s) (cases « chapitres »), Message, RGPD*.
+                                 · Retirer : Voyage, Date, Nombre de voyageurs, Vous êtes, Quand vous rappeler, Programme par courrier.
+                                 · Ajouter le bloc « ORGANISME », le bloc « PARTICIPANTS », le bloc « PÉRIODE » et le bloc « CHAPITRES » (en commentaire ci-dessous).
+     Préfixe des id : « f- ». -->
+<form class="formulaire formulaire--complet" method="POST" action="https://formsubmit.co/reservation@ayavoyages.fr" data-formulaire data-src="contact" data-root="{{root}}" aria-labelledby="demande-titre">
+  <p class="formulaire__resume" aria-live="polite"></p>
+
+  <div class="champ">
+    <label class="champ__libelle" for="f-nom">Nom et prénom&nbsp;*</label>
+    <input id="f-nom" name="nom" type="text" autocomplete="name" required>
+  </div>
+  <div class="champ">
+    <label class="champ__libelle" for="f-telephone">Téléphone&nbsp;*</label>
+    <input id="f-telephone" name="telephone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="f-telephone-aide">
+    <p class="champ__aide" id="f-telephone-aide">Le plus simple pour vous rappeler.</p>
+  </div>
+  <div class="champ">
+    <label class="champ__libelle" for="f-email">E-mail&nbsp;*</label>
+    <input id="f-email" name="email" type="email" autocomplete="email" required>
+  </div>
+  <div class="champ">
+    <label class="champ__libelle" for="f-voyageurs">Nombre de voyageurs</label>
+    <select id="f-voyageurs" name="voyageurs">
+      <option value="1">1</option>
+      <option value="2" selected>2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="plus-de-10">Plus de 10 — groupe, association, CE</option>
+    </select>
+  </div>
+
+  <!-- VOYAGE (variantes --complet et --court) -->
+  <div class="champ">
+    <label class="champ__libelle" for="f-voyage">Voyage souhaité</label>
+    <select id="f-voyage" name="voyage">
+      <option value="chine">01 — La Chine&nbsp;: escapade au pays du dragon</option>
+      <option value="pologne">02 — Pologne&nbsp;: entre capitales et héritages</option>
+      <option value="panama">03 — Le Panama&nbsp;: trait d’union des Amériques</option>
+      <option value="crete">04 — La Crète éternelle</option>
+      <option value="chateau-avesnes">Hors-série — Le Château d’Avesnes</option>
+      <option value="" selected>Je ne sais pas encore</option>
+    </select>
+  </div>
+  <!-- VOYAGE VERROUILLÉ (variante --chapitre) : remplace le bloc ci-dessus. Exemple pour le Panama.
+  <div class="champ">
+    <label class="champ__libelle" for="f-voyage">Voyage souhaité</label>
+    <div class="formulaire__verrou">
+      <select id="f-voyage" name="voyage" disabled aria-describedby="f-voyage-aide">
+        <option value="chine">01 — La Chine&nbsp;: escapade au pays du dragon</option>
+        <option value="pologne">02 — Pologne&nbsp;: entre capitales et héritages</option>
+        <option value="panama" selected>03 — Le Panama&nbsp;: trait d’union des Amériques</option>
+        <option value="crete">04 — La Crète éternelle</option>
+        <option value="chateau-avesnes">Hors-série — Le Château d’Avesnes</option>
+        <option value="">Je ne sais pas encore</option>
+      </select>
+      <input type="hidden" name="voyage" value="panama">
+      <button class="formulaire__changer" type="button">changer</button>
+    </div>
+    <p class="champ__aide" id="f-voyage-aide">Ce chapitre est pré-rempli.</p>
+  </div>
+  -->
+
+  <!-- DATE (select dépendant, variante --complet). Sans JS : « Une autre période » + champ texte visible. -->
+  <div class="champ">
+    <label class="champ__libelle" for="f-date">Quelle date&#8239;?</label>
+    <select id="f-date" name="date" data-dependant>
+      <option value="autre" selected>Une autre période</option>
+    </select>
+  </div>
+  <!-- DATE (radios, variante --chapitre) : remplace le bloc ci-dessus. Exemple pour le Panama.
+  <fieldset class="champ champ--radios">
+    <legend class="champ__libelle">Quelle date&#8239;?</legend>
+    <div class="choix-groupe">
+      <label class="choix" for="f-date-1"><input id="f-date-1" type="radio" name="date" value="2027-02-13" checked><span>13&nbsp;→&nbsp;22 février 2027 — 3&#8239;650&nbsp;€ par personne</span></label>
+      <label class="choix" for="f-date-2"><input id="f-date-2" type="radio" name="date" value="2027-11-13"><span>13&nbsp;→&nbsp;22 novembre 2027 — 3&#8239;500&nbsp;€ par personne</span></label>
+      <label class="choix" for="f-date-autre"><input id="f-date-autre" type="radio" name="date" value="autre"><span>Une autre période</span></label>
+    </div>
+  </fieldset>
+       Chine : <label class="choix" for="f-date-1"><input id="f-date-1" type="radio" name="date" value="prevenir" checked><span>Me prévenir dès que les dates 2027 sont fixées</span></label> + « Une autre période ».
+  -->
+  <div class="champ champ--revele champ--date-autre">
+    <label class="champ__libelle" for="f-date-autre-texte">Quelle période&#8239;? <span class="champ__optionnel">(facultatif)</span></label>
+    <input id="f-date-autre-texte" name="date_autre" type="text" aria-describedby="f-date-autre-aide">
+    <p class="champ__aide" id="f-date-autre-aide">ex. octobre 2027</p>
+  </div>
+
+  <!-- VOUS ÊTES (absent du --court et du --groupe) -->
+  <fieldset class="champ champ--radios">
+    <legend class="champ__libelle">Vous êtes</legend>
+    <div class="choix-groupe choix-groupe--ligne">
+      <label class="choix choix--ligne" for="f-profil-1"><input id="f-profil-1" type="radio" name="profil" value="Particulier" checked><span>Particulier</span></label>
+      <label class="choix choix--ligne" for="f-profil-2"><input id="f-profil-2" type="radio" name="profil" value="Association"><span>Association</span></label>
+      <label class="choix choix--ligne" for="f-profil-3"><input id="f-profil-3" type="radio" name="profil" value="Comité d’entreprise"><span>Comité d’entreprise</span></label>
+      <label class="choix choix--ligne" for="f-profil-4"><input id="f-profil-4" type="radio" name="profil" value="Groupe d’amis"><span>Groupe d’amis</span></label>
+    </div>
+  </fieldset>
+
+  <!-- QUAND VOUS RAPPELER (absent du --court et du --groupe) -->
+  <fieldset class="champ champ--radios">
+    <legend class="champ__libelle">Quand vous rappeler&#8239;?</legend>
+    <div class="choix-groupe choix-groupe--ligne">
+      <label class="choix choix--ligne" for="f-rappel-1"><input id="f-rappel-1" type="radio" name="rappel" value="Plutôt le matin"><span>Plutôt le matin</span></label>
+      <label class="choix choix--ligne" for="f-rappel-2"><input id="f-rappel-2" type="radio" name="rappel" value="Plutôt l’après-midi"><span>Plutôt l’après-midi</span></label>
+      <label class="choix choix--ligne" for="f-rappel-3"><input id="f-rappel-3" type="radio" name="rappel" value="Indifférent" checked><span>Indifférent</span></label>
+      <label class="choix choix--ligne" for="f-rappel-4"><input id="f-rappel-4" type="radio" name="rappel" value="Par e-mail uniquement"><span>Par e-mail uniquement</span></label>
+    </div>
+  </fieldset>
+
+  <!-- VARIANTE --groupe : blocs à ajouter (et retirer Voyage, Date, Voyageurs, Vous êtes, Quand vous rappeler, Courrier)
+  <div class="champ">  ORGANISME
+    <label class="champ__libelle" for="f-organisme">Organisme <span class="champ__optionnel">(association, CE, club…)</span></label>
+    <input id="f-organisme" name="organisme" type="text" autocomplete="organization">
+  </div>
+  <div class="champ">  PARTICIPANTS
+    <label class="champ__libelle" for="f-participants">Nombre de participants estimé</label>
+    <input id="f-participants" name="participants" type="text" inputmode="numeric">
+  </div>
+  <div class="champ">  PÉRIODE
+    <label class="champ__libelle" for="f-periode">Période souhaitée</label>
+    <input id="f-periode" name="date" type="text" aria-describedby="f-periode-aide">
+    <p class="champ__aide" id="f-periode-aide">ex. octobre 2027</p>
+  </div>
+  <fieldset class="champ champ--radios champ--plein">  CHAPITRES
+    <legend class="champ__libelle">Chapitre(s) envisagé(s)</legend>
+    <div class="choix-groupe choix-groupe--ligne">
+      <label class="choix choix--ligne" for="f-ch-1"><input id="f-ch-1" type="checkbox" name="chapitres" value="chine"><span>01 La Chine</span></label>
+      <label class="choix choix--ligne" for="f-ch-2"><input id="f-ch-2" type="checkbox" name="chapitres" value="pologne"><span>02 Pologne</span></label>
+      <label class="choix choix--ligne" for="f-ch-3"><input id="f-ch-3" type="checkbox" name="chapitres" value="panama"><span>03 Le Panama</span></label>
+      <label class="choix choix--ligne" for="f-ch-4"><input id="f-ch-4" type="checkbox" name="chapitres" value="crete"><span>04 La Crète</span></label>
+    </div>
+  </fieldset>
+  -->
+
+  <div class="champ champ--plein">
+    <label class="champ__libelle" for="f-message">Message</label>
+    <textarea id="f-message" name="message" rows="4" aria-describedby="f-message-aide"></textarea>
+    <p class="champ__aide" id="f-message-aide">Vos questions, une chambre seule, une mobilité réduite, un régime alimentaire… tout ce qui nous aide à bien vous répondre.</p>
+  </div>
+
+  <!-- PROGRAMME PAR COURRIER (absent du --court et du --groupe) -->
+  <div class="champ champ--case">
+    <label class="choix" for="f-courrier">
+      <input id="f-courrier" name="courrier" type="checkbox" value="oui">
+      <span>Je souhaite aussi recevoir le programme par courrier</span>
+    </label>
+  </div>
+  <div class="champ champ--plein champ--revele champ--adresse">
+    <label class="champ__libelle" for="f-adresse">Adresse postale</label>
+    <textarea id="f-adresse" name="adresse" rows="3" autocomplete="street-address"></textarea>
+  </div>
+
+  <div class="champ champ--case">
+    <label class="choix" for="f-consentement">
+      <input id="f-consentement" name="consentement" type="checkbox" value="oui" required>
+      <span>J’accepte que l’agence utilise ces informations pour me répondre. <a href="{{root}}cookies.html">(confidentialité)</a>&nbsp;*</span>
+    </label>
+  </div>
+
+  <div class="champ formulaire__honey" aria-hidden="true">
+    <label for="f-honey">Ne pas remplir</label>
+    <input id="f-honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
+  </div>
+  <input type="hidden" name="_subject" value="Carnet N° 1 — Demande via le site">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_replyto" value="">
+  <input type="hidden" name="page_source" value="">
+  <input type="hidden" name="_next" value="{{root}}merci.html?envoye=1">
+
+  <button class="bouton bouton--principal formulaire__bouton" type="submit">Envoyer ma demande à l’agence</button>
+  <p class="formulaire__pied">Aucune réservation n’est confirmée à ce stade. Une personne de l’agence vous rappelle ou vous écrit sous deux jours ouvrés. Aucun paiement sur ce site. Pressé·e&#8239;? <a href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a>.</p>
+</form>

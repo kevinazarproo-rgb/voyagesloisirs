@@ -1,0 +1,27 @@
+/* L’agence (agence.html) — compléments de page, chargés après carnet.css.
+   Brief §7.2 : ouverture 60 vh, le comptoir (7 / 5), la maison, les garanties, comment nous voyageons, exergue, courrier court. */
+
+/* 1. ouverture : 60 vh au lieu des 72 / 88 svh d’un chapitre ; la barre fondue se pose à la sentinelle */
+.ouverture--agence{min-height:max(60vh,440px)}
+@media (min-width:900px){.ouverture--agence{min-height:max(60vh,520px)}}
+.ouverture--agence .ouverture__fiche{font-family:var(--f-texte);font-style:italic;font-size:var(--t-22);line-height:1.5;color:var(--creme-sur-encre);max-width:40ch;margin-bottom:var(--e-4)}
+.ouverture--agence h1{max-width:12em}
+.ouverture--agence .legende{margin-top:var(--e-2)}
+
+/* 2. le comptoir : bloc « Venir » en mono, téléphone en Fraunces t-44 */
+.venir{display:grid;gap:var(--e-2);align-self:start;align-content:start}
+.venir p{font-family:var(--f-mono);font-size:var(--t-14);line-height:1.7;color:var(--texte)}
+.venir .lien-tel{display:inline-block;font-size:var(--t-44);line-height:1.1;letter-spacing:-.02em;color:var(--encre);margin-top:var(--e-2)}
+.comptoir-agence .photo{margin-top:var(--e-5)}
+@media (min-width:900px){.comptoir-agence .venir{position:sticky;top:calc(var(--barre-h) + var(--e-3))}}
+
+/* 4. comment nous voyageons : trois paragraphes titrés Fraunces t-28 */
+.methode{display:grid;gap:var(--e-4)}
+.methode__point h3{font-size:var(--t-28);font-weight:600;letter-spacing:-.01em;margin-bottom:var(--e-2)}
+.methode__point p{max-width:62ch}
+.methode__point + .methode__point{padding-top:var(--e-4);border-top:1px solid var(--sable)}
+
+/* 5. exergue centré sur la grille, sans section « rubrique » */
+.exergue-agence{padding-block:0}
+.exergue-agence .exergue{margin-block:var(--e-7)}
+@media (max-width:899px){.exergue-agence .exergue{margin-block:var(--e-6)}}

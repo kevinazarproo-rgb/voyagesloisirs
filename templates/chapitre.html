@@ -1,0 +1,419 @@
+{{! ==========================================================================
+    GABARIT DE CHAPITRE — Le Carnet d’itinéraires, Voyages Loisirs by Aya
+    Rendu par scripts/build-chapitres.mjs pour chaque voyage de data/trips.js
+    → voyages/<slug>.html. Variables : root (« ../ »), title, description, image,
+    canonical, jsonLd, chapitre.* (voir « preparer() » dans le script).
+    Le hors-série (chapitre.horsSerie) utilise le même gabarit en version allégée :
+    pas de journée type, pas de table, pas d’exergue, date en texte libre.
+    Le <head> reprend templates/partials/head.html (plus JSON-LD, canonical et
+    le CSS de page) ; barre, overlay, ours et scripts sont inclus par la balise
+    d’inclusion de partiel (accolades, chevron, nom du fichier).
+    ========================================================================== }}
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta name="theme-color" content="#f4efe6">
+<link rel="icon" type="image/svg+xml" href="{{root}}assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,500&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{root}}assets/css/carnet.css">
+<link rel="stylesheet" href="{{root}}assets/css/pages/chapitre.css">
+<link rel="stylesheet" href="{{root}}assets/css/print.css" media="print">
+<meta property="og:type" content="website"><meta property="og:title" content="{{title}}"><meta property="og:description" content="{{description}}"><meta property="og:image" content="{{image}}">
+{{#if canonical}}
+<link rel="canonical" href="{{canonical}}"><meta property="og:url" content="{{canonical}}">
+{{else}}
+<!-- canonical et og:url : générés par le script dès que `baseUrl` sera renseigné dans data/site.js [domaine à confirmer par l’agence] -->
+{{/if}}
+<script>document.documentElement.classList.remove('no-js');try{var s=localStorage;if(s.getItem('carnet-texte')==='1')document.documentElement.classList.add('texte-grand');if(s.getItem('carnet-motion')==='1')document.documentElement.classList.add('motion-off')}catch(e){}</script>
+<script type="application/ld+json">{{{jsonLd}}}</script>
+</head>
+<body>
+{{> barre}}
+<div class="titre-courant" aria-label="Chapitre en cours">
+  <div class="titre-courant__gauche"><a class="lien-retour" href="{{root}}voyages.html">Sommaire</a><span>{{chapitre.libelleCourt}}</span></div>
+  <p class="titre-courant__folio" data-total="{{chapitre.total}}">Jour <span class="roulement"><span>01</span></span> / {{chapitre.totalPad}}</p>
+  <div class="titre-courant__droite"><span class="titre-courant__prix">{{chapitre.prixCourt}}</span><a class="bouton bouton--principal" href="#demande">Demander ce voyage</a></div>
+</div>
+{{> overlay}}
+
+<main id="contenu" style="--papier-chapitre:{{chapitre.papier}}">
+
+  <!-- 2. OUVERTURE -->
+  <section class="ouverture coupe coupe--creme" id="ouverture" aria-labelledby="titre-chapitre" style="--fond:{{chapitre.fondVar}}" data-reveal="chargement">
+    <span class="coupe__b" aria-hidden="true"></span>
+    <figure class="photo ouverture__photo photo--developpe" data-developpe="chargement">
+      <span class="photo__cadre"><span class="voile voile--ouverture" aria-hidden="true"></span><img src="{{chapitre.ouverture.src}}" srcset="{{chapitre.ouverture.srcset}}" sizes="100vw" width="1400" height="933" fetchpriority="high" decoding="async" alt="{{chapitre.ouverture.alt}}"></span>
+    </figure>
+    <div class="conteneur ouverture__contenu">
+      <div class="ouverture__principal">
+        <nav class="ariane" aria-label="Fil d’Ariane"><ol><li><a href="{{root}}index.html">N°&nbsp;1</a></li><li><a href="{{root}}voyages.html">Les voyages</a></li><li aria-current="page">{{chapitre.libelleCourt}}</li></ol></nav>
+        <p class="ouverture__numero" aria-hidden="true">{{chapitre.numero}}</p>
+        <p class="rubrique">{{chapitre.numeroTexte}} · {{chapitre.rubrique}} · {{chapitre.pays}}</p>
+        <h1 class="lignes" id="titre-chapitre">{{#each chapitre.titreLignes}}<span class="ligne"><span class="ligne__texte">{{this}}</span></span>{{#unless @last}} {{/unless}}{{/each}}</h1>
+        <p class="ouverture__fiche">{{chapitre.ficheTechnique}}</p>
+        <div class="actions">
+          <a class="bouton bouton--principal" href="#demande">Demander ce voyage</a>
+          <a class="bouton bouton--creme" href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a>
+          <a class="imprimer" href="#" data-imprimer><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg> Imprimer le programme</a>
+        </div>
+      </div>
+      <div class="ouverture__cote"><a class="tampon tampon--encre tampon--anime" href="#dates">{{chapitre.tampon}}</a></div>
+    </div>
+  </section>
+  <div class="papier-chapitre"><p class="legende conteneur ouverture__legende">{{chapitre.ouverture.legende}}</p></div>
+
+  <!-- 3. CHAPEAU -->
+  <section class="section papier-chapitre chapeau-chapitre" id="chapeau" aria-label="Chapeau" data-reveal>
+    <div class="conteneur grille"><p class="chapeau initiale col" style="--d:2;--f:9">{{chapitre.chapeau}}</p></div>
+  </section>
+
+  <!-- 4. REPÈRES ET À SAVOIR -->
+  <section class="section papier-chapitre" id="reperes" aria-labelledby="reperes-titre" data-reveal="conteneur">
+    <div class="conteneur grille">
+      <div class="col" style="--d:2;--f:8">
+        <p class="rubrique">Avant de lire</p>
+        <h2 class="sr-only" id="reperes-titre">Repères</h2>
+        <ol class="reperes-liste">
+{{#each chapitre.reperes}}
+          <li data-reveal-enfant>{{this}}</li>
+{{/each}}
+        </ol>
+      </div>
+      <aside class="col marge marge--encadree" style="--d:9;--f:13" data-reveal-enfant>
+        <h3 class="marge__titre">À savoir</h3>
+        <p>{{chapitre.aSavoir}}</p>
+      </aside>
+    </div>
+  </section>
+{{#if chapitre.journeeType}}
+
+  <!-- 5. JOURNÉE TYPE -->
+  <section class="section papier-chapitre" id="journee-type" aria-labelledby="jt-titre" data-reveal="conteneur" data-seuil=".3">
+    <div class="conteneur grille">
+      <div class="journee-type papier-blanc coupe col" style="--d:2;--f:12">
+        <span class="coupe__b" aria-hidden="true"></span>
+        <p class="rubrique">Une journée avec nous</p>
+        <h3 id="jt-titre">Le jour {{chapitre.journeeType.jour}}, heure par heure</h3>
+        <p class="journee-type__sous">«&nbsp;{{chapitre.journeeType.titre}}&nbsp;»</p>
+        <ol class="horaire" style="--etapes:{{chapitre.journeeType.colonnes}}">
+{{#each chapitre.journeeType.etapes}}
+          <li{{#if fort}} class="est-fort"{{/if}} data-reveal-enfant><span class="horaire__h">{{h}}</span><span class="horaire__t">{{t}}</span></li>
+{{/each}}
+        </ol>
+        <p class="note journee-type__note">Horaires donnés à titre indicatif, confirmés dans le programme définitif remis avant le départ.</p>
+        <p class="non-faire"><strong>Ce que vous n’avez pas à faire.</strong> Chercher le bus. Acheter les billets. Traduire le menu. Porter votre valise entre l’autocar et l’hôtel.</p>
+      </div>
+    </div>
+  </section>
+{{/if}}
+
+  <!-- 6. LE RÉCIT, JOUR PAR JOUR -->
+  <section class="section papier-chapitre recit" id="recit" aria-labelledby="recit-titre" data-total="{{chapitre.total}}">
+    <div class="conteneur">
+      <div class="recit__intro" data-reveal>
+        <p class="rubrique">Le récit</p>
+        <h2 class="titre-section" id="recit-titre">{{chapitre.recitTitre}}</h2>
+      </div>
+{{#each chapitre.jours}}
+      <article class="jour{{#if sobre}} jour--sobre{{/if}}" id="jour-{{jour}}" data-jour="{{jour}}"{{#unless sobre}} data-reveal{{/unless}}>
+        <div class="jour__folio"><p class="folio">{{folio}}</p><p class="jour__lieu">{{lieu}}</p></div>
+        <div class="jour__fil">{{#unless sobre}}<span class="fil" aria-hidden="true"></span>{{/unless}}</div>
+        <div class="jour__corps"><h3>{{intertitre}}</h3><div class="jour__texte"><p>{{texte}}</p></div></div>
+{{#if notes}}
+        <div class="jour__notes">{{#each notes}}<aside class="marge">{{this}}</aside>{{/each}}</div>
+{{/if}}
+      </article>
+{{#each photos}}
+{{#if src}}
+      <figure class="photo photo--16-9 photo--developpe" data-parallaxe style="--fond:{{fond}}"{{#if media}} data-media="{{media}}"{{/if}}>
+        <span class="photo__cadre coupe">
+          <span class="coupe__b" aria-hidden="true"></span>
+          <img src="{{src}}" srcset="{{srcset}}" sizes="(min-width: 900px) 900px, 100vw" width="1400" height="788" loading="lazy" decoding="async" alt="{{alt}}">
+        </span>
+        <figcaption class="legende">{{legende}}</figcaption>
+      </figure>
+{{else}}
+      <figure class="photo photo--16-9" style="--fond:{{fond}}" data-media="{{media}}">
+        <span class="photo__cadre coupe"><span class="coupe__b" aria-hidden="true"></span></span>
+        <figcaption class="legende">{{legende}}</figcaption>
+      </figure>
+{{/if}}
+{{/each}}
+{{#if exergue}}
+      <p class="exergue">{{exergue}}</p>
+{{/if}}
+{{/each}}
+    </div>
+  </section>
+
+  <!-- 8. LE PRIX -->
+  <section class="section section--filet-haut" id="prix" aria-labelledby="prix-titre" data-reveal="conteneur">
+    <div class="conteneur">
+      <p class="rubrique">Le prix</p>
+      <h2 class="titre-section" id="prix-titre">Ce que comprend le prix, et ce qu’il ne comprend pas</h2>
+      <div class="prix-cadre">
+        <div data-reveal-enfant>
+          <h3>Ce que comprend le prix</h3>
+          <ul class="prix-liste prix-liste--compris">
+{{#each chapitre.included}}
+            <li>{{this}}</li>
+{{/each}}
+          </ul>
+        </div>
+        <div data-reveal-enfant>
+          <h3>Ce qu’il ne comprend pas</h3>
+          <ul class="prix-liste prix-liste--non">
+{{#each chapitre.excluded}}
+            <li>{{this}}</li>
+{{/each}}
+          </ul>
+{{#if chapitre.forfait}}
+          <aside class="marge" style="margin-top:var(--e-3)">Nous préférons écrire le forfait ici plutôt que vous l’annoncer à l’aéroport. Son détail exact figure sur la proposition écrite.</aside>
+{{/if}}
+        </div>
+      </div>
+      <p class="prix__pied">Le devis fait foi.</p>
+    </div>
+  </section>
+
+  <!-- 9. DATES ET PRIX -->
+  <section class="section" id="dates" aria-labelledby="dates-titre" data-reveal="conteneur">
+    <div class="conteneur">
+      <p class="rubrique">Dates et prix</p>
+      <h2 class="titre-section" id="dates-titre">{{chapitre.datesTitre}}</h2>
+{{#if chapitre.departures}}
+      <div data-reveal-enfant>
+        <table class="dates">
+          <caption class="sr-only">{{chapitre.datesCaption}}</caption>
+          <thead><tr><th scope="col">Départ</th><th scope="col">Retour</th><th scope="col">Prix par personne</th><th scope="col">Chambre seule</th><th scope="col">Places</th><th scope="col"><span class="sr-only">Demander</span></th></tr></thead>
+          <tbody>
+{{#each chapitre.departures}}
+            <tr>
+              <td data-libelle="Départ">{{from}}</td><td data-libelle="Retour">{{to}}</td><td data-libelle="Prix par personne">{{prixTexte}}</td><td data-libelle="Chambre seule">{{singleTexte}}</td><td data-libelle="Places">sur demande</td>
+              <td><a class="bouton bouton--secondaire" href="#demande" data-date="{{iso}}">Demander cette date</a></td>
+            </tr>
+{{/each}}
+          </tbody>
+        </table>
+        <p class="mention dates__mention">Prix à partir de, par personne en chambre double, au départ de Paris, à partir de dix participants. Confirmés par l’agence avant tout engagement. Aucun paiement sur ce site.</p>
+      </div>
+{{else}}
+      <div class="papier-blanc coupe dates__encadre" data-reveal-enfant>
+        <span class="coupe__b" aria-hidden="true"></span>
+        <div class="dates__encadre-contenu">
+          <p>{{chapitre.datesEncadre}}</p>
+          <p class="actions"><a class="bouton bouton--principal" href="#demande">{{chapitre.encadreBouton}}</a><a class="bouton bouton--secondaire" href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a></p>
+        </div>
+      </div>
+      <p class="mention dates__mention">Aucun paiement sur ce site&nbsp;: l’agence vous confirme tout par écrit avant tout engagement.</p>
+{{/if}}
+    </div>
+  </section>
+
+  <!-- 10. DEMANDER CE VOYAGE -->
+  <section class="section section--filet-haut demande" id="demande" aria-labelledby="demande-titre" data-reveal="conteneur">
+    <div class="conteneur">
+      <p class="rubrique">Courrier</p>
+      <h2 class="titre-section" id="demande-titre">Demander ce voyage</h2>
+      <p class="chapeau" style="margin-bottom:var(--e-5)">Nous vous rappelons, nous parlons du voyage, puis nous vous envoyons le programme. Rien n’est engagé à ce stade.</p>
+      <div class="grille">
+        <div class="col demande__encart" style="--d:1;--f:5" data-reveal-enfant>
+          <p class="demande__tel">Vous préférez en parler&#8239;? <a class="lien-tel" href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a></p>
+          <div class="marge--encadree">
+            <h3 class="marge__titre">Ce que nous ferons de votre demande</h3>
+            <ol class="liste-num">
+              <li>Nous vérifions les places.</li>
+              <li>Nous vous rappelons.</li>
+              <li>Vous décidez.</li>
+            </ol>
+          </div>
+{{#if chapitre.notesComptoir}}
+          <aside class="marge--encadree notes-comptoir" aria-labelledby="notes-comptoir-titre">
+            <h3 class="marge__titre" id="notes-comptoir-titre">Notes de comptoir</h3>
+            <ul>
+{{#each chapitre.notesComptoir}}
+              <li>{{this}}</li>
+{{/each}}
+            </ul>
+          </aside>
+{{/if}}
+        </div>
+        <div class="col" style="--d:6;--f:13" data-reveal-enfant>
+          <form class="formulaire formulaire--chapitre" method="POST" action="https://formsubmit.co/reservation@ayavoyages.fr" data-formulaire data-src="{{chapitre.src}}" data-root="{{root}}" aria-labelledby="demande-titre">
+            <p class="formulaire__resume" aria-live="polite"></p>
+            <div class="champ">
+              <label class="champ__libelle" for="f-nom">Nom et prénom&nbsp;*</label>
+              <input id="f-nom" name="nom" type="text" autocomplete="name" required>
+            </div>
+            <div class="champ">
+              <label class="champ__libelle" for="f-telephone">Téléphone&nbsp;*</label>
+              <input id="f-telephone" name="telephone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="f-telephone-aide">
+              <p class="champ__aide" id="f-telephone-aide">Le plus simple pour vous rappeler.</p>
+            </div>
+            <div class="champ">
+              <label class="champ__libelle" for="f-email">E-mail&nbsp;*</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="champ">
+              <label class="champ__libelle" for="f-voyageurs">Nombre de voyageurs</label>
+              <select id="f-voyageurs" name="voyageurs">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="plus-de-10">Plus de 10 — groupe, association, CE</option>
+              </select>
+            </div>
+            <div class="champ">
+              <label class="champ__libelle" for="f-voyage">Voyage souhaité</label>
+              <div class="formulaire__verrou">
+                <select id="f-voyage" name="voyage" disabled aria-describedby="f-voyage-aide">
+{{#each chapitre.voyagesOptions}}
+                  <option value="{{slug}}"{{#if courant}} selected{{/if}}>{{libelle}}</option>
+{{/each}}
+                  <option value="">Je ne sais pas encore</option>
+                </select>
+                <input type="hidden" name="voyage" value="{{chapitre.slug}}">
+                <button class="formulaire__changer" type="button">changer</button>
+              </div>
+              <p class="champ__aide" id="f-voyage-aide">Ce chapitre est pré-rempli.</p>
+            </div>
+{{#if chapitre.horsSerie}}
+            <div class="champ">
+              <label class="champ__libelle" for="f-date">Date ou période souhaitée</label>
+              <input id="f-date" name="date" type="text" aria-describedby="f-date-aide">
+              <p class="champ__aide" id="f-date-aide">ex. un week-end de mai 2027</p>
+            </div>
+{{else}}
+            <fieldset class="champ champ--radios">
+              <legend class="champ__libelle">Quelle date&#8239;?</legend>
+              <div class="choix-groupe">
+{{#each chapitre.departures}}
+                <label class="choix" for="f-date-{{@num}}"><input id="f-date-{{@num}}" type="radio" name="date" value="{{iso}}"{{#if @first}} checked{{/if}}><span>{{libelle}}</span></label>
+{{else}}
+                <label class="choix" for="f-date-prevenir"><input id="f-date-prevenir" type="radio" name="date" value="prevenir" checked><span>Me prévenir dès que les dates 2027 sont fixées</span></label>
+{{/each}}
+                <label class="choix" for="f-date-autre"><input id="f-date-autre" type="radio" name="date" value="autre"><span>Une autre période</span></label>
+              </div>
+            </fieldset>
+            <div class="champ champ--revele champ--date-autre">
+              <label class="champ__libelle" for="f-date-autre-texte">Quelle période&#8239;? <span class="champ__optionnel">(facultatif)</span></label>
+              <input id="f-date-autre-texte" name="date_autre" type="text" aria-describedby="f-date-autre-aide">
+              <p class="champ__aide" id="f-date-autre-aide">ex. octobre 2027</p>
+            </div>
+{{/if}}
+            <fieldset class="champ champ--radios">
+              <legend class="champ__libelle">Vous êtes</legend>
+              <div class="choix-groupe choix-groupe--ligne">
+                <label class="choix choix--ligne" for="f-profil-1"><input id="f-profil-1" type="radio" name="profil" value="Particulier" checked><span>Particulier</span></label>
+                <label class="choix choix--ligne" for="f-profil-2"><input id="f-profil-2" type="radio" name="profil" value="Association"><span>Association</span></label>
+                <label class="choix choix--ligne" for="f-profil-3"><input id="f-profil-3" type="radio" name="profil" value="Comité d’entreprise"><span>Comité d’entreprise</span></label>
+                <label class="choix choix--ligne" for="f-profil-4"><input id="f-profil-4" type="radio" name="profil" value="Groupe d’amis"><span>Groupe d’amis</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="champ champ--radios">
+              <legend class="champ__libelle">Quand vous rappeler&#8239;?</legend>
+              <div class="choix-groupe choix-groupe--ligne">
+                <label class="choix choix--ligne" for="f-rappel-1"><input id="f-rappel-1" type="radio" name="rappel" value="Plutôt le matin"><span>Plutôt le matin</span></label>
+                <label class="choix choix--ligne" for="f-rappel-2"><input id="f-rappel-2" type="radio" name="rappel" value="Plutôt l’après-midi"><span>Plutôt l’après-midi</span></label>
+                <label class="choix choix--ligne" for="f-rappel-3"><input id="f-rappel-3" type="radio" name="rappel" value="Indifférent" checked><span>Indifférent</span></label>
+                <label class="choix choix--ligne" for="f-rappel-4"><input id="f-rappel-4" type="radio" name="rappel" value="Par e-mail uniquement"><span>Par e-mail uniquement</span></label>
+              </div>
+            </fieldset>
+            <div class="champ champ--plein">
+              <label class="champ__libelle" for="f-message">Message</label>
+              <textarea id="f-message" name="message" rows="4" aria-describedby="f-message-aide"></textarea>
+              <p class="champ__aide" id="f-message-aide">Vos questions, une chambre seule, une mobilité réduite, un régime alimentaire… tout ce qui nous aide à bien vous répondre.</p>
+            </div>
+            <div class="champ champ--case">
+              <label class="choix" for="f-courrier">
+                <input id="f-courrier" name="courrier" type="checkbox" value="oui">
+                <span>Je souhaite aussi recevoir le programme par courrier</span>
+              </label>
+            </div>
+            <div class="champ champ--plein champ--revele champ--adresse">
+              <label class="champ__libelle" for="f-adresse">Adresse postale</label>
+              <textarea id="f-adresse" name="adresse" rows="3" autocomplete="street-address"></textarea>
+            </div>
+            <div class="champ champ--case">
+              <label class="choix" for="f-consentement">
+                <input id="f-consentement" name="consentement" type="checkbox" value="oui" required>
+                <span>J’accepte que l’agence utilise ces informations pour me répondre. <a href="{{root}}cookies.html">(confidentialité)</a>&nbsp;*</span>
+              </label>
+            </div>
+            <div class="champ formulaire__honey" aria-hidden="true">
+              <label for="f-honey">Ne pas remplir</label>
+              <input id="f-honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <input type="hidden" name="_subject" value="Carnet N° 1 — Demande via le site">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_replyto" value="">
+            <input type="hidden" name="page_source" value="">
+            <input type="hidden" name="_next" value="{{root}}merci.html?envoye=1">
+            <button class="bouton bouton--principal formulaire__bouton" type="submit">Envoyer ma demande à l’agence</button>
+            <p class="formulaire__pied">Aucune réservation n’est confirmée à ce stade. Une personne de l’agence vous rappelle ou vous écrit sous deux jours ouvrés. Aucun paiement sur ce site. Pressé·e&#8239;? <a href="tel:+33142686806">01&#8239;42&#8239;68&#8239;68&#8239;06</a>.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. QUESTIONS SUR CE CHAPITRE -->
+  <section class="section section--filet-haut questions" id="questions" aria-labelledby="q-titre" data-reveal="conteneur">
+    <div class="conteneur">
+      <p class="rubrique">Questions sur ce chapitre</p>
+      <h2 class="titre-section" id="q-titre">Ce qu’on nous demande sur ce chapitre</h2>
+{{#each chapitre.faq}}
+      <details data-reveal-enfant>
+        <summary>{{q}}</summary>
+        <div class="details__contenu"><div><p>{{r}}</p></div></div>
+      </details>
+{{/each}}
+      <p style="margin-top:var(--e-4)" data-reveal-enfant><a class="lien lien-fleche" href="{{root}}avant-de-partir.html">Toutes les questions fréquentes</a></p>
+    </div>
+  </section>
+
+  <!-- 12. CHAPITRE SUIVANT -->
+  <section id="suivant" aria-label="{{chapitre.suivant.ariaSection}}">
+    <a class="suivant" href="{{chapitre.suivant.href}}" style="--fond:{{chapitre.suivant.fond}}">
+      <img src="{{chapitre.suivant.src}}" srcset="{{chapitre.suivant.srcset}}" sizes="100vw" alt="" loading="lazy" decoding="async" width="1400" height="933">
+      <span class="voile" aria-hidden="true"></span>
+      <div class="suivant__contenu"><p class="rubrique">{{chapitre.suivant.rubrique}}</p><p class="suivant__titre">{{chapitre.suivant.titre}} →</p></div>
+    </a>
+    <a class="suivant__precedent lien-retour" href="{{chapitre.precedent.href}}">{{chapitre.precedent.texte}}</a>
+  </section>
+{{#if chapitre.pagination}}
+
+  <!-- 7. PAGINATION LATÉRALE (≥ 1100 px) -->
+  <nav class="pagination" aria-label="Aller à un jour"><ol>
+{{#each chapitre.jours}}
+    <li><a href="#jour-{{jour}}" data-libelle="J{{jour}}" aria-label="Jour {{jour}}"></a></li>
+{{/each}}
+  </ol></nav>
+{{/if}}
+</main>
+
+<div class="appel">
+  <a class="bouton bouton--secondaire" href="tel:+33142686806">Appeler 01&#8239;42&#8239;68&#8239;68&#8239;06</a>
+  <span class="appel__folio" aria-hidden="true"></span>
+  <a class="bouton bouton--principal" href="#demande">{{chapitre.appelLibelle}}</a>
+</div>
+
+<!-- 13. L’OURS -->
+{{> ours}}
+
+{{> scripts}}
+</body>
+</html>

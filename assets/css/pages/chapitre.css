@@ -1,0 +1,26 @@
+/* ==========================================================================
+   LE CARNET D’ITINÉRAIRES — chapitre.css
+   Compléments propres aux pages voyages/<slug>.html, chargé après carnet.css.
+   Tout ce qui est générique (ouverture, récit, titre courant, table des dates,
+   formulaire, chapitre suivant…) vient du socle ; on n’ajoute ici que ce qu’il
+   ne couvre pas.
+   ========================================================================== */
+
+/* Légende de la photo d’ouverture : collée sous la photo, sur le papier du chapitre */
+.ouverture__legende{padding-top:var(--e-2);margin-top:0}
+
+/* Journée type : le titre de la journée (« La Muraille, côté calme ») sous « Le jour 4, heure par heure » */
+.journee-type__sous{font-family:var(--f-mono);font-size:var(--t-13);color:var(--graphite);margin:calc(-1*var(--e-3)) 0 var(--e-4)}
+/* Le temps fort (texte long, en gras) occupe deux colonnes de la frise horizontale (--etapes compte cette colonne en plus) */
+@media (min-width:900px){.horaire li.est-fort{grid-column:span 2}}
+
+/* Dates sans table (Chine : dates en préparation ; hors-série : sur demande) : encadré papier blanc à traits de coupe */
+.dates__encadre-contenu{padding:var(--e-4) var(--e-3);max-width:62ch}
+.dates__encadre-contenu p{font-size:var(--t-19)}
+.dates__encadre-contenu .actions{margin-top:var(--e-3)}
+@media (min-width:900px){.dates__encadre-contenu{padding:var(--e-5)}}
+
+/* Notes de comptoir (données notesComptoir), à côté du formulaire */
+.notes-comptoir ul{list-style:none}
+.notes-comptoir li{padding:10px 0;border-top:1px solid var(--sable);font-size:var(--t-15);line-height:1.5}
+.notes-comptoir li:first-child{border-top:0;padding-top:0}

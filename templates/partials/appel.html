@@ -1,0 +1,9 @@
+<!-- Barre d’appel mobile (brief §3.1, < 900 px). Toutes les pages sauf contact.html et merci.html.
+     À placer après </main> (avant l’ours).
+     {{demande}} : "#demande" si la page a un formulaire, sinon "{{root}}contact.html".
+     Chapitres : remplacer « Demander » par « Demander · dès 3&#8239;500&nbsp;€ » ; le folio « J4 / 10 » est écrit par carnet.js dans .appel__folio. -->
+<div class="appel">
+  <a class="bouton bouton--secondaire" href="tel:+33142686806">Appeler 01&#8239;42&#8239;68&#8239;68&#8239;06</a>
+  <span class="appel__folio" aria-hidden="true"></span>
+  <a class="bouton bouton--principal" href="{{demande}}">Demander</a>
+</div>
