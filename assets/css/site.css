@@ -481,3 +481,25 @@ main{overflow-x:clip}
 }
 .diapo{background:#0c1d45}
 .js .diapo.is-active img{animation:none}
+
+/* accueil : bloc « Demande d’information » compact (tient dans un écran d’ordinateur) */
+.demande-compacte{padding:56px 0}
+.demande-compacte .duo{gap:36px;align-items:center}
+@media (min-width:960px){.demande-compacte .duo{grid-template-columns:.8fr 1.2fr;gap:56px}}
+.demande-compacte .titre{font-size:clamp(30px,3.4vw,42px)}
+.demande-compacte .duo > div:first-child > p{font-size:15px;margin-top:12px!important}
+.demande-compacte .infos{gap:10px;margin-top:18px!important}
+.demande-compacte .info{padding:12px 14px;gap:12px;align-items:center}
+.demande-compacte .info__ico{width:38px;height:38px}
+.demande-compacte .info h3{font-size:14px}
+.demande-compacte .info p{font-size:14px}
+.demande-compacte .carte-form{padding:24px 28px}
+.demande-compacte .carte-form h2{font-size:24px;margin-bottom:2px}
+.demande-compacte .carte-form > p{margin-bottom:14px;font-size:14px}
+.demande-compacte .formulaire{gap:10px 14px}
+.demande-compacte .champ label{font-size:13px;margin-bottom:4px}
+.demande-compacte .champ input,.demande-compacte .champ select{min-height:42px;padding:8px 14px;font-size:15px}
+.demande-compacte .champ textarea{min-height:70px;padding:8px 14px;font-size:15px}
+.demande-compacte .case{font-size:13px}
+.demande-compacte .btn{min-height:46px}
+.demande-compacte .formulaire > p.plein{display:none}

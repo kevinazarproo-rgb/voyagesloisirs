@@ -371,7 +371,7 @@ function accueil() {
   </div>
 </section>
 
-<section class="section" id="demande" aria-labelledby="demande-titre">
+<section class="section demande-compacte" id="demande" aria-labelledby="demande-titre">
   <div class="conteneur duo">
     <div data-anim="gauche">
       <span class="surtitre">Demande d’information</span>
