@@ -352,23 +352,10 @@ function accueil() {
   </div>
 </section>
 
-<section class="section section--blanc" aria-labelledby="agence-titre">
-  <div class="conteneur duo">
-    <div class="duo__texte" data-anim="gauche">
-      <span class="surtitre">Notre agence</span>
-      <h2 class="titre" id="agence-titre">Un voyage bien accompagné</h2>
-      <p style="margin-top:18px">Une vraie agence de quartier, rue des Mathurins, entre la gare Saint-Lazare et l’Opéra. Nous préférons connaître l’hôtel, le guide et l’heure du train plutôt que tout vendre : peu de voyages, mais préparés dans le moindre détail.</p>
-      <div class="chiffres">
-        <div class="chiffre"><strong>10</strong><span>voyageurs minimum par départ</span></div>
-        <div class="chiffre"><strong>1</strong><span>guide francophone du début à la fin</span></div>
-        <div class="chiffre"><strong>0 €</strong><span>payé en ligne : tout se fait avec nous</span></div>
-      </div>
-      <a class="btn btn--contour-marine" href="agence.html">Découvrir l’agence ${ico('arrow', 'icone--fleche')}</a>
-    </div>
-    <div data-anim="droite">
-      <h3 style="font-size:26px;margin-bottom:18px">Vos questions fréquentes</h3>
-      ${faq(FAQ_ACCUEIL)}
-    </div>
+<section class="section section--blanc" aria-labelledby="faq-titre">
+  <div class="conteneur" style="max-width:820px">
+    <div class="entete" data-anim><span class="surtitre">Questions fréquentes</span><h2 class="titre" id="faq-titre">Vos <em>questions</em></h2>${trait}</div>
+    <div data-anim>${faq(FAQ_ACCUEIL)}</div>
   </div>
 </section>
 
