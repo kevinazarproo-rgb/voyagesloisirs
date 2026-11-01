@@ -808,3 +808,52 @@ html.texte-grand{font-size:112.5%}
 html.texte-grand .barre__nav{gap:var(--e-2)}
 html.texte-grand .barre__numero{display:none}
 @media (min-width:900px) and (max-width:1199px){html.texte-grand .barre__nav a{font-size:1rem}}
+
+/* ===================================================================
+   TÉLÉPHONE — version allégée (< 700 px)
+   Moins de cadres, moins de mentions techniques, moins de sections :
+   l’essentiel (les voyages, les prix, les dates, appeler, demander).
+   =================================================================== */
+@media (max-width:699px){
+  /* moins de « carrés » : pas de traits de coupe ni d’encadrés */
+  .coupe::before,.coupe::after,.coupe__b::before,.coupe__b::after{display:none}
+  .coupe{padding:0}
+  .marge--encadree{border:0;padding:0;background:none}
+  /* moins de petites lignes techniques */
+  .legende,.marge,.jour__notes,.notes-comptoir,.mention,.note,.sommaire__rubrique,.sommaire__vignette,.sommaire .conduite,.lexique__cat{display:none}
+  .marge--encadree.marge{display:block}
+
+  /* accueil : couverture plus courte, titre visible dès le premier écran */
+  .couverture{min-height:0}
+  .couverture__sur,.couverture__bas{display:none}
+  .couverture__photo .photo__cadre{min-height:34svh}
+  .couverture__numero{font-size:var(--t-56);margin-bottom:var(--e-2)}
+  .couverture__texte{padding:var(--e-4) 0 var(--e-5)}
+  /* accueil : sections réservées à l’ordinateur */
+  .edito__colonnes,#en-une,#calendrier,#lexique,#deroule,.comptoir .photo{display:none}
+  #courrier-des-lecteurs .echange:nth-of-type(n+4){display:none}
+  #courrier-des-lecteurs .chapeau{display:none}
+  .demande .chapeau{display:none}
+  .entracte .photo{display:none}
+
+  /* pied de page : l’essentiel seulement */
+  .ours section[aria-labelledby="ours-editeur"],
+  .ours section[aria-labelledby="ours-garanties"],
+  .ours section[aria-labelledby="ours-numero"],
+  .ours section[aria-labelledby="ours-photos"]{display:none}
+  .ours__colonnes{grid-template-columns:1fr}
+
+  /* titre de couverture : retour à la ligne naturel (pas de coupures forcées) */
+  .couverture__titre{font-size:var(--t-28)}
+  .couverture__titre .ligne{display:inline;overflow:visible!important}
+  .couverture__titre .ligne__texte{transform:none!important}
+  /* formulaire : seulement les champs utiles pour être rappelé */
+  .formulaire .champ:has(#fc-voyageurs),.formulaire .champ:has(#fc-date),.champ__aide,.formulaire__pied{display:none}
+  .comptoir .mesure{display:none}
+
+  /* pages des voyages : le récit, le prix, les dates, la demande */
+  #journee-type,.imprimer,.appel__folio,.filtre-periode{display:none}
+  .prix-cadre,.prix-cadre *{border:0!important}
+  .prix-cadre{padding:0!important}
+  .formulaire .champ:has(#f-voyageurs),.formulaire .champ:has([name="profil"]),.formulaire .champ:has([name="rappel"]),.formulaire .champ:has(#f-courrier),.formulaire .champ:has(#fg-voyageurs){display:none}
+}
