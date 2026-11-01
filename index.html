@@ -22,9 +22,7 @@
 <header class="barre">
   <div class="conteneur barre__in">
     <div class="barre__gauche">
-      <a class="pastille" href="tel:+33142686806" aria-label="Appeler l’agence au 01 42 68 68 06"><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></a>
-      <a class="pastille" href="mailto:reservation@ayavoyages.fr" aria-label="Écrire à l’agence"><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
-      <a class="barre__numero" href="tel:+33142686806">01 42 68 68 06</a>
+      <a class="pastille" href="https://www.instagram.com/ayavoyages/" rel="noopener" target="_blank" aria-label="Aya Voyages sur Instagram"><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a class="pastille" href="https://www.linkedin.com/showcase/aya-voyages/" rel="noopener" target="_blank" aria-label="Aya Voyages sur LinkedIn"><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
     </div>
     <a class="barre__logo" href="index.html" aria-label="Voyages Loisirs by Aya — accueil"><img src="assets/img/logo-light.png" alt="Voyages Loisirs by Aya" width="900" height="354"></a>
     <nav class="barre__nav" aria-label="Navigation principale">
@@ -54,14 +52,38 @@
   <div class="menu-mobile__bas">
     <a class="btn btn--orange" href="tel:+33142686806"><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg> Appeler le 01 42 68 68 06</a>
     <a class="btn btn--contour" href="contact.html" data-rappel>Être rappelé</a>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:6px"><a class="pastille" href="https://www.instagram.com/ayavoyages/" rel="noopener" target="_blank" aria-label="Aya Voyages sur Instagram"><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a class="pastille" href="https://www.linkedin.com/showcase/aya-voyages/" rel="noopener" target="_blank" aria-label="Aya Voyages sur LinkedIn"><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div>
   </div>
 </div>
 <main id="contenu">
 
 <section class="heros" aria-labelledby="heros-titre">
-  <div class="heros__media">
-    <img src="https://images.pexels.com/videos/10745869/kapadokya-turkiye-10745869.jpeg?auto=compress&dpr=1&h=1080&w=1920" alt="" fetchpriority="high">
-    <video muted loop playsinline preload="none" poster="https://images.pexels.com/videos/10745869/kapadokya-turkiye-10745869.jpeg?auto=compress&dpr=1&h=1080&w=1920" data-src="https://videos.pexels.com/video-files/10745869/10745869-hd_1920_1080_25fps.mp4" aria-hidden="true" style="opacity:0;transition:opacity 1s"></video>
+  <div class="heros__media" data-diaporama>
+    <figure class="diapo is-active">
+      <img src="https://images.pexels.com/videos/10745869/kapadokya-turkiye-10745869.jpeg?auto=compress&dpr=1&h=1080&w=1920" alt="" fetchpriority="high">
+      <video muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/10745869/10745869-hd_1920_1080_25fps.mp4" aria-hidden="true"></video>
+      <figcaption><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Cappadoce, Turquie</figcaption>
+    </figure><figure class="diapo">
+      <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1920&q=75" alt="" loading="lazy">
+      
+      <figcaption><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Grande Muraille, Chine</figcaption>
+    </figure><figure class="diapo">
+      <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1920&q=75" alt="" loading="lazy">
+      
+      <figcaption><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Côte crétoise, Grèce</figcaption>
+    </figure><figure class="diapo">
+      <img src="https://images.unsplash.com/photo-1519197924294-4ba991a11128?auto=format&fit=crop&w=1920&q=75" alt="" loading="lazy">
+      
+      <figcaption><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Cracovie, Pologne</figcaption>
+    </figure><figure class="diapo">
+      <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1920&q=75" alt="" loading="lazy">
+      
+      <figcaption><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Panama</figcaption>
+    </figure><figure class="diapo">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=75" alt="" loading="lazy">
+      <video muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/8349318/8349318-hd_1920_1080_25fps.mp4" aria-hidden="true"></video>
+      <figcaption><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Entre mer et montagnes</figcaption>
+    </figure>
   </div>
   <div class="conteneur heros__contenu">
     <h1 class="heros__titre" id="heros-titre">Prenez le temps de voir le monde</h1>
@@ -71,7 +93,6 @@
       <a class="btn btn--contour btn--maj" href="contact.html" data-rappel>Être rappelé</a>
     </div>
   </div>
-  <a class="heros__bas" href="#destinations" aria-label="Voir les destinations"><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></a>
   <div class="atouts">
     <ul class="conteneur">
       <li><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg> Circuits accompagnés en petits groupes</li>
@@ -221,6 +242,7 @@
       <div>
         <img src="assets/img/logo-light.png" alt="Voyages Loisirs by Aya" width="900" height="354" loading="lazy">
         <p>Des circuits accompagnés en petits groupes, avec un guide francophone, préparés par une agence parisienne de la rue des Mathurins.</p>
+        <div style="display:flex;gap:10px"><a class="pastille" href="https://www.instagram.com/ayavoyages/" rel="noopener" target="_blank" aria-label="Aya Voyages sur Instagram"><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a class="pastille" href="https://www.linkedin.com/showcase/aya-voyages/" rel="noopener" target="_blank" aria-label="Aya Voyages sur LinkedIn"><svg class="icone " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div>
       </div>
       <div>
         <h2>Nous joindre</h2>

@@ -21,6 +21,14 @@ const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 
 const maj = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ---------------- photos ---------------- */
+const HEROS = [
+  { lieu: 'Cappadoce, Turquie', img: 'https://images.pexels.com/videos/10745869/kapadokya-turkiye-10745869.jpeg?auto=compress&dpr=1&h=1080&w=1920', video: 'https://videos.pexels.com/video-files/10745869/10745869-hd_1920_1080_25fps.mp4' },
+  { lieu: 'Grande Muraille, Chine', img: unsplash('photo-1508804185872-d7badad00f7d', 1920) },
+  { lieu: 'Côte crétoise, Grèce', img: unsplash('photo-1533105079780-92b9be482077', 1920) },
+  { lieu: 'Cracovie, Pologne', img: unsplash('photo-1519197924294-4ba991a11128', 1920) },
+  { lieu: 'Panama', img: unsplash('photo-1518509562904-e7ef99cdcc86', 1920) },
+  { lieu: 'Entre mer et montagnes', img: unsplash('photo-1464822759023-fed622ff2c3b', 1920), video: 'https://videos.pexels.com/video-files/8349318/8349318-hd_1920_1080_25fps.mp4' },
+];
 const PHOTOS = {
   herosAffiche: 'https://images.pexels.com/videos/10745869/kapadokya-turkiye-10745869.jpeg?auto=compress&dpr=1&h=1080&w=1920',
   herosVideo: 'https://videos.pexels.com/video-files/10745869/10745869-hd_1920_1080_25fps.mp4',
@@ -58,6 +66,11 @@ const P = {
   heart: '<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/>',
   print: '<path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>',
 };
+P.instagram = '<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/>';
+P.linkedin = '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>';
+const INSTAGRAM = 'https://www.instagram.com/ayavoyages/';
+const LINKEDIN = 'https://www.linkedin.com/showcase/aya-voyages/';
+const reseaux = (cls = 'pastille') => `<a class="${cls}" href="${INSTAGRAM}" rel="noopener" target="_blank" aria-label="Aya Voyages sur Instagram">${ico('instagram')}</a><a class="${cls}" href="${LINKEDIN}" rel="noopener" target="_blank" aria-label="Aya Voyages sur LinkedIn">${ico('linkedin')}</a>`;
 const ico = (n, cls = '') => `<svg class="icone ${cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${P[n]}</svg>`;
 const trait = `<svg class="trait" viewBox="0 0 190 16" aria-hidden="true"><path d="M3 11C40 4 90 3 187 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>`;
 
@@ -105,9 +118,7 @@ function barre({ racine, page, pleine }) {
 <header class="barre${pleine ? ' barre--pleine' : ''}">
   <div class="conteneur barre__in">
     <div class="barre__gauche">
-      <a class="pastille" href="${TEL_HREF}" aria-label="Appeler l’agence au ${TEL}">${ico('phone')}</a>
-      <a class="pastille" href="mailto:${EMAIL}" aria-label="Écrire à l’agence">${ico('mail')}</a>
-      <a class="barre__numero" href="${TEL_HREF}">${TEL.replace(/ /g, FINE)}</a>
+      ${reseaux()}
     </div>
     <a class="barre__logo" href="${racine}index.html" aria-label="Voyages Loisirs by Aya — accueil"><img src="${racine}assets/img/logo-light.png" alt="Voyages Loisirs by Aya" width="900" height="354"></a>
     <nav class="barre__nav" aria-label="Navigation principale">
@@ -137,6 +148,7 @@ function barre({ racine, page, pleine }) {
   <div class="menu-mobile__bas">
     <a class="btn btn--orange" href="${TEL_HREF}">${ico('phone')} Appeler le ${TEL.replace(/ /g, FINE)}</a>
     <a class="btn btn--contour" href="${racine}contact.html" data-rappel>Être rappelé</a>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:6px">${reseaux()}</div>
   </div>
 </div>`;
 }
@@ -192,6 +204,7 @@ function pied(racine) {
       <div>
         <img src="${racine}assets/img/logo-light.png" alt="Voyages Loisirs by Aya" width="900" height="354" loading="lazy">
         <p>Des circuits accompagnés en petits groupes, avec un guide francophone, préparés par une agence parisienne de la rue des Mathurins.</p>
+        <div style="display:flex;gap:10px">${reseaux()}</div>
       </div>
       <div>
         <h2>Nous joindre</h2>
@@ -285,9 +298,12 @@ function accueil() {
   ];
   const corps = `
 <section class="heros" aria-labelledby="heros-titre">
-  <div class="heros__media">
-    <img src="${PHOTOS.herosAffiche}" alt="" fetchpriority="high">
-    <video muted loop playsinline preload="none" poster="${PHOTOS.herosAffiche}" data-src="${PHOTOS.herosVideo}" aria-hidden="true" style="opacity:0;transition:opacity 1s"></video>
+  <div class="heros__media" data-diaporama>
+    ${HEROS.map((d, i) => `<figure class="diapo${i === 0 ? ' is-active' : ''}">
+      <img src="${d.img}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>
+      ${d.video ? `<video muted loop playsinline preload="none" data-src="${d.video}" aria-hidden="true"></video>` : ''}
+      <figcaption>${ico('pin')} ${esc(d.lieu)}</figcaption>
+    </figure>`).join('')}
   </div>
   <div class="conteneur heros__contenu">
     <h1 class="heros__titre" id="heros-titre">Prenez le temps de voir le monde</h1>
@@ -297,7 +313,6 @@ function accueil() {
       <a class="btn btn--contour btn--maj" href="contact.html" data-rappel>Être rappelé</a>
     </div>
   </div>
-  <a class="heros__bas" href="#destinations" aria-label="Voir les destinations">${ico('down')}</a>
   <div class="atouts">
     <ul class="conteneur">
       <li>${ico('users')} Circuits accompagnés en petits groupes</li>

@@ -48,14 +48,41 @@
     anim.forEach(function (el) { io.observe(el); });
   } else anim.forEach(function (el) { el.classList.add('is-vu'); });
 
-  /* vidéo du héros : seulement sur grand écran, jamais en mouvement réduit ni en économie de données */
-  $$('video[data-src]').forEach(function (v) {
-    var eco = navigator.connection && navigator.connection.saveData;
-    if (reduit || eco || window.matchMedia('(max-width: 699px)').matches) return;
-    v.src = v.getAttribute('data-src');
-    v.addEventListener('canplay', function () { v.style.opacity = '1'; }, { once: true });
-    var p = v.play(); if (p && p.catch) p.catch(function () {});
-  });
+  /* héros : diaporama de destinations (photos, et vidéos sur grand écran) */
+  var diaporama = $('[data-diaporama]');
+  if (diaporama) {
+    var diapos = $$('.diapo', diaporama);
+    var videoOk = !reduit && !(navigator.connection && navigator.connection.saveData) && !window.matchMedia('(max-width: 699px)').matches;
+    var actif = 0, tempo = null;
+    var points = document.createElement('div');
+    points.className = 'points-diapo';
+    points.setAttribute('role', 'group'); points.setAttribute('aria-label', 'Choisir une destination');
+    diapos.forEach(function (d, i) {
+      var b = document.createElement('button'); b.type = 'button';
+      b.setAttribute('aria-label', (d.querySelector('figcaption') || {}).textContent ? 'Afficher : ' + d.querySelector('figcaption').textContent.trim() : 'Diapositive ' + (i + 1));
+      b.addEventListener('click', function () { aller(i); });
+      points.appendChild(b);
+    });
+    diaporama.parentNode.appendChild(points);
+    function jouer(d) {
+      var v = d.querySelector('video');
+      if (!v || !videoOk) return;
+      if (!v.getAttribute('src')) { v.src = v.getAttribute('data-src'); v.addEventListener('canplay', function () { v.classList.add('is-pret'); }, { once: true }); }
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    }
+    function aller(i) {
+      var ancien = diapos[actif];
+      actif = (i + diapos.length) % diapos.length;
+      diapos.forEach(function (d, k) { d.classList.toggle('is-active', k === actif); });
+      $$('button', points).forEach(function (b, k) { b.setAttribute('aria-current', k === actif ? 'true' : 'false'); });
+      var v = ancien && ancien !== diapos[actif] && ancien.querySelector('video');
+      if (v && v.pause) setTimeout(function () { v.pause(); }, 1600);
+      jouer(diapos[actif]);
+      clearTimeout(tempo);
+      if (!reduit) tempo = setTimeout(function () { aller(actif + 1); }, diapos[actif].querySelector('video') && videoOk ? 9000 : 6000);
+    }
+    aller(0);
+  }
 
   /* « Comment ça marche ? » : étapes qui défilent */
   var etapier = $('[data-etapier]');
