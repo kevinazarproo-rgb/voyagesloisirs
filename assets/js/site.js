@@ -48,38 +48,39 @@
     anim.forEach(function (el) { io.observe(el); });
   } else anim.forEach(function (el) { el.classList.add('is-vu'); });
 
-  /* héros : diaporama de destinations (photos, et vidéos sur grand écran) */
+  /* héros : vidéos jouées l’une après l’autre, en fondu */
   var diaporama = $('[data-diaporama]');
   if (diaporama) {
     var diapos = $$('.diapo', diaporama);
-    var videoOk = !reduit && !(navigator.connection && navigator.connection.saveData) && !window.matchMedia('(max-width: 699px)').matches;
+    var videoOk = !reduit && !(navigator.connection && navigator.connection.saveData);
     var actif = 0, tempo = null;
-    var points = document.createElement('div');
-    points.className = 'points-diapo';
-    points.setAttribute('role', 'group'); points.setAttribute('aria-label', 'Choisir une destination');
-    diapos.forEach(function (d, i) {
-      var b = document.createElement('button'); b.type = 'button';
-      b.setAttribute('aria-label', (d.querySelector('figcaption') || {}).textContent ? 'Afficher : ' + d.querySelector('figcaption').textContent.trim() : 'Diapositive ' + (i + 1));
-      b.addEventListener('click', function () { aller(i); });
-      points.appendChild(b);
-    });
-    diaporama.parentNode.appendChild(points);
+    function suivante() {
+      var dispo = diapos.filter(function (d) { return !d.classList.contains('is-ko'); });
+      if (!dispo.length) return;
+      var i = dispo.indexOf(diapos[actif]);
+      if (i > -1 && dispo.length < 2) { clearTimeout(tempo); tempo = setTimeout(suivante, 10000); return; }
+      aller(diapos.indexOf(dispo[(i + 1) % dispo.length]));
+    }
     function jouer(d) {
       var v = d.querySelector('video');
       if (!v || !videoOk) return;
-      if (!v.getAttribute('src')) { v.src = v.getAttribute('data-src'); v.addEventListener('canplay', function () { v.classList.add('is-pret'); }, { once: true }); }
+      if (!v.getAttribute('src')) {
+        v.addEventListener('canplay', function () { v.classList.add('is-pret'); }, { once: true });
+        v.addEventListener('error', function () { d.classList.add('is-ko'); if (d === diapos[actif]) suivante(); }, { once: true });
+        v.src = v.getAttribute('data-src');
+      }
+      try { v.currentTime = 0; } catch (e) {}
       var p = v.play(); if (p && p.catch) p.catch(function () {});
     }
     function aller(i) {
       var ancien = diapos[actif];
-      actif = (i + diapos.length) % diapos.length;
+      actif = i;
       diapos.forEach(function (d, k) { d.classList.toggle('is-active', k === actif); });
-      $$('button', points).forEach(function (b, k) { b.setAttribute('aria-current', k === actif ? 'true' : 'false'); });
       var v = ancien && ancien !== diapos[actif] && ancien.querySelector('video');
-      if (v && v.pause) setTimeout(function () { v.pause(); }, 1600);
+      if (v && v.pause) setTimeout(function () { v.pause(); }, 1700);
       jouer(diapos[actif]);
       clearTimeout(tempo);
-      if (!reduit) tempo = setTimeout(function () { aller(actif + 1); }, diapos[actif].querySelector('video') && videoOk ? 9000 : 6000);
+      if (videoOk) tempo = setTimeout(suivante, 10000);
     }
     aller(0);
   }

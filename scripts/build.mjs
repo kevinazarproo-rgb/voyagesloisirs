@@ -21,14 +21,7 @@ const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 
 const maj = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ---------------- photos ---------------- */
-const HEROS = [
-  { lieu: 'Cappadoce, Turquie', img: 'https://images.pexels.com/videos/10745869/kapadokya-turkiye-10745869.jpeg?auto=compress&dpr=1&h=1080&w=1920', video: 'https://videos.pexels.com/video-files/10745869/10745869-hd_1920_1080_25fps.mp4' },
-  { lieu: 'Grande Muraille, Chine', img: unsplash('photo-1508804185872-d7badad00f7d', 1920) },
-  { lieu: 'Côte crétoise, Grèce', img: unsplash('photo-1533105079780-92b9be482077', 1920) },
-  { lieu: 'Cracovie, Pologne', img: unsplash('photo-1519197924294-4ba991a11128', 1920) },
-  { lieu: 'Panama', img: unsplash('photo-1518509562904-e7ef99cdcc86', 1920) },
-  { lieu: 'Entre mer et montagnes', img: unsplash('photo-1464822759023-fed622ff2c3b', 1920), video: 'https://videos.pexels.com/video-files/8349318/8349318-hd_1920_1080_25fps.mp4' },
-];
+const HEROS = SITE.videosAccueil;
 const PHOTOS = {
   herosAffiche: 'https://images.pexels.com/videos/10745869/kapadokya-turkiye-10745869.jpeg?auto=compress&dpr=1&h=1080&w=1920',
   herosVideo: 'https://videos.pexels.com/video-files/10745869/10745869-hd_1920_1080_25fps.mp4',
@@ -300,9 +293,8 @@ function accueil() {
 <section class="heros" aria-labelledby="heros-titre">
   <div class="heros__media" data-diaporama>
     ${HEROS.map((d, i) => `<figure class="diapo${i === 0 ? ' is-active' : ''}">
-      <img src="${d.img}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>
-      ${d.video ? `<video muted loop playsinline preload="none" data-src="${d.video}" aria-hidden="true"></video>` : ''}
-      <figcaption>${ico('pin')} ${esc(d.lieu)}</figcaption>
+      ${d.affiche ? `<img src="${d.affiche}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>` : ''}
+      <video muted playsinline preload="none" data-src="${d.video}" aria-hidden="true"></video>
     </figure>`).join('')}
   </div>
   <div class="conteneur heros__contenu">

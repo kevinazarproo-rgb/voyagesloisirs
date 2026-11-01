@@ -440,15 +440,15 @@ main{overflow-x:clip}
 .diapo video{opacity:0;transition:opacity 1s}
 .diapo video.is-pret{opacity:1}
 .js .diapo.is-active img{animation:lent 9s ease-out forwards}
-.diapo figcaption{position:absolute;right:24px;bottom:78px;z-index:3;display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,.9);opacity:0;transform:translateY(8px);transition:opacity .8s .6s,transform .8s .6s}
+
 .diapo.is-active figcaption{opacity:1;transform:none}
-.diapo figcaption .icone{width:16px;height:16px;color:var(--orange)}
+
 .heros__media::after{z-index:2}
-.points-diapo{position:absolute;left:50%;bottom:80px;z-index:3;transform:translateX(-50%);display:flex;gap:8px}
-.points-diapo button{width:30px;height:4px;padding:0;border:0;border-radius:2px;background:rgba(255,255,255,.4);cursor:pointer;position:relative}
-.points-diapo button::before{content:"";position:absolute;inset:-12px -2px}
-.points-diapo button[aria-current="true"]{background:var(--orange)}
-@media (max-width:899px){.diapo figcaption{right:16px;bottom:auto;top:calc(var(--barre) + 8px)}.points-diapo{bottom:118px}}
+
+
+
+
+
 @media (prefers-reduced-motion:reduce){.diapo{transition:none}.js .diapo.is-active img{animation:none}}
 
 /* « Comment ça marche ? » épinglé : la page reste sur la section le temps des 4 étapes */
@@ -479,3 +479,5 @@ main{overflow-x:clip}
   .etapes--epingle{height:auto;padding:80px 0}
   .etapes__colle{position:relative;height:auto;padding:0}
 }
+.diapo{background:#0c1d45}
+.js .diapo.is-active img{animation:none}
