@@ -450,3 +450,32 @@ main{overflow-x:clip}
 .points-diapo button[aria-current="true"]{background:var(--orange)}
 @media (max-width:899px){.diapo figcaption{right:16px;bottom:auto;top:calc(var(--barre) + 8px)}.points-diapo{bottom:118px}}
 @media (prefers-reduced-motion:reduce){.diapo{transition:none}.js .diapo.is-active img{animation:none}}
+
+/* « Comment ça marche ? » épinglé : la page reste sur la section le temps des 4 étapes */
+.etapes::after,.aya::before{display:none}
+.aya{padding-top:80px}
+@media (min-width:900px){.aya{padding-top:110px}}
+.etapes--epingle{height:400vh;height:400svh;padding:0;overflow:visible}
+.etapes__colle{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:calc(var(--barre) + 12px) 0 24px}
+.etapes__colle > .conteneur{position:relative;z-index:1}
+.etapes--epingle .entete{margin-bottom:28px}
+.progression button::after{animation:none!important;transform:scaleX(var(--p,0));transition:transform .15s linear}
+.separation{padding:60px 0}
+@media (min-width:900px){.separation{padding:80px 0}}
+@media (max-width:799px){
+  .etapes--epingle .titre{font-size:30px}
+  .etapes--epingle .entete{margin-bottom:16px}
+  .etapes--epingle .surtitre{margin-bottom:4px}
+  .etapier__gauche,.etapier__droite{min-height:0;padding:20px 22px}
+  .etape-num{font-size:40px;margin-bottom:6px}
+  .etapier h3{font-size:19px}
+  .liste-voyages{gap:8px}.liste-voyages a{padding:6px 10px;font-size:14px}
+  .gros-tel{font-size:28px}
+  .coches{gap:8px}.coches li{font-size:14px}
+  .etapes__libelles{display:none}
+  .progression{margin-top:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .etapes--epingle{height:auto;padding:80px 0}
+  .etapes__colle{position:relative;height:auto;padding:0}
+}

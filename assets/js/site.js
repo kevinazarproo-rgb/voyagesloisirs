@@ -84,31 +84,53 @@
     aller(0);
   }
 
-  /* « Comment ça marche ? » : étapes qui défilent */
+  /* « Comment ça marche ? » : la section reste fixe et le défilement fait avancer les étapes */
   var etapier = $('[data-etapier]');
   if (etapier) {
     var etapes = $$('.etape', etapier);
     var gauches = $$('[data-etape-gauche]', etapier);
     var boutons = $$('.progression button');
-    var prog = $('.progression');
-    var courant = 0, minuteur = null, DUREE = 7000;
-    function montrer(i, auto) {
-      courant = (i + etapes.length) % etapes.length;
-      etapes.forEach(function (e, k) { e.hidden = k !== courant; if (k === courant && auto !== 'init') { e.classList.remove('is-entree'); void e.offsetWidth; e.classList.add('is-entree'); } });
-      gauches.forEach(function (e, k) { e.hidden = k !== courant; if (k === courant && auto !== 'init') { e.classList.remove('is-entree'); void e.offsetWidth; e.classList.add('is-entree'); } });
-      boutons.forEach(function (b, k) {
-        b.classList.toggle('is-fait', k < courant); b.classList.remove('is-actif');
-        b.setAttribute('aria-current', k === courant ? 'step' : 'false');
+    var section = etapier.closest('.etapes');
+    var n = etapes.length, courant = -1;
+    var epingle = section && section.classList.contains('etapes--epingle') && !reduit;
+    function montrer(i) {
+      i = Math.max(0, Math.min(n - 1, i));
+      if (i === courant) return;
+      var premier = courant === -1;
+      courant = i;
+      [etapes, gauches].forEach(function (liste) {
+        liste.forEach(function (e, k) {
+          e.hidden = k !== courant;
+          if (k === courant && !premier) { e.classList.remove('is-entree'); void e.offsetWidth; e.classList.add('is-entree'); }
+        });
       });
-      if (boutons[courant]) { void boutons[courant].offsetWidth; boutons[courant].classList.add('is-actif'); }
-      planifier();
+      boutons.forEach(function (b, k) { b.setAttribute('aria-current', k === courant ? 'step' : 'false'); if (!epingle) b.style.setProperty('--p', k <= courant ? 1 : 0); });
     }
-    function planifier() { clearTimeout(minuteur); if (!reduit) minuteur = setTimeout(function () { montrer(courant + 1); }, DUREE); }
-    boutons.forEach(function (b, k) { b.addEventListener('click', function () { montrer(k); }); });
-    etapier.addEventListener('mouseenter', function () { clearTimeout(minuteur); if (prog) prog.classList.add('is-pause'); });
-    etapier.addEventListener('mouseleave', function () { if (prog) prog.classList.remove('is-pause'); planifier(); });
-    etapier.addEventListener('focusin', function () { clearTimeout(minuteur); if (prog) prog.classList.add('is-pause'); });
-    montrer(0, 'init');
+    if (epingle) {
+      var attente = false;
+      var maj = function () {
+        attente = false;
+        var r = section.getBoundingClientRect();
+        var total = r.height - window.innerHeight;
+        var p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 0;
+        var x = p * n;
+        montrer(Math.floor(Math.min(x, n - 0.001)));
+        boutons.forEach(function (b, k) { b.style.setProperty('--p', Math.min(1, Math.max(0, x - k))); });
+      };
+      window.addEventListener('scroll', function () { if (!attente) { attente = true; requestAnimationFrame(maj); } }, { passive: true });
+      window.addEventListener('resize', maj);
+      boutons.forEach(function (b, k) {
+        b.addEventListener('click', function () {
+          var debut = section.getBoundingClientRect().top + window.scrollY;
+          var total = section.offsetHeight - window.innerHeight;
+          window.scrollTo({ top: debut + total * (k + 0.5) / n, behavior: 'smooth' });
+        });
+      });
+      maj();
+    } else {
+      boutons.forEach(function (b, k) { b.addEventListener('click', function () { montrer(k); }); });
+      montrer(0);
+    }
   }
 
   /* fenêtre « Être rappelé » */

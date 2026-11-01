@@ -333,17 +333,23 @@ function accueil() {
   </div>
 </section>
 
-<section class="section etapes" aria-labelledby="etapes-titre">
+<section class="etapes etapes--epingle" aria-labelledby="etapes-titre">
+ <div class="etapes__colle">
   <div class="etapes__fond"><img src="${unsplash(PHOTOS.etapes, 1800)}" alt="" loading="lazy"></div>
   <div class="conteneur sur-fond">
     <div class="entete" data-anim><span class="surtitre">Simple et sans souci</span><h2 class="titre" id="etapes-titre">Comment ça marche ?</h2></div>
-    <div class="etapier" data-etapier data-anim="zoom">
+    <div class="etapier" data-etapier>
       <div class="etapier__gauche">${etapes.map((e, i) => `<div class="etape-g" data-etape-gauche${i ? ' hidden' : ''}><div class="etape-num">${i + 1}</div><h3>${esc(e.t)}</h3><p>${esc(e.p)}</p></div>`).join('')}</div>
       <div class="etapier__droite">${etapes.map((e, i) => `<div class="etape"${i ? ' hidden' : ''}>${e.d}</div>`).join('')}</div>
     </div>
     <div class="progression" role="group" aria-label="Étapes">${etapes.map((e, i) => `<button type="button" aria-label="Étape ${i + 1} : ${esc(e.t)}"></button>`).join('')}</div>
     <div class="etapes__libelles" aria-hidden="true">${etapes.map((e) => `<span>${esc(e.t)}</span>`).join('')}</div>
   </div>
+ </div>
+</section>
+
+<section class="section separation" aria-label="Nous contacter">
+  <div class="conteneur">${bandeau('')}</div>
 </section>
 
 <section class="section aya" aria-labelledby="aya-titre">
