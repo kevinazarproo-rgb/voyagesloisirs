@@ -537,6 +537,20 @@ function agence() {
     <div class="duo__photo" data-anim="droite"><img src="${unsplash(PHOTOS.aya, 1200)}" alt="Paysage de montagne au crépuscule" loading="lazy"></div>
   </div>
 </section>
+<section class="section lettre-section" aria-labelledby="lettre-titre">
+  <div class="conteneur">
+    <article class="lettre" data-anim>
+      <span class="surtitre">Le mot de la direction</span>
+      <h2 class="titre" id="lettre-titre">Chers voyageurs,</h2>
+      <p>Avis à tous les passionnés, curieux et esprits aventureux ! Cette année, Voyages Loisirs vous a préparé quelque chose de spécial…</p>
+      <p>Plus qu’une simple lecture, c’est une véritable invitation au voyage. Une épopée à travers les idées innovantes, les expériences inoubliables et les moments uniques qui façonnent notre monde.</p>
+      <p>Attendez-vous à être inspiré, à découvrir des trésors cachés et à être émerveillé par ce que nous avons à vous offrir. Parce que soyons honnêtes, la vie est bien trop courte pour ne pas s’aventurer hors des sentiers battus !</p>
+      <p>Explorez, rêvez, découvrez… C’est ce que nous vous invitons à faire. Rejoignez-nous dans cette escapade, car chez Voyages Loisirs, chaque page raconte une histoire, chaque image capture un moment et chaque mot est un pas de plus vers l’inconnu.</p>
+      <p>Embarquez avec nous et laissez notre brochure être le début d’une aventure qui va au-delà des mots imprimés. Préparez-vous à être surpris, émerveillé et, surtout, à voyager !</p>
+      <p class="lettre__signature">Adeline KURBAN FIANI</p>
+    </article>
+  </div>
+</section>
 <section class="section">
   <div class="conteneur">
     <div class="entete" data-anim><span class="surtitre">Notre façon de voyager</span><h2 class="titre">Ce qui ne change <em>jamais</em></h2>${trait}</div>
