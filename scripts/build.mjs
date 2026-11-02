@@ -17,6 +17,10 @@ const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').
 const euros = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, FINE) + NBSP + '€';
 const unsplash = (id, w = 1600, h) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}${h ? `&h=${h}` : ''}&q=75`;
 const srcset = (id) => [800, 1200, 1800].map((w) => `${unsplash(id, w)} ${w}w`).join(', ');
+// photo d’un voyage : fichier local (img.src) ou identifiant Unsplash (img.id)
+const imgAttrs = (img, racine, w) => img.src
+  ? `src="${racine}${img.src}"${img.position ? ` style="object-position:${img.position}"` : ''}`
+  : `src="${unsplash(img.id, w)}" srcset="${srcset(img.id)}"`;
 const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
 const maj = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -262,7 +266,7 @@ ${pied(racine)}
 function carteVoyage(t, racine, i = 0) {
   const img = t.images.ouverture;
   return `<a class="carte" href="${racine}voyages/${t.slug}.html" data-anim style="--delai:${(i % 2) * 0.12}s">
-  <span class="carte__img"><img src="${unsplash(img.id, 1000)}" srcset="${srcset(img.id)}" sizes="(min-width:760px) 50vw, 100vw" alt="${esc(img.alt)}" loading="lazy" decoding="async"></span>
+  <span class="carte__img"><img ${imgAttrs(img, racine, 1000)} sizes="(min-width:760px) 50vw, 100vw" alt="${esc(img.alt)}" loading="lazy" decoding="async"></span>
   <span class="carte__pays">${esc(t.pays || t.country)}</span>
   <span class="carte__corps">
     <span class="carte__meta">${esc(periodeCarte(t))} · ${esc(t.duration)}</span>
@@ -444,7 +448,7 @@ function fiche(t) {
     : `<div class="encart"><strong>${t.slug === 'chateau-avesnes' ? 'Toute l’année.' : 'Dates 2027 en préparation.'}</strong> ${esc(t.datesEncadre || t.datesNote || '')} <a href="#demande">Laissez-nous vos coordonnées</a>, nous vous prévenons en premier.</div>`;
   const corps = `
 <section class="heros-page">
-  <div class="heros-page__media"><img src="${unsplash(img.id, 1800)}" srcset="${srcset(img.id)}" sizes="100vw" alt="${esc(img.alt)}" fetchpriority="high"></div>
+  <div class="heros-page__media"><img ${imgAttrs(img, r, 1800)} sizes="100vw" alt="${esc(img.alt)}" fetchpriority="high"></div>
   <div class="conteneur heros-page__contenu">
     <nav class="ariane" aria-label="Fil d’Ariane"><a href="${r}index.html">Accueil</a> › <a href="${r}voyages.html">Destinations</a> › <span>${esc(nomCourt(t))}</span></nav>
     <span class="surtitre" style="color:var(--orange)">${esc(t.category)} · ${esc(t.pays || t.country)}</span>
@@ -512,7 +516,7 @@ function fiche(t) {
     <div class="cartes">${autres.map((x, i) => carteVoyage(x, r, i)).join('')}</div>
   </div>
 </section>`;
-  page({ fichier: `voyages/${t.slug}.html`, pageId: 'voyages', racine: r, titre: `${t.title} — Voyages Loisirs by Aya`, description: (t.seo && t.seo.description) || t.excerpt, image: unsplash(img.id, 1200, 630), corps });
+  page({ fichier: `voyages/${t.slug}.html`, pageId: 'voyages', racine: r, titre: `${t.title} — Voyages Loisirs by Aya`, description: (t.seo && t.seo.description) || t.excerpt, image: img.src ? (SITE.baseUrl ? SITE.baseUrl.replace(/\/$/, '') + '/' + img.src : '') || unsplash(PHOTOS.aya, 1200, 630) : unsplash(img.id, 1200, 630), corps });
 }
 
 /* ---------------- AGENCE ---------------- */

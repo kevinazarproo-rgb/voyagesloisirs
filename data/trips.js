@@ -658,6 +658,8 @@ const TRIPS = [
     exergue: null,
     images: {
       ouverture: {
+        src: "assets/img/chateau-avesnes.jpg",
+        position: "50% 80%",
         id: "photo-1511818966892-d7d671e672a2",
         legende: "Le Castelet et son parc, Normandie. Photo : Unsplash",
         alt: "Façade d’un château du XIXe siècle et son parc arboré",
