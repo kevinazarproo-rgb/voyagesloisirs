@@ -534,7 +534,7 @@ function agence() {
       <p>Nous proposons peu de voyages, mais nous les connaissons bien : l’hôtel, le guide, l’heure du train. Chaque circuit part en petit groupe, avec un guide francophone du premier au dernier jour, et tout est organisé avant votre départ.</p>
       <p>Une question ? Passez nous voir, ou appelez-nous : c’est encore comme ça qu’on prépare le mieux un voyage.</p>
     </div>
-    <div class="duo__photo" data-anim="droite"><img src="${unsplash(PHOTOS.aya, 1200)}" alt="Paysage de montagne au crépuscule" loading="lazy"></div>
+    <div class="duo__photo" data-anim="droite"><img src="${unsplash('photo-1499856871958-5b9627545d1a', 1200)}" alt="Une rue de Paris et la tour Eiffel" loading="lazy"></div>
   </div>
 </section>
 <section class="section lettre-section" aria-labelledby="lettre-titre">
