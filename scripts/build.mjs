@@ -191,7 +191,13 @@ function modaleRappel(racine) {
 }
 
 function pied(racine) {
-  return `<footer class="pied">
+  const logos = [['iata', 'IATA'], ['apst', 'APST — Association professionnelle de solidarité du tourisme'], ['atout-france', 'Atout France'], ['entreprises-du-voyage', 'Les Entreprises du Voyage'], ['virtuoso', 'Membre Virtuoso'], ['tourcom', 'TourCom'], ['manor', 'Manor'], ['greenly', 'Greenly 2023 Bronze'], ['fsc-pefc', 'FSC et PEFC']];
+  const ligne = (cache) => logos.map(([f, a]) => `<li${cache ? ' aria-hidden="true"' : ''}><img src="${racine}assets/img/partenaires/${f}.png" alt="${cache ? '' : esc(a)}" loading="lazy"></li>`).join('');
+  return `<section class="partenaires" aria-labelledby="partenaires-titre">
+  <div class="conteneur"><h2 id="partenaires-titre">Nos garanties et partenaires</h2></div>
+  <div class="partenaires__defile"><ul class="partenaires__piste">${ligne(false)}${ligne(true)}</ul></div>
+</section>
+<footer class="pied">
   <div class="conteneur">
     <div class="pied__grille">
       <div>
@@ -225,7 +231,7 @@ function pied(racine) {
     </div>
     <div class="pied__bas">
       <span>© <span data-annee>2026</span> Voyages Loisirs by Aya — KTS Tourisme et Voyage SARL</span>
-      <span>Atout France IM075100068 · Garantie financière APST · RC pro Hiscox</span>
+      <span>KTS Tourisme et Voyages — Aya Désirs du monde — Voyages Loisirs · 49 rue des Mathurins, 75008 Paris · SARL au capital de 167 700 € · Licence IM075100068 · Garantie financière APST · RCP Hiscox HA RCP0077833 · IATA 20213211</span>
     </div>
   </div>
 </footer>
