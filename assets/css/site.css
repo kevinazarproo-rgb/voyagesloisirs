@@ -526,3 +526,33 @@ main{overflow-x:clip}
 .lettre p{color:#3d4354;font-size:16.5px;line-height:1.8}
 .lettre__signature{margin:30px 0 0!important;font-family:var(--f-titre);font-style:italic;font-weight:600;font-size:24px!important;color:var(--navy)!important}
 .lettre__signature::before{content:"";display:block;width:60px;height:2px;background:var(--orange);margin-bottom:16px}
+
+/* ===== Téléphone : version allégée (< 700 px) ===== */
+@media (max-width:699px){
+  .section{padding:56px 0}
+  .entete{margin-bottom:30px}
+  /* accueil */
+  .atouts{display:none}
+  .heros__contenu{padding-bottom:90px}
+  .carte{min-height:230px}
+  .carte__desc{display:none}
+  .carte h3{font-size:23px}
+  .carte__pays{top:14px;left:14px}
+  .aya__marque,.verres,.aya__texte p{display:none}
+  .aya__texte .surtitre{margin-bottom:6px}
+  .separation{display:none}
+  .faq details:nth-child(n+4){display:none}
+  .demande-compacte .duo > div:first-child > p,.demande-compacte .infos{display:none}
+  .formulaire .champ:has([name="voyageurs"]),.formulaire .champ:has([name="date"]){display:none}
+  /* pied de page */
+  .pied{padding:46px 0 24px}
+  .pied__grille > div:first-child p,.pied__grille > div:nth-child(3){display:none}
+  .pied__grille{gap:24px}
+  .pied__bas span:last-child{display:none}
+  .partenaires{padding:34px 0 30px}
+  /* fiches voyage */
+  .reserve,.jour__tags,.section--creme2:has(#autres){display:none}
+  .fiche__main > section{margin-bottom:44px}
+  .heros-page{min-height:46svh}
+  .puce{padding:6px 12px;font-size:13px}
+}
