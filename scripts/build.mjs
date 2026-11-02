@@ -562,22 +562,7 @@ function agence() {
     </div>
   </div>
 </section>
-<section class="section aya" aria-labelledby="aya-titre">
-  <div class="aya__fond"><img src="${unsplash(PHOTOS.aya, 1800)}" alt="" loading="lazy"></div>
-  <div class="conteneur">
-    <div class="aya__gauche" data-anim="gauche">
-      <div class="aya__marque" aria-hidden="true"><b>AYA</b><span>VOYAGES</span></div>
-      <div class="aya__texte"><h2 id="aya-titre">Le groupe Aya Voyages</h2><p>Billetterie, voyages sur mesure, hôtels et transferts : retrouvez tous les services de l’agence sur ayavoyages.com.</p><a class="btn btn--orange" href="https://www.ayavoyages.com/" rel="noopener">Découvrir Aya Voyages ${ico('arrow', 'icone--fleche')}</a></div>
-    </div>
-    <div class="verres">
-      <div class="verre" data-anim>${ico('map')}<h3>Plus de circuits</h3><p>Un choix élargi de circuits accompagnés partout dans le monde.</p></div>
-      <div class="verre" data-anim style="--delai:.1s">${ico('edit')}<h3>Voyages sur mesure</h3><p>Un itinéraire conçu pour vous, à votre rythme et selon votre budget.</p></div>
-      <div class="verre" data-anim style="--delai:.2s">${ico('plane')}<h3>Billetterie</h3><p>Vos vols réservés au meilleur tarif par nos conseillers.</p></div>
-      <div class="verre" data-anim style="--delai:.3s">${ico('bed')}<h3>Hôtels & transferts</h3><p>Hébergements sélectionnés et transferts pris en charge à l’arrivée.</p></div>
-    </div>
-  </div>
-</section>
-<section class="section"><div class="conteneur">${bandeau('')}</div></section>`;
+`;
   page({ fichier: 'agence.html', pageId: 'agence', titre: 'L’agence — Voyages Loisirs by Aya', description: 'Voyages Loisirs, la collection de voyages accompagnés d’Aya Voyages, agence du 8e arrondissement de Paris, rue des Mathurins.', corps });
 }
 
