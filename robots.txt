@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kevinazarproo-rgb.github.io/voyagesloisirs/sitemap.xml
