@@ -210,12 +210,11 @@ function pied(racine) {
         <div style="display:flex;gap:10px">${reseaux()}</div>
       </div>
       <div>
-        <h2>Nous joindre</h2>
-        <ul>
-          <li><a href="${TEL_HREF}">${TEL.replace(/ /g, FINE)}</a></li>
-          <li><a href="mailto:${EMAIL}">${EMAIL}</a></li>
-          <li>${esc(ADRESSE)}</li>
-          <li>Métro Saint-Lazare, Havre-Caumartin</li>
+        <h2>Contact</h2>
+        <ul class="pied__contact">
+          <li>${ico('phone')}<a href="${TEL_HREF}">01 42 68 68 06</a></li>
+          <li>${ico('mail')}<a href="mailto:${EMAIL}">${EMAIL}</a></li>
+          <li>${ico('pin')}<span>49, rue des Mathurins – France | SARL au capital de 167 700 € | RCS : B34062737100057 | Licence IM075100068 | Garantie financière APSTR | RCP : HISCOX Contrat n° HA RCP0077833 •, 75008 - Paris</span></li>
         </ul>
       </div>
       <div>
@@ -234,8 +233,8 @@ function pied(racine) {
       </div>
     </div>
     <div class="pied__bas">
-      <span>© <span data-annee>2026</span> Voyages Loisirs by Aya — KTS Tourisme et Voyage SARL</span>
-      <span>KTS Tourisme et Voyages — Aya Désirs du monde — Voyages Loisirs · 49 rue des Mathurins, 75008 Paris · SARL au capital de 167 700 € · Licence IM075100068 · Garantie financière APST · RCP Hiscox HA RCP0077833 · IATA 20213211</span>
+      <span>Tous droits réservés Voyages Loisirs © <span data-annee>2026</span></span>
+      <span class="pied__liens"><a href="${racine}cookies.html">Politique de cookies</a><a href="${racine}mentions-legales.html">Mentions légales</a></span>
     </div>
   </div>
 </footer>

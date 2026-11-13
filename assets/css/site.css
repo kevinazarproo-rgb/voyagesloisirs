@@ -556,3 +556,9 @@ main{overflow-x:clip}
   .heros-page{min-height:46svh}
   .puce{padding:6px 12px;font-size:13px}
 }
+.pied__contact li{display:flex;gap:12px;align-items:flex-start}
+.pied__contact .icone{flex:none;width:34px;height:34px;padding:8px;border-radius:8px;background:rgba(255,255,255,.08);color:#fff}
+.pied__contact li span,.pied__contact li a{padding-top:5px;line-height:1.5}
+.pied__liens{display:flex;gap:24px}
+@media (min-width:800px){.pied__grille{grid-template-columns:1fr 1.6fr 1fr 1fr}}
+@media (max-width:699px){.pied__bas span:last-child{display:flex}}
