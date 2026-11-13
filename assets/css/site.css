@@ -562,3 +562,5 @@ main{overflow-x:clip}
 .pied__liens{display:flex;gap:24px}
 @media (min-width:800px){.pied__grille{grid-template-columns:1fr 1.6fr 1fr 1fr}}
 @media (max-width:699px){.pied__bas span:last-child{display:flex}}
+.pied__legal{margin:40px 0 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.6);text-align:center}
+.pied__legal + .pied__bas{margin-top:14px;border-top:0;padding-top:0}

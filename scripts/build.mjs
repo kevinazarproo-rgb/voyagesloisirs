@@ -214,7 +214,7 @@ function pied(racine) {
         <ul class="pied__contact">
           <li>${ico('phone')}<a href="${TEL_HREF}">01 42 68 68 06</a></li>
           <li>${ico('mail')}<a href="mailto:${EMAIL}">${EMAIL}</a></li>
-          <li>${ico('pin')}<span>20, rue de Boulainvilliers – France | SARL au capital de 167 700 € | RCS : B34062737100057 | Licence IM075100068 | Garantie financière APSTR | RCP : HISCOX Contrat n° HA RCP0077833 •, 75016 - Paris</span></li>
+          <li>${ico('pin')}<span>20, rue de Boulainvilliers<br>75016 Paris – France</span></li>
         </ul>
       </div>
       <div>
@@ -232,6 +232,7 @@ function pied(racine) {
         </ul>
       </div>
     </div>
+    <p class="pied__legal">France | SARL au capital de 167 700 € | RCS : B34062737100057 | Licence IM075100068 | Garantie financière APSTR | RCP : HISCOX Contrat n° HA RCP0077833 •, 75016 - Paris</p>
     <div class="pied__bas">
       <span>Tous droits réservés Voyages Loisirs © <span data-annee>2026</span></span>
       <span class="pied__liens"><a href="${racine}cookies.html">Politique de cookies</a><a href="${racine}mentions-legales.html">Mentions légales</a></span>
