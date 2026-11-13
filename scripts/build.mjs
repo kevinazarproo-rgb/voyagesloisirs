@@ -206,7 +206,7 @@ function pied(racine) {
     <div class="pied__grille">
       <div>
         <img src="${racine}assets/img/logo-light.png" alt="Voyages Loisirs by Aya" width="900" height="354" loading="lazy">
-        <p>Des circuits accompagnés en petits groupes, avec un guide francophone, préparés par une agence parisienne de la rue des Mathurins.</p>
+        <p>Des circuits accompagnés en petits groupes, avec un guide francophone, préparés par une agence parisienne du 16e arrondissement.</p>
         <div style="display:flex;gap:10px">${reseaux()}</div>
       </div>
       <div>
@@ -214,7 +214,7 @@ function pied(racine) {
         <ul class="pied__contact">
           <li>${ico('phone')}<a href="${TEL_HREF}">01 42 68 68 06</a></li>
           <li>${ico('mail')}<a href="mailto:${EMAIL}">${EMAIL}</a></li>
-          <li>${ico('pin')}<span>49, rue des Mathurins – France | SARL au capital de 167 700 € | RCS : B34062737100057 | Licence IM075100068 | Garantie financière APSTR | RCP : HISCOX Contrat n° HA RCP0077833 •, 75008 - Paris</span></li>
+          <li>${ico('pin')}<span>20, rue de Boulainvilliers – France | SARL au capital de 167 700 € | RCS : B34062737100057 | Licence IM075100068 | Garantie financière APSTR | RCP : HISCOX Contrat n° HA RCP0077833 •, 75016 - Paris</span></li>
         </ul>
       </div>
       <div>
@@ -532,8 +532,8 @@ function agence() {
   <div class="conteneur duo">
     <div class="duo__texte" data-anim="gauche">
       <span class="surtitre">Qui sommes-nous</span>
-      <h2 class="titre">Rue des Mathurins, <em>Paris 8e</em></h2>
-      <p style="margin-top:18px">Voyages Loisirs est la collection de voyages accompagnés d’Aya Voyages, agence du 8e arrondissement, entre la gare Saint-Lazare et l’Opéra. On y entre pour un billet d’avion ; on y revient pour un circuit.</p>
+      <h2 class="titre">Rue de Boulainvilliers, <em>Paris 16e</em></h2>
+      <p style="margin-top:18px">Voyages Loisirs est la collection de voyages accompagnés d’Aya Voyages, agence du 16e arrondissement, à deux pas de La Muette et de Passy. On y entre pour un billet d’avion ; on y revient pour un circuit.</p>
       <p>Nous proposons peu de voyages, mais nous les connaissons bien : l’hôtel, le guide, l’heure du train. Chaque circuit part en petit groupe, avec un guide francophone du premier au dernier jour, et tout est organisé avant votre départ.</p>
       <p>Une question ? Passez nous voir, ou appelez-nous : c’est encore comme ça qu’on prépare le mieux un voyage.</p>
     </div>
@@ -566,7 +566,7 @@ function agence() {
   </div>
 </section>
 `;
-  page({ fichier: 'agence.html', pageId: 'agence', titre: 'L’agence — Voyages Loisirs by Aya', description: 'Voyages Loisirs, la collection de voyages accompagnés d’Aya Voyages, agence du 8e arrondissement de Paris, rue des Mathurins.', corps });
+  page({ fichier: 'agence.html', pageId: 'agence', titre: 'L’agence — Voyages Loisirs by Aya', description: 'Voyages Loisirs, la collection de voyages accompagnés d’Aya Voyages, agence du 16e arrondissement de Paris, rue de Boulainvilliers.', corps });
 }
 
 /* ---------------- CONTACT ---------------- */
@@ -585,7 +585,7 @@ function contact() {
     <div class="infos" data-anim="gauche">
       <div class="info"><span class="info__ico">${ico('phone')}</span><div><h3>Téléphone</h3><p><a href="${TEL_HREF}">${TEL.replace(/ /g, FINE)}</a><br>Du lundi au vendredi</p></div></div>
       <div class="info"><span class="info__ico">${ico('mail')}</span><div><h3>E-mail</h3><p><a href="mailto:${EMAIL}">${EMAIL}</a></p></div></div>
-      <div class="info"><span class="info__ico">${ico('pin')}</span><div><h3>L’agence</h3><p>${esc(ADRESSE)}<br>Métro Saint-Lazare, Havre-Caumartin, Opéra<br><a href="https://www.google.com/maps/search/?api=1&query=49+rue+des+Mathurins+75008+Paris" rel="noopener" target="_blank">Voir sur le plan ↗</a></p></div></div>
+      <div class="info"><span class="info__ico">${ico('pin')}</span><div><h3>L’agence</h3><p>${esc(ADRESSE)}<br>Métro La Muette (ligne 9) · RER C Boulainvilliers<br><a href="https://www.google.com/maps/search/?api=1&query=20+rue+de+Boulainvilliers+75016+Paris" rel="noopener" target="_blank">Voir sur le plan ↗</a></p></div></div>
       <div class="info"><span class="info__ico">${ico('clock')}</span><div><h3>Rappel</h3><p>Réponse sous deux jours ouvrés.<br><a href="contact.html" data-rappel>Être rappelé →</a></p></div></div>
     </div>
     <div class="carte-form" data-anim="droite">
@@ -595,7 +595,7 @@ function contact() {
     </div>
   </div>
 </section>`;
-  page({ fichier: 'contact.html', pageId: 'contact', titre: 'Contact — Voyages Loisirs by Aya', description: 'Contactez Voyages Loisirs by Aya : 01 42 68 68 06, reservation@ayavoyages.fr, 49 rue des Mathurins, 75008 Paris.', corps });
+  page({ fichier: 'contact.html', pageId: 'contact', titre: 'Contact — Voyages Loisirs by Aya', description: 'Contactez Voyages Loisirs by Aya : 01 42 68 68 06, reservation@ayavoyages.fr, 20 rue de Boulainvilliers, 75016 Paris.', corps });
 }
 
 /* ---------------- pages simples ---------------- */

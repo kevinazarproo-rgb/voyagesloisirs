@@ -11,7 +11,7 @@ const SITE = {
   tel: "01 42 68 68 06",
   telHref: "tel:+33142686806",
   email: "reservation@ayavoyages.fr",
-  adresse: "49 rue des Mathurins, 75008 Paris",
+  adresse: "20 rue de Boulainvilliers, 75016 Paris",
   // Vidéos du grand bandeau de l’accueil, jouées l’une après l’autre.
   // Pour en ajouter une : sur pexels.com, ouvrir la vidéo, « Téléchargement gratuit » → choisir « HD 1920x1080 »,
   // copier l’adresse du fichier (…videos.pexels.com/video-files/…mp4) et l’ajouter ci-dessous, puis lancer node scripts/build.mjs.
