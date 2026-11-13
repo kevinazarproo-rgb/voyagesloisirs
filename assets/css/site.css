@@ -578,3 +578,10 @@ main{overflow-x:clip}
 .cookies__btn--ok{background:var(--orange);border:1.5px solid var(--orange);color:#fff}
 .cookies__btn--ok:hover{background:var(--orange-d)}
 body.cookies-ouvert{overflow:hidden}
+
+/* pages légales : texte plus petit */
+.texte-long h2{font-size:21px;margin:28px 0 8px}
+.texte-long p{font-size:14.5px;line-height:1.65}
+.cookies h2{font-size:22px}
+.cookies p{font-size:14.5px}
+.cookies__btn{min-height:46px;font-size:15px}
