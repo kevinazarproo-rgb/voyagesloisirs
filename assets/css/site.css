@@ -585,3 +585,10 @@ body.cookies-ouvert{overflow:hidden}
 .cookies h2{font-size:22px}
 .cookies p{font-size:14.5px}
 .cookies__btn{min-height:46px;font-size:15px}
+
+/* logo plus grand (pour bien lire « by Aya ») */
+:root{--barre:84px}
+.barre__logo img{height:64px}
+.menu-mobile__haut img{height:64px}
+.pied img{height:84px}
+@media (min-width:1000px){:root{--barre:96px}.barre__nav .barre__logo img{height:80px}}
