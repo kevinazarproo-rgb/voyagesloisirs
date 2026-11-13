@@ -235,13 +235,21 @@ function pied(racine) {
     <p class="pied__legal">France | SARL au capital de 167 700 € | RCS : B34062737100057 | Licence IM075100068 | Garantie financière APSTR | RCP : HISCOX Contrat n° HA RCP0077833 •, 75016 - Paris</p>
     <div class="pied__bas">
       <span>Tous droits réservés Voyages Loisirs © <span data-annee>2026</span></span>
-      <span class="pied__liens"><a href="${racine}cookies.html">Politique de cookies</a><a href="${racine}mentions-legales.html">Mentions légales</a></span>
+      <span class="pied__liens"><a href="${racine}cookies.html">Politique de cookies</a><a href="#cookies" data-ouvrir-cookies>Gérer les cookies</a><a href="${racine}mentions-legales.html">Mentions légales</a></span>
     </div>
   </div>
 </footer>
 <a class="rappel-flottant" href="${racine}contact.html" data-rappel>${ico('phone')} Être rappelé</a>
 <button class="haut" type="button" aria-label="Revenir en haut de la page">${ico('up')}</button>
 ${modaleRappel(racine)}
+<div class="cookies" id="cookies" role="dialog" aria-modal="true" aria-labelledby="cookies-titre" aria-describedby="cookies-texte" hidden>
+  <div class="cookies__boite">
+    <h2 id="cookies-titre">Politique de cookies</h2>
+    <p id="cookies-texte">Nous utilisons des cookies pour faire fonctionner le site et, avec votre accord, pour mesurer son audience et améliorer votre navigation. Vous pouvez en savoir plus sur notre <a href="${racine}cookies.html">Politique de cookies</a> ou définir vos préférences <a href="${racine}cookies.html#gerer">ici</a>.</p>
+    <button type="button" class="cookies__btn cookies__btn--refus" data-cookies="refus">Tout refuser</button>
+    <button type="button" class="cookies__btn cookies__btn--ok" data-cookies="ok">Tout accepter</button>
+  </div>
+</div>
 <script src="${racine}assets/js/site.js" defer></script>`;
 }
 

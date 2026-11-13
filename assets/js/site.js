@@ -248,6 +248,25 @@
     });
   });
 
+  /* consentement aux cookies : demandé à la première visite, choix mémorisé 6 mois */
+  var bandeauCookies = $('#cookies');
+  if (bandeauCookies) {
+    var CLE = 'vl-cookies';
+    var lire = function () { try { var v = JSON.parse(localStorage.getItem(CLE) || 'null'); return v && v.date > Date.now() - 182 * 864e5 ? v.choix : null; } catch (e) { return null; } };
+    var ouvrirCookies = function () { bandeauCookies.hidden = false; document.body.classList.add('cookies-ouvert'); var b = $('[data-cookies="ok"]', bandeauCookies); if (b) b.focus(); };
+    var fermerCookies = function (choix) {
+      try { localStorage.setItem(CLE, JSON.stringify({ choix: choix, date: Date.now() })); } catch (e) {}
+      window.cookiesAcceptes = choix === 'ok';
+      bandeauCookies.hidden = true; document.body.classList.remove('cookies-ouvert');
+      document.dispatchEvent(new CustomEvent('cookies:choix', { detail: choix }));
+    };
+    $$('[data-cookies]', bandeauCookies).forEach(function (b) { b.addEventListener('click', function () { fermerCookies(b.getAttribute('data-cookies')); }); });
+    $$('[data-ouvrir-cookies]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); ouvrirCookies(); }); });
+    var choix = lire();
+    window.cookiesAcceptes = choix === 'ok';
+    if (!choix && !/cookies\.html$/.test(location.pathname)) ouvrirCookies();
+  }
+
   /* année du pied de page */
   $$('[data-annee]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
